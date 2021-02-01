@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    text-align: center;
+    width: 98%;
+}
+
+.header {
+    float: left;
+    height: 100px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.info {
+    width:20%;
+    height:100px;
+    float:right;
+    text-align: right;
+    padding: 20px 0% 10px 0%;
+}
+
+.logo {
+    width:80%;
+    height:100px;
+    float:left;
+    padding: 0px 16% 0px 32%;
+}
+
+.logo img {
+    width: 100%;
+    height: 100px;
+}
+
+.header_buttons {
+    padding-top: 30px;
+    float: left;
+    height: 75px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header_buttons table {
+    width: 80%;
+    height: 100%;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.header_buttons table th {
+    width: 25%;
+    text-align: center;
+}
+
+.body {
+    padding-top: 20px;
+    float: left;
+    height: 1000px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.body table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body table .photos{
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gray;
+}
+
+.body table .header{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    text-decoration: underline;
+    /*text-align: justify;*/
+}
+
+.body table .description{
+    margin-left: auto;
+    margin-right: auto;
+    /*text-align: center;*/
+    /*font-weight: 700;*/
+    font-size: 22px;
+    /*text-decoration: underline;*/
+    /*background-color: green;*/
+    text-align: justify;
+}
+
+/*.body table {*/
+/*    width: 80%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+/*.body table td {*/
+/*    padding: 13px 1%;*/
+/*    width: 33%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+/*.ex {*/
+/*    border: 1px solid gray;*/
+/*    border-radius: 4px;*/
+/*    width: 100%;*/
+/*    height: 600px;*/
+/*}*/
+
+/*.ex .photo {*/
+/*    height: 45%;*/
+/*    background-color: rgb(152, 138, 138)*/
+/*}*/
+
+/*.ex .header {*/
+/*    height: 20%;*/
+/*    width: 100%;*/
+/*    font-weight: 700;*/
+/*    font-size: 22px;*/
+/*    text-align: left;*/
+/*    padding: 0% 2%;*/
+/*    text-decoration: underline*/
+/*}*/
+
+/*.ex .type {*/
+/*    float: left;*/
+/*    height: 5%;*/
+/*    width: 100%;*/
+/*    text-align: left;*/
+/*    padding: 1% 2%;*/
+/*    font-weight: 700;*/
+/*    !*     background-color: green; *!*/
+/*}*/
+
+/*.ex .description {*/
+/*    float: left;*/
+/*    height: 25%;*/
+/*    width: 100%;*/
+/*    !*     background-color: red; *!*/
+/*    padding: 3% 2%;*/
+/*    text-align: justify;*/
+/*}*/
+
+/*.ex .price {*/
+/*    float: left;*/
+/*    height: 5%;*/
+/*    width: 100%;*/
+/*    text-align: left;*/
+/*    padding: 1% 2%;*/
+/*    font-weight: 700;*/
+/*    font-size: 19px;*/
+/*}*/
+
+
+/*.ex .price .priceLabel {*/
+/*    float: left;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.ex .price .pricePlace {*/
+/*    float: left;*/
+/*    text-align: left;*/
+/*}*/

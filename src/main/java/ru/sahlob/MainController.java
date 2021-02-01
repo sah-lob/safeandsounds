@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +22,11 @@ public class MainController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "index";
+    }
+
+    @RequestMapping(value = "/chooseTour", method = RequestMethod.GET)
+    public String chooseTour() {
+        return "chooseTour";
     }
 
 

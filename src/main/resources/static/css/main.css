@@ -54,6 +54,7 @@ body {
 }
 
 .header_buttons table th {
+    width: 25%;
     text-align: center;
 }
 
@@ -130,4 +131,15 @@ body {
     padding: 1% 2%;
     font-weight: 700;
     font-size: 19px;
+}
+
+
+.ex .price .priceLabel {
+    float: left;
+    text-align: left;
+}
+
+.ex .price .pricePlace {
+    float: left;
+    text-align: left;
 }
