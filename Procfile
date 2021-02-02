@@ -1,1 +1,1 @@
-web:    java -Dserver.port=$PORT $JAVA_OPTS --enable-preview -jar target/vkBot-1.0-SNAPSHOT.jar
+web:    java -Dserver.port=$PORT $JAVA_OPTS --enable-preview -jar target/safeandsounds-1.0-SNAPSHOT.jar
