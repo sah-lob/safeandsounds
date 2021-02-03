@@ -20,8 +20,13 @@ public class MainController {
     private final DBImagesRepository dbImagesRepository;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
+    public String index(HttpServletRequest req, HttpServletResponse resp) {
         return "index";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(HttpServletRequest req, HttpServletResponse resp) {
+        return "login";
     }
 
     @RequestMapping(value = "/chooseTour", method = RequestMethod.GET)
@@ -32,7 +37,6 @@ public class MainController {
 
     @PostMapping("/newCar")
     public RedirectView newPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         var sb = new StringBuilder();
         try (var reader = req.getReader()) {
             if (reader != null) {
