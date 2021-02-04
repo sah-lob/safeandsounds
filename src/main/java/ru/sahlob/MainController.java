@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Iterables;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,19 +20,24 @@ public class MainController {
 
     private final DBImagesRepository dbImagesRepository;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(HttpServletRequest req, HttpServletResponse resp) {
+    @GetMapping(value = "/index")
+    public String index() {
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @GetMapping(value = "/login")
     public String login(HttpServletRequest req, HttpServletResponse resp) {
         return "login";
     }
 
-    @RequestMapping(value = "/chooseTour", method = RequestMethod.GET)
+    @GetMapping(value = "/chooseTour")
     public String chooseTour() {
         return "chooseTour";
+    }
+
+    @GetMapping(value = "/security/adminpage")
+    public String adminPage() {
+        return "security/adminpage";
     }
 
 
@@ -54,7 +60,7 @@ public class MainController {
         return redirectView;
     }
 
-    @RequestMapping(value = "/img", method = RequestMethod.GET)
+    @GetMapping(value = "/img")
     public void imgGet(HttpServletResponse resp) throws IOException {
         resp.setContentType("text/json");
         var pw = resp.getWriter();

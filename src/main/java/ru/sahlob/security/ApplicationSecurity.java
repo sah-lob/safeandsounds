@@ -16,7 +16,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().regexMatchers("(?!/chooseTour)/.*")
+                .authorizeRequests().regexMatchers("(?!/security/.*)/.*")
                     .permitAll()
                     .anyRequest().authenticated()
                 .and()

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safe and sounds tours</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/security/adminpage.css" />
+
+    <script>
+        $(
+            function() {
+                $.ajax("../img").done(function (data) {
+                    var ncarimg = data[0].id;
+                    var result =
+                        "<p><img src=\""
+                        + "data:image/png\;base64," + ncarimg +
+                        "\" alt=\"Изображения машины нет.\"></p>"
+                    $("#img_с").html(result);
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+<br>
+<div class="header">
+    <p class="logo">
+        <pp class="img_с2" id='img_с'>logo</pp>
+    </p>
+    <p class="info">
+        МНОГОКАНАЛЬНЫЙ
+        <br>
+        Круглосуточно
+        <br>
+        +7-916-633-58-00
+    </p>
+</div>
+<br>
+
+<div class="body">
+    <table class="addTour">
+        <tbody>
+        <tr>
+            <th>
+                Загрузите стартовую фотографию
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Введите название экскурсии
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Введите описание экскурсии
+            </th>
+        </tr>
+        <tr>
+            <th>Введите цену экскурсии</th>
+        </tr>
+        <tr>
+            <th>ахуенность экскурсии</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
