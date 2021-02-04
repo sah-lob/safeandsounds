@@ -6,70 +6,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script src="../js/getlogo.js"></script>
 
     <script>
-        $(
-            function() {
-                $.ajax("img").done(function (data) {
-                    var ncarimg = data[0].id;
-                    var result =
-                        "<p><img src=\""
-                        + "data:image/png\;base64," + ncarimg +
-                        "\" alt=\"Изображения машины нет.\"></p>"
-                    $("#img_с").html(result);
-                });
-
-                // $.ajax(
-                //     "select?id=" + id+ "&page=" + page).done(function (data) {
-                //     var car = data[0].car;
-                //     var brand = car.brand;
-                //     var model = car.model;
-                //     var price = car.price;
-                //     var power = car.power;
-                //     var year = car.year;
-                //     var header = "<div class=\"header\" id=\"header\">\n" +
-                //         brand + " " + model +
-                //         "    </div>";
-                //     $("#header").html(header);
-                //     var gear;
-                //     if (car.mechanicGear.value) {
-                //         gear = "механическая"
-                //     } else {
-                //         gear = "автоматическая"
-                //     }
-                //     var body =
-                //         "<span class=\"colorText\">" + "Цена: " + "</span>" + price + " <br> " +
-                //         "<span class=\"colorText\">" +"Коробка : " + "</span>" + gear + " <br> " +
-                //         "<span class=\"colorText\">" +"Мощность: " + power + "</span>" + " <br> " +
-                //         "<span class=\"colorText\">" +"Год изготовления: " + "</span>" + year;
-                //     // + "    </div>"
-                //     $("#right_c").html(body);
-                //
-                //     // alert(car.owner);
-                //     var owner = car.owner;
-                //     var phone = car.phone;
-                //     var ownerBody =
-                //         "<span class=\"colorText\">" + "Владелец: " + "</span>" + owner +
-                //         "<span class=\"colorText\">" + " Номер телефона: " + "</span>" + phone;
-                //
-                //     $("#car_holder").html(ownerBody);
-                //
-                //
-                // });
-
-            }
-        );
-
-
-
-
-
         function saveInfo() {
             var f = document.querySelector('input[type=file]').files[0];
             var reader = new FileReader();
-            reader.onload = (function(theFile) {
-                return function(e) {
+            reader.onload = (function (theFile) {
+                return function (e) {
                     var binaryData = e.target.result;
                     base64String = window.btoa(binaryData);
                     uploadFile(base64String);
@@ -77,18 +22,18 @@
             })(f);
             reader.readAsBinaryString(f);
         }
+
         function uploadFile(base64String) {
-            alert(base64String)
             var data = {
-                "image": base64String
+                "logo": base64String
             };
             $.ajax({
                 method: "POST",
-                url:  'newCar',
+                url: '/newLogo',
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 async: false
-            }).done(function(response){
+            }).done(function (response) {
                 nals = response;
             });
             window.location.href = "/index";
@@ -139,7 +84,8 @@
                         4 часа
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         <div class="priceLabel">
@@ -166,7 +112,8 @@
                         время, тип
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         цена
@@ -185,7 +132,8 @@
                         время, тип
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         цена
@@ -206,7 +154,8 @@
                         время, тип
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         цена
@@ -225,7 +174,8 @@
                         время, тип
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         цена
@@ -244,7 +194,8 @@
                         время, тип
                     </div>
                     <div class="description">
-                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
+                        Вы не можете утверждать, что знаете столицу, если не знакомы с Москвой Булгаковской. Михаил
+                        Афанасьевич был не просто талантливым писателем. Он видел суть вещей и ...
                     </div>
                     <div class="price">
                         цена
@@ -258,10 +209,12 @@
     <div class="form">
         <div class="form-group col-sm-6" style="padding-right: 10px; width: 102%; margin-left: -1.35%;">
             <label for="files"></label>
-            <input type="file" name="files[]" id="files" class="form-control" data-filename-placement="inside" title="Загрузите фотографию машины." />
+            <input type="file" name="files[]" id="files" class="form-control" data-filename-placement="inside"
+                   title="Загрузите фотографию машины."/>
         </div>
         <br>
-        <button type="submit" class="btn-success" id="button" onclick="saveInfo()" formaction="#">Добавить автомобиль</button>
+        <button type="submit" class="btn-success" id="button" onclick="saveInfo()" formaction="#">Добавить автомобиль
+        </button>
     </div>
 </div>
 hello body

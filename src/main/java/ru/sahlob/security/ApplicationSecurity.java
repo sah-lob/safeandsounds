@@ -25,7 +25,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .logout()
-                    .permitAll();
+                    .permitAll().and().csrf().disable();
     }
 
     @Bean
@@ -34,7 +34,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user")
                 .password("1")
-                .roles("USER")
+                .roles("ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user);
     }

@@ -1,7 +1,6 @@
-package ru.sahlob;
+package ru.sahlob.persistance;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -9,13 +8,12 @@ import javax.persistence.*;
 @Entity
 @Data
 @EqualsAndHashCode(of = {"id"})
-@Table(name = "images")
-public class Image {
-
+@Table(name = "logos")
+public class Logo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Type(type = "text")
-    private String image;
+    private String logo;
 }

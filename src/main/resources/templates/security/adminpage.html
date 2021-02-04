@@ -6,22 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/security/adminpage.css" />
-
-    <script>
-        $(
-            function() {
-                $.ajax("../img").done(function (data) {
-                    var ncarimg = data[0].id;
-                    var result =
-                        "<p><img src=\""
-                        + "data:image/png\;base64," + ncarimg +
-                        "\" alt=\"Изображения машины нет.\"></p>"
-                    $("#img_с").html(result);
-                });
-            }
-        );
-    </script>
+    <link rel="stylesheet" type="text/css" href="../css/security/adminpage.css"/>
+    <script src="../js/getlogo.js"></script>
+    <script src="../js/security/adminpage.js"></script>
 </head>
 <body>
 <br>
@@ -40,31 +27,48 @@
 <br>
 
 <div class="body">
-    <table class="addTour">
-        <tbody>
-        <tr>
-            <th>
-                Загрузите стартовую фотографию
-            </th>
-        </tr>
-        <tr>
-            <th>
-                Введите название экскурсии
-            </th>
-        </tr>
-        <tr>
-            <th>
-                Введите описание экскурсии
-            </th>
-        </tr>
-        <tr>
-            <th>Введите цену экскурсии</th>
-        </tr>
-        <tr>
-            <th>ахуенность экскурсии</th>
-        </tr>
-        </tbody>
-    </table>
+    <div class="form">
+        <table class="addTour">
+            <tbody>
+            <tr>
+                <th>
+                    <div class="form-group col-sm-6" style="padding-right: 10px; width: 102%; margin-left: -1.35%;">
+                        <label for="files"></label>
+                        <input type="file" name="files[]" id="files" class="form-control"
+                               data-filename-placement="inside" title="Загрузите фотографию машины."/>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="name">
+                        <input type="text" class="form-control" id="name" placeholder="Введите название экскурсии">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <textarea id="description" rows="10" cols="45" name="text"></textarea>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="price">
+                        <input type="text" class="form-control" id="price" onkeyup='this.value=parseInt(this.value) | 0'
+                               placeholder="Мощность(л.с.)">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <button type="submit" class="btn-success" id="button" onclick="saveInfo()" formaction="#">Добавить
+                        экскурсию
+                    </button>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
