@@ -15,17 +15,17 @@ body {
 }
 
 .info {
-    width:20%;
-    height:100px;
-    float:right;
+    width: 20%;
+    height: 100px;
+    float: right;
     text-align: right;
     padding: 20px 0% 10px 0%;
 }
 
 .logo {
-    width:80%;
-    height:100px;
-    float:left;
+    width: 80%;
+    height: 100px;
+    float: left;
     padding: 0px 16% 0px 32%;
 }
 
@@ -74,14 +74,14 @@ body {
     margin-right: auto;
 }
 
-.body table .photos{
+.body table .photos {
     height: 800px;
     margin-left: auto;
     margin-right: auto;
     background-color: gray;
 }
 
-.body table .header{
+.body table .header {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -91,7 +91,7 @@ body {
     /*text-align: justify;*/
 }
 
-.body table .description{
+.body table .description {
     margin-left: auto;
     margin-right: auto;
     /*text-align: center;*/
