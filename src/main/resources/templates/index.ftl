@@ -1,50 +1,11 @@
 <#import "parts/common.ftl" as c>
 <#import "parts/pager.ftl" as p>
+<#import "parts/logo.ftl" as logo>
+<#import "parts/headerButtons.ftl" as headerButtons>
 
-<@c.page>
-    <br>
-    <div class="header">
-        <div class="logo">
-            <img src="/getLogo" alt="e">
-        </div>
-        <p class="info">
-            МНОГОКАНАЛЬНЫЙ
-            <br>
-            Круглосуточно
-            <br>
-            +7-916-633-58-00
-        </p>
-    </div>
-    <br>
-    <div class="header_buttons">
-        <table>
-            <thead>
-            <tr>
-                <th scope="col">
-                    <a href="#0">
-                        Каталог экскурсий
-                    </a>
-                </th>
-                <th scope="col">
-                    <a href="#0">
-                        Отзывы
-                    </a>
-                </th>
-                <th scope="col">
-                    <a href="#0">
-                        Контакты
-                    </a>
-                </th>
-                <th scope="col">
-                    <a href="#0">
-                        О нас
-                    </a>
-                </th>
-            </tr>
-            </thead>
-        </table>
-    </div>
-
+<@c.page "css/parts/common.css" "css/main.css">
+    <@logo.logo "css/parts/logo.css"/>
+    <@headerButtons.headerButtons "css/parts/headerButtons.css"/>
     <div class="body">
         <table>
             <tbody>
@@ -59,30 +20,30 @@
                 <td>
                     <a href="#0">
                         <div class="ex">
-                        <div class="photo">
-                            <img src="/getLogin/?id=${tour.imageId}" alt="e">
-                        </div>
-                        <div class="header">
-                            ${tour.name}
-                        </div>
-                        <div class="type">
-                            4 часа
-                        </div>
-                        <div class="description">
-                            ${tour.description}
-                        </div>
-                        <div class="price">
-                            <div class="priceLabel">
-                                Цена:
+                            <div class="photo">
+                                <img src="/getLogin/?id=${tour.imageId}" alt="e">
                             </div>
-                            <div class="pricePlace">
-                                ${tour.price}
+                            <div class="header">
+                                ${tour.name}
                             </div>
-                            <div class="currency">
-                                $
+                            <div class="type">
+                                4 часа
+                            </div>
+                            <div class="description">
+                                ${tour.description}
+                            </div>
+                            <div class="price">
+                                <div class="priceLabel">
+                                    Цена:
+                                </div>
+                                <div class="pricePlace">
+                                    ${tour.price}
+                                </div>
+                                <div class="currency">
+                                    $
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </td>
                 <#if !tour_has_next>

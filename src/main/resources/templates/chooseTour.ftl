@@ -1,80 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Safe and sounds tours</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/chooseTour.css"/>
-    <script src="../js/getlogo.js"></script>
-</head>
-<body>
-<br>
-<div class="header">
-    <p class="logo">
-        <pp class="img_с2" id='img_с'>logo</pp>
-    </p>
-    <p class="info">
-        МНОГОКАНАЛЬНЫЙ
-        <br>
-        Круглосуточно
-        <br>
-        +7-916-633-58-00
-    </p>
-</div>
-<br>
-<div class="header_buttons">
-    <table>
-        <thead>
-        <tr>
-            <th scope="col">Каталог экскурсий</th>
-            <th scope="col">Отзывы</th>
-            <th scope="col">Контакты</th>
-            <th scope="col">О нас</th>
-        </tr>
-        </thead>
-    </table>
-</div>
+<#import "parts/common.ftl" as c>
+<#import "parts/logo.ftl" as logo>
+<#import "parts/headerButtons.ftl" as headerButtons>
 
-<div class="body">
-    <table>
-        <tbody>
-        <tr>
-            <th>
-                <div class="photos">
-                    тут будут фотки
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <div class="header">
-                    Заголовок
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <div class="description">
-                    Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
-                    стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник
-                    создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов.
-                    Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в
-                    электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами
-                    Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus
-                    PageMaker, в шаблонах которых используется Lorem Ipsum.
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>Каталог экскурсий</th>
-        </tr>
-        <tr>
-            <th>Каталог экскурсий</th>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</body>
-</html>
+<@c.page "css/parts/common.css" "css/main.css">
+    <@logo.logo "css/parts/logo.css"/>
+    <@headerButtons.headerButtons "css/parts/headerButtons.css"/>
+    <div class="body">
+        <table>
+            <tbody>
+            <tr>
+                <th>
+                    <div class="photos">
+                        тут будут фотки
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="header">
+                        Заголовок
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="description">
+                        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+                        стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+                        печатник
+                        создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов.
+                        Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в
+                        электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с
+                        образцами
+                        Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus
+                        PageMaker, в шаблонах которых используется Lorem Ipsum.
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Каталог экскурсий</th>
+            </tr>
+            <tr>
+                <th>Каталог экскурсий</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</@c.page>

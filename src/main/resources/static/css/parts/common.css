@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    text-align: center;
+    width: 98%;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #414141;
+}
+
+.body {
+    padding-top: 20px;
+    float: left;
+    height: 1000px;
+    text-align: center;
+    width: 100%;
+}
