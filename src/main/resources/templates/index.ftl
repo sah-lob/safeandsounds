@@ -4,7 +4,9 @@
 <@c.page>
     <br>
     <div class="header">
-        <img src="/getLogo" alt="e">
+        <div class="logo">
+            <img src="/getLogo" alt="e">
+        </div>
         <p class="info">
             МНОГОКАНАЛЬНЫЙ
             <br>
@@ -18,10 +20,26 @@
         <table>
             <thead>
             <tr>
-                <th scope="col">Каталог экскурсий</th>
-                <th scope="col">Отзывы</th>
-                <th scope="col">Контакты</th>
-                <th scope="col">О нас</th>
+                <th scope="col">
+                    <a href="#0">
+                        Каталог экскурсий
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#0">
+                        Отзывы
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#0">
+                        Контакты
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#0">
+                        О нас
+                    </a>
+                </th>
             </tr>
             </thead>
         </table>
@@ -39,7 +57,8 @@
                     <tr>
                 </#if>
                 <td>
-                    <div class="ex">
+                    <a href="#0">
+                        <div class="ex">
                         <div class="photo">
                             <img src="/getLogin/?id=${tour.imageId}" alt="e">
                         </div>
@@ -64,6 +83,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 </td>
                 <#if !tour_has_next>
                     </tr>

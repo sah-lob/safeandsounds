@@ -5,6 +5,14 @@ body {
     width: 98%;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    color: #414141; /* Цвет текста активного пункта */
+}
+
 .header {
     float: left;
     height: 100px;
@@ -19,14 +27,14 @@ body {
     height: 100px;
     float: right;
     text-align: right;
-    padding: 20px 0% 10px 0%;
+    padding: 20px 0 10px 0;
 }
 
 .logo {
     width: 80%;
     height: 100px;
     float: left;
-    padding: 0px 16% 0px 32%;
+    padding: 0 16% 0 32%;
 }
 
 .logo img {
@@ -48,9 +56,9 @@ body {
     width: 80%;
     height: 100%;
     font-size: 25px;
+    vertical-align: middle;
     margin-left: auto;
     margin-right: auto;
-    background-color: red;
 
 }
 
@@ -64,8 +72,8 @@ body {
     float: left;
     height: 1000px;
     text-align: center;
-    top: 0;
-    left: 0;
+    /*     top: 0; */
+    /*     left: 0; */
     width: 100%;
 }
 
@@ -73,6 +81,7 @@ body {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .body table td {
@@ -89,14 +98,27 @@ body {
     height: 600px;
 }
 
+
+.ex:hover {
+    opacity: .5;
+    background-color: rgb(205, 205, 205);
+}
+
 .ex .photo {
     height: 45%;
-    background-color: rgb(152, 138, 138)
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center;
 }
 
 .ex .photo img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ex .photo img:hover {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .ex .header {
@@ -105,7 +127,7 @@ body {
     font-weight: 700;
     font-size: 22px;
     text-align: left;
-    padding: 0% 2%;
+    padding: 0 2%;
     text-decoration: underline
 }
 
@@ -116,14 +138,12 @@ body {
     text-align: left;
     padding: 1% 2%;
     font-weight: 700;
-    /*     background-color: green; */
 }
 
 .ex .description {
     float: left;
     height: 25%;
     width: 100%;
-    /*     background-color: red; */
     padding: 3% 2%;
     text-align: justify;
 }
@@ -132,7 +152,6 @@ body {
     float: left;
     height: 5%;
     width: 100%;
-    float: left;
     text-align: left;
     padding: 1% 2%;
     font-weight: 700;
