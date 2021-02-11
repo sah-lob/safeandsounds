@@ -1,11 +1,14 @@
-.body table {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+.tourBody table {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-
+    table-layout: fixed;
 }
 
-.body table td {
+.tourBody table td {
     padding: 13px 1%;
     width: 33%;
     margin-left: auto;
@@ -23,18 +26,24 @@
 .ex:hover {
     opacity: .5;
     background-color: rgb(205, 205, 205);
+    text-decoration: line-through;
 }
 
 .ex .photo {
-    height: 45%;
+    height: 300px;
     display: flex;
     justify-content: center; /*Центрирование по горизонтали*/
     align-items: center;
+    overflow: hidden;
 }
 
 .ex .photo img {
+    border-radius: 4px;
     max-width: 100%;
     max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .ex .photo img:hover {
@@ -42,14 +51,20 @@
     max-height: 100%;
 }
 
-.ex .header {
-    height: 20%;
+.ex .tourHeader {
+    vertical-align: middle;
+    font-family: 'Noto Sans', sans-serif;
+    height: 140px;
     width: 100%;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 23px;
     text-align: left;
     padding: 0 2%;
-    text-decoration: underline
+}
+
+.ex .tourHeader div {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .ex .type {
@@ -62,32 +77,38 @@
 }
 
 .ex .description {
+    font-family: 'Raleway', sans-serif;
     float: left;
-    height: 25%;
+    height: 120px;
     width: 100%;
     padding: 3% 2%;
     text-align: justify;
 }
 
-.ex .price {
+.ex .tourFooter {
     float: left;
-    height: 5%;
+    height: 38px;
+    border-radius: 0 0 4px 4px;
     width: 100%;
     text-align: left;
     padding: 1% 2%;
     font-weight: 700;
     font-size: 19px;
+    color: #d6d6d6;
+    background-color: #333333;
 }
 
 
-.ex .price .priceLabel {
+.ex .tourFooter .pricePlace {
+    width: 45%;
     float: left;
     text-align: left;
 }
-
-.ex .price .pricePlace {
-    float: left;
-    text-align: left;
+.ex .tourFooter .duration {
+    width: 45%;
+    border-radius: 4px;
+    float: right;
+    text-align: right;
 }
 
 .pagination {

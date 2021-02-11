@@ -44,7 +44,8 @@ public class MainController {
     }
 
     @GetMapping(value = "/chooseTour")
-    public String chooseTour() {
+    public String chooseTour(@RequestParam int id, Model model) {
+        model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }
 

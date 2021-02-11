@@ -38,6 +38,12 @@ public class TourStorage {
         allProducts.getTotalPages();
     }
 
+    public Tour findTourById(int id) {
+        return dbToursRepository
+                .findById(id)
+                .get();
+    }
+
     public Page<Tour> findTours(Pageable pageable) {
         return dbToursRepository.findAll(pageable);
     }

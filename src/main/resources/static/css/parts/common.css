@@ -1,8 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: auto;
-    text-align: center;
-    width: 98%;
+head {
+    display:none;
+    margin:0;
+    padding:0;
 }
 
 a {
@@ -13,7 +12,7 @@ a:hover {
     color: #414141;
 }
 
-.body {
+.tourBody {
     padding-top: 20px;
     float: left;
     height: 1000px;

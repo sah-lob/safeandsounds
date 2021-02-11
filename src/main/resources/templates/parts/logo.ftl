@@ -1,10 +1,11 @@
 <#macro logo style>
-    <br>
     <link rel="stylesheet" type="text/css" href="${style}"/>
     <div class="header">
-        <div class="logo">
-            <img src="/getLogo" alt="e">
-        </div>
+        <a href="/">
+            <div class="logo">
+                <img src="/getLogo" alt="e">
+            </div>
+        </a>
         <p class="info">
             МНОГОКАНАЛЬНЫЙ
             <br>

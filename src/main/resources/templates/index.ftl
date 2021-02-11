@@ -6,7 +6,7 @@
 <@c.page "css/parts/common.css" "css/main.css">
     <@logo.logo "css/parts/logo.css"/>
     <@headerButtons.headerButtons "css/parts/headerButtons.css"/>
-    <div class="body">
+    <div class="tourBody">
         <table>
             <tbody>
             <#list  page.content as tour>
@@ -18,34 +18,35 @@
                     <tr>
                 </#if>
                 <td>
-                    <a href="#0">
+                    <a href="/chooseTour?id=${tour.id}">
                         <div class="ex">
                             <div class="photo">
-                                <img src="/getLogin/?id=${tour.imageId}" alt="e">
+                                <img src="/getLogin/?id=${tour.imagesId[0]}" alt="e">
                             </div>
-                            <div class="header">
-                                ${tour.name}
-                            </div>
-                            <div class="type">
-                                4 часа
+                            <div class="tourHeader">
+                                <div>${tour.name}</div>
                             </div>
                             <div class="description">
-                                ${tour.description}
+                                ${tour.description?left_pad(200)[0..*200]} ...
                             </div>
-                            <div class="price">
-                                <div class="priceLabel">
-                                    Цена:
-                                </div>
+                            <div class="tourFooter">
                                 <div class="pricePlace">
-                                    ${tour.price}
+                                    Цена: ${tour.price} $
                                 </div>
-                                <div class="currency">
-                                    $
+                                <div class="duration">
+                                    В 4 часа
                                 </div>
                             </div>
                         </div>
                     </a>
                 </td>
+                <#if (page.content?size == 1)>
+                    <td></td>
+                    <td></td>
+                </#if>
+                <#if (tour_index == 1 && page.content?size == 2)>
+                    <td></td>
+                </#if>
                 <#if !tour_has_next>
                     </tr>
                 </#if>

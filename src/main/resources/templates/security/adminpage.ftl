@@ -26,7 +26,7 @@
 </div>
 <br>
 
-<div class="body">
+<div class="tourBody">
     <div class="form">
         <table class="addTour">
             <tbody>
