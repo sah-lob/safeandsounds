@@ -34,7 +34,12 @@
                                     Цена: ${tour.price} $
                                 </div>
                                 <div class="duration">
-                                    В 4 часа
+                                    <div class="durationImg">
+                                        <img src="img/time.png" alt="e">
+                                    </div>
+                                    <div class="durationTime">
+                                        4 часа
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -105,10 +105,27 @@
     text-align: left;
 }
 .ex .tourFooter .duration {
-    width: 45%;
+    padding: 0;
+    display: inline;
     border-radius: 4px;
     float: right;
     text-align: right;
+}
+
+.ex .tourFooter .duration .durationImg img {
+    float: left;
+    height: 28px;
+    width: 28px;
+}
+
+.ex .tourFooter .duration .durationImg {
+    float: left;
+}
+
+.ex .tourFooter .duration .durationTime{
+    padding-left: 4px;
+    float: right;
+    height: 100%;
 }
 
 .pagination {

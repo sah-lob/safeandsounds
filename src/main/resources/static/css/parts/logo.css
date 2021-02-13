@@ -14,7 +14,7 @@
 .info {
     position: absolute;
     font-family: 'Noto Sans', sans-serif;
-    left: 85%;
+    left: 79%;
     top: 50%;
     color: #d6d6d6;
     -webkit-transform: translate(-50%, -50%);
@@ -22,8 +22,68 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 40%;
+    width: 20%;
     float: right;
+}
+
+.info .infoLogo {
+    height: 60px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.info .socialNetworking {
+    /*     background-color: green; */
+}
+
+.info .socialNetworking .callback {
+    float: left;
+    width: 70%;
+}
+
+.info .socialNetworking .callback .callbackText{
+    font-size: 17px;
+    margin: auto;
+    padding-top: 3px;
+    text-align: right;
+    float: right;
+    color: #d6d6d6;
+    width: 70%;
+}
+
+.info .socialNetworking .callback .callbackLogo {
+    float: left;
+    width: 30%;
+    padding-right: 5px;
+
+}
+
+.info .socialNetworking .callback .callbackLogo img {
+    float: right;
+    width: 28px;
+    height: 28px;
+}
+
+.info .socialNetworking .instagram {
+    float: left;
+    width: 15%;
+}
+
+.info .socialNetworking .instagram img {
+    float: right;
+    width: 28px;
+    height: 28px;
+}
+
+.info .socialNetworking .facebook {
+    float: left;
+    width: 15%;
+}
+
+.info .socialNetworking .facebook img {
+    float: right;
+    width: 28px;
+    height: 28px;
 }
 
 .logo {

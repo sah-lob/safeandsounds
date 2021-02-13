@@ -6,13 +6,29 @@
                 <img src="/getLogo" alt="e">
             </div>
         </a>
-        <p class="info">
-            МНОГОКАНАЛЬНЫЙ
-            <br>
-            Круглосуточно
-            <br>
-            +7-916-633-58-00
-        </p>
+        <div class="info">
+            <div class="infoLogo">
+                24-7
+                <br>
+                +7-916-633-58-00
+            </div>
+            <div class="socialNetworking">
+                <div class="callback">
+                    <div class="callbackLogo">
+                        <img src="img/callbackB.png" alt="e">
+                    </div>
+                    <div class="callbackText">
+                        Request a call back
+                    </div>
+                </div>
+                <div class="instagram">
+                    <img src="img/instagram.png" alt="e">
+                </div>
+                <div class="facebook">
+                    <img src="img/facebook.png" alt="e">
+                </div>
+            </div>
+        </div>
     </div>
     <br>
 </#macro>
