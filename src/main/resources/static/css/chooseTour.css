@@ -1,45 +1,22 @@
-.tourBody {
-    padding-top: 20px;
-    float: left;
-    height: 1000px;
-    text-align: center;
-    top: 0;
-    left: 0;
-    width: 100%;
+body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.tourBody table {
+.tourBody {
+    border: 1px solid gray;
+    border-radius: 4px;
+    position: absolute;
+    top: 180px;
+    left: 10%;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.tourBody table .photos {
-    height: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: gray;
-    overflow: hidden;
-}
-
-.tourBody table .photos img {
-    /*min-width: 100%;*/
-    /*min-height: 100%;*/
-    object-fit: cover;
-}
-
-.tourBody table .tourHeader {
-    margin-left: auto;
-    margin-right: auto;
+.tourName {
+    width: 100%;
     text-align: center;
-    font-weight: 700;
-    font-size: 22px;
-    text-decoration: underline;
-}
-
-.tourBody table .description {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
-    text-align: justify;
+    font-size: 70px
 }

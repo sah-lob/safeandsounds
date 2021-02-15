@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.sahlob.db.DBFileStorageService;
 import ru.sahlob.db.DBImagesRepository;
 import ru.sahlob.db.DBLogosRepository;
+import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.InputTour;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.storage.TourStorage;
@@ -45,6 +46,7 @@ public class MainController {
 
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model) {
+        var tourS = tourStorage.findTourById(id);
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }
@@ -65,6 +67,17 @@ public class MainController {
     @ResponseBody
     public void newTour(InputTour inputTour) throws IOException {
         tourStorage.addTour(inputTour);
+    }
+
+    @PostMapping("/security/adminpage/addphotototour")
+    @ResponseBody
+    public void addphotototour(@RequestParam MultipartFile file,
+                               @RequestParam String name) throws IOException {
+        var tour = tourStorage.findTourById(Integer.parseInt(name));
+        var image = new Image(file);
+        dbImagesRepository.save(image);
+        tour.addNewImageId(image.getId());
+        tourStorage.updateTour(tour);
     }
 
     @GetMapping(value = "/getLogo")

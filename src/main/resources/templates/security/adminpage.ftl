@@ -40,50 +40,17 @@
                        placeholder="Крутость">
                 <button type="submit">Найти</button>
             </form>
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <div class="form-group col-sm-6" style="padding-right: 10px; width: 102%; margin-left: -1.35%;">-->
-            <#--                        <label for="files"></label>-->
-            <#--                        <input type="file" name="files[]" id="files" class="form-control"-->
-            <#--                               data-filename-placement="inside" title="Загрузите фотографию машины."/>-->
-            <#--                    </div>-->
-            <#--                </th>-->
-            <#--            </tr>-->
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <div class="name">-->
-            <#--                        <input type="text" class="form-control" id="name" placeholder="Введите название экскурсии">-->
-            <#--                    </div>-->
-            <#--                </th>-->
-            <#--            </tr>-->
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <textarea id="description" rows="10" cols="45" name="text"></textarea>-->
-            <#--                </th>-->
-            <#--            </tr>-->
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <div class="price">-->
-            <#--                        <input type="text" class="form-control" id="price" onkeyup='this.value=parseInt(this.value) | 0'-->
-            <#--                               placeholder="Цена">-->
-            <#--                    </div>-->
-            <#--                </th>-->
-            <#--            </tr>-->
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <div class="coolness">-->
-            <#--                        <input type="text" class="form-control" id="coolness" onkeyup='this.value=parseInt(this.value) | 0'-->
-            <#--                               placeholder="Крутость">-->
-            <#--                    </div>-->
-            <#--                </th>-->
-            <#--            </tr>-->
-            <#--            <tr>-->
-            <#--                <th>-->
-            <#--                    <button type="submit" class="btn-success" id="button" onclick="saveInfo()" formaction="#">Добавить-->
-            <#--                        экскурсию-->
-            <#--                    </button>-->
-            <#--                </th>-->
-            <#--            </tr>-->
+
+            <form action="/security/adminpage/addphotototour" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="text" name="name" placeholder="id тура, куда надо добавить еще фотку">
+                <button type="submit">Добавить фото.</button>
+            </form>
+
+            <a href="https://wordhtml.com">
+                конвертация текста в html
+            </a>
+
             </tbody>
         </table>
     </div>

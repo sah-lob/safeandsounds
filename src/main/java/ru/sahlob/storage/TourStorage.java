@@ -47,4 +47,8 @@ public class TourStorage {
     public Page<Tour> findTours(Pageable pageable) {
         return dbToursRepository.findAll(pageable);
     }
+
+    public void updateTour(Tour tour) {
+        dbToursRepository.save(tour);
+    }
 }

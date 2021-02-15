@@ -22,7 +22,9 @@
                     </div>
                 </div>
                 <div class="instagram">
-                    <img src="img/instagram.png" alt="e">
+                    <a href="https://www.instagram.com/safeandsoundtours/">
+                        <img src="img/instagram.png" alt="e">
+                    </a>
                 </div>
                 <div class="facebook">
                     <img src="img/facebook.png" alt="e">

@@ -33,4 +33,8 @@ public class Tour {
         this.price = price;
         this.coolness = coolness;
     }
+
+    public void addNewImageId(int imageId) {
+        imagesId.add(imageId);
+    }
 }
