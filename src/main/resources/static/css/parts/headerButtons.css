@@ -11,7 +11,7 @@ a:hover {
 .header_buttons {
     font-family: 'Noto Sans', sans-serif;
     position: relative;
-    background-color: #f5f5f7;
+    /*background-color: #f5f5f7;*/
     font-size: 17px;
     float: left;
     height: 50px;

@@ -4,8 +4,7 @@
 <#import "parts/gallery.ftl" as gallery>
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
-    <@logo.logo "css/parts/logo.css"/>
-    <@headerButtons.headerButtons "css/parts/headerButtons.css"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
     <link rel="stylesheet" type="text/css" href="css/chooseTour.css"/>
     <link rel="stylesheet" type="text/css" href="css/chooseTour2.css"/>
     <script src="/js/parts/chooseTour.js"></script>
