@@ -2,47 +2,17 @@
     <div class="header">
         <link rel="stylesheet" type="text/css" href="${style}"/>
         <link rel="stylesheet" type="text/css" href="${style2}"/>
-        <!--Content before waves-->
         <a href="/">
             <div class="inner-header flex">
                 <h1>Safe & Sounds tours</h1>
             </div>
         </a>
         <div class="container lightGreen pullDown">
-            <a>HOMEУ</a>
-            <a>ARTICLES</a>
-            <a>PORTFOLIO</a>
-            <a>ABOUT</a>
+            <a>TOURS</a>
+            <a>REVIEWS</a>
             <a>CONTACT</a>
+            <a>ABOUT</a>
         </div>
-<#--        <div class="header_buttons">-->
-<#--            <table>-->
-<#--                <thead>-->
-<#--                <tr>-->
-<#--                    <th scope="col">-->
-<#--                        <a href="#0">-->
-<#--                            Каталог экскурсий-->
-<#--                        </a>-->
-<#--                    </th>-->
-<#--                    <th scope="col">-->
-<#--                        <a href="#0">-->
-<#--                            Отзывы-->
-<#--                        </a>-->
-<#--                    </th>-->
-<#--                    <th scope="col">-->
-<#--                        <a href="#0">-->
-<#--                            Контакты-->
-<#--                        </a>-->
-<#--                    </th>-->
-<#--                    <th scope="col">-->
-<#--                        <a href="#0">-->
-<#--                            О нас-->
-<#--                        </a>-->
-<#--                    </th>-->
-<#--                </tr>-->
-<#--                </thead>-->
-<#--            </table>-->
-<#--        </div>-->
         <div class="info">
             <div class="infoLogo">
                 +7-916-633-58-00

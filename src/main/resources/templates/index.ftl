@@ -5,7 +5,6 @@
 
 <@c.page "css/parts/common.css" "css/main.css">
     <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
-<#--    <@headerButtons.headerButtons "css/parts/headerButtons.css"/>-->
     <div class="tourBody">
         <table>
             <tbody>
