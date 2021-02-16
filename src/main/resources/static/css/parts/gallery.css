@@ -94,7 +94,7 @@ header li a {
     /*     top: 50%; */
     height: 50rem;
     overflow: hidden;
-    margin-bottom: 8rem;
+    margin-bottom: 1rem;
 }
 
 .cd-slider li {
@@ -116,7 +116,7 @@ header li a {
     height: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    clip: rect(0, 80rem, 50rem, 80rem);
+    clip: rect(0, 40rem, 50rem, 40rem);
     transition: clip 1.0s cubic-bezier(0.99, 0.01, 0.45, 0.9) 0.5s;
     will-change: clip;
 }
@@ -129,7 +129,7 @@ li.current {
 }
 
 li.current .image {
-    clip: rect(0, 120rem, 50rem, 0);
+    clip: rect(0, 150rem, 50rem, 0);
 }
 
 /* Prev Slide

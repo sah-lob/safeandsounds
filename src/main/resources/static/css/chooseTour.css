@@ -4,7 +4,7 @@ body {
     margin-right: auto;
 }
 
-.tourBody {
+.chooseTourBody {
     border: 1px solid gray;
     border-radius: 4px;
     position: absolute;
@@ -13,6 +13,11 @@ body {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+.tourDescription {
+    position: relative;
+    left: 10%;
+    width: 80%;
 }
 
 .tourName {
