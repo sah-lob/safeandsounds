@@ -14,14 +14,41 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 .tourDescription {
+    font-family: "Trebuchet MS", "Lucida Sans";
+    font-size: 18px;
+    list-style: none;
     position: relative;
     left: 10%;
     width: 80%;
+    letter-spacing: 2px;
 }
 
-.tourName {
-    width: 100%;
-    text-align: center;
-    font-size: 70px
+.tourDescription p {
+    list-style: none;
+    font-size: 20px;
+    position: relative;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+    color: rgb(87, 87, 87);
+}
+
+.tourDescription strong {
+    color: black;
+    font-size: 25px;
+}
+
+.tourDescription li {
+    list-style: none;
+    padding: 7px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 10px solid #333333;
+    box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
+    0px 0px 0px 0 rgba(0, 0, 0, .1);
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+    color: rgb(87, 87, 87);
 }
