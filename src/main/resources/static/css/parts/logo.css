@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+@import 'https://fonts.googleapis.com/css?family=Raleway';
 
 body {
     margin:0;
@@ -127,8 +128,10 @@ p {
 }
 
 .info .infoLogo {
-    height: 60px;
-    font-size: 35px;
+    font-family: 'Lato', sans-serif;
+    height: 50px;
+    /*     font-weight: 900px; */
+    font-size: 27px;
     text-align: right;
 }
 
@@ -142,9 +145,9 @@ p {
 }
 
 .info .socialNetworking .callback .callbackText{
-    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
     margin: auto;
-    padding-top: 3px;
     text-align: right;
     float: right;
     color: black;
