@@ -46,9 +46,112 @@ body {
     border-radius: 5px;
     border-left: 10px solid #333333;
     box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
-    0px 0px 0px 0 rgba(0, 0, 0, .1);
+    0 0 0 0 rgba(0, 0, 0, .1);
     font-size: 18px;
     letter-spacing: 2px;
     transition: 0.3s all linear;
     color: rgb(87, 87, 87);
+}
+
+/*calender*/
+
+.calender {
+    width: 100%;
+}
+
+.calender .calenderHeader {
+    background: linear-gradient(60deg, #333333 0%, #b7b7b7 100%);
+    float: left;
+    color: white;
+    width: 100%;
+}
+
+.calender .calenderHeader .calenderHeaderYear {
+    padding-top: 10px;
+    font-size: 26px;
+    width: 100%;
+}
+
+.calender .calenderHeader .calenderHeaderMonths {
+    /*     padding-top: px; */
+    padding-bottom: 5px;
+    font-size: 30px;
+    width: 100%;
+    float: left;
+}
+
+.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsBack {
+    text-align: right;
+    width: 40%;
+    float: left;
+}
+
+.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsName {
+    width: 20%;
+    float: left;
+}
+
+.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsNext {
+    text-align: left;
+    width: 40%;
+    float: left;
+}
+
+.calender .calenderHeader .calenderTableHeader {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
+    padding-top: 10px;
+    width: 14.2857143%;
+    float: left;
+}
+
+.calender .calenderBody {
+    width: 100%;
+}
+
+.calender .calenderBody .calenderTable {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.calender .calenderBody .calenderTable td {
+    position: relative;
+    padding: 30px;
+    text-align: right;
+    border: 1px solid rgb(224, 224, 224);
+    font-size: 25px;
+}
+
+.calenderTableCard {
+    display: none;
+    padding: 10px;
+    margin-top: 17px;
+    background: #f3f3f3;
+    height: 200px;
+    -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.calender .calenderBody .calenderTable td:hover .calenderTableCard {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    width: 400px;
+}
+
+.calenderTableLastDay {
+    color: gray;
+    background-color: #d7d7d7;
+}
+
+.calenderTableToday {
+    color: white;
+    background-color: #333333;
 }

@@ -17,10 +17,13 @@ import ru.sahlob.db.DBLogosRepository;
 import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.InputTour;
 import ru.sahlob.persistance.Logo;
+import ru.sahlob.persistance.calender.CalenderAnswer;
+import ru.sahlob.service.CalenderUtil;
 import ru.sahlob.storage.TourStorage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 @Controller
 @Data
@@ -44,10 +47,20 @@ public class MainController {
         return "login";
     }
 
+
+    @GetMapping(value = "/test")
+    @ResponseBody
+    public CalenderAnswer test(@RequestParam String currentMonth, @RequestParam int direction, @RequestParam int currentYear) {
+        var newCurrentMonth = CalenderUtil.getNumOfMonth(currentMonth) + direction;
+        var calenderAnswer = CalenderUtil.getCalenderAnswer(newCurrentMonth, currentYear);
+        calenderAnswer.setBackMonth(calenderAnswer.getCurrentMonth() != Calendar.getInstance().get(Calendar.MONTH));
+        return calenderAnswer;
+    }
+
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model) {
-        var tourS = tourStorage.findTourById(id);
         model.addAttribute("tour", tourStorage.findTourById(id));
+        model.addAttribute("calender", CalenderUtil.getMonth(3, 2021));
         return "chooseTour";
     }
 
