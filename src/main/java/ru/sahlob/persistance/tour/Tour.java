@@ -1,4 +1,4 @@
-package ru.sahlob.persistance;
+package ru.sahlob.persistance.tour;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data
@@ -22,9 +21,13 @@ public class Tour {
     private List<Integer> imagesId = new ArrayList<>();
     private String name;
     @Type(type = "text")
+    private String smallDescription;
+    @Type(type = "text")
     private String description;
     private Integer price;
     private Integer coolness;
+//    @ElementCollection
+//    private Map<TourTypes, Integer> tourPrices = new HashMap<>();
 
     public Tour(int imageId, String name, String description, Integer price, Integer coolness) {
         this.imagesId.add(imageId);

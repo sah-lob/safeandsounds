@@ -5,8 +5,11 @@
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
 <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
-<link rel="stylesheet" type="text/css" href="css/chooseTour.css"/>
-<link rel="stylesheet" type="text/css" href="css/chooseTour2.css"/>
+<link rel="stylesheet" type="text/css" href="css/choosetour/chooseTour.css"/>
+<link rel="stylesheet" type="text/css" href="css/choosetour/chooseTour2.css"/>
+<link rel="stylesheet" type="text/css" href="css/choosetour/calendar.css"/>
+<link rel="stylesheet" type="text/css" href="css/choosetour/chooseTourPrice.css"/>
+
 <script src="/js/parts/chooseTour.js"></script>
 
 <div class="chooseTourBody">
@@ -19,12 +22,6 @@
     <div class="has-animation animation-rtl" data-delay="1000">
         <div class="tourDescription">
             ${tour.description}
-        </div>
-        <div class="tourDate">
-            Доступность экскурссии в течение ближайшего месяца.
-        </div>
-        <div class="tourPrice">
-            Стоимость экскурсии
         </div>
         <div class="calender">
             <div class="calenderHeader">
@@ -114,15 +111,97 @@
                 </table>
             </div>
         </div>
-        <form>
-            <button type="button" class="btn-success" id="findButton" onclick="submitOptIn(3)">Найти</button>
-        </form>
+        <div class="tourPrice">
+            <table class="tourPriceTable">
+                <tr>
+                    <td>
+
+                        <div class="tourPriceTableTd">
+                            <div class="tourPriceTableTdName">
+                                Эконом
+                            </div>
+                            <div class="tourPriceTableTdAuto">
+                                <div class="tourPriceTableTdAutoLogo">
+                                    <img src="img/car2.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdAutoName">
+                                    Ford Mondeo
+                                </div>
+                            </div>
+                            <div class="tourPriceTableTdPrice">
+                                <div class="tourPriceTableTdPriceLogo">
+                                    <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdValue">
+                                    300$
+                                </div>
+                            </div>
+                            <div class="customButton customButtonPullDown">
+                                <a>Выбрать</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tourPriceTableTd">
+                            <div class="tourPriceTableTdName">
+                                Премиум
+                            </div>
+                            <div class="tourPriceTableTdAuto">
+                                <div class="tourPriceTableTdAutoLogo">
+                                    <img src="img/car2.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdAutoName">
+                                    BMW M5 F90
+                                </div>
+                            </div>
+                            <div class="tourPriceTableTdPrice">
+                                <div class="tourPriceTableTdPriceLogo">
+                                    <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdValue">
+                                    1300$
+                                </div>
+                            </div>
+                            <div class="customButton customButtonPullDown">
+                                <a>Выбрать</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tourPriceTableTd">
+                            <div class="tourPriceTableTdName">
+                                Групповая
+                            </div>
+                            <div class="tourPriceTableTdAuto">
+                                <div class="tourPriceTableTdAutoLogo">
+                                    <img src="img/car2.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdAutoName">
+                                    Ford Transit
+                                </div>
+                            </div>
+                            <div class="tourPriceTableTdPrice">
+                                <div class="tourPriceTableTdPriceLogo">
+                                    <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
+                                </div>
+                                <div class="tourPriceTableTdValue">
+                                    1300$
+                                </div>
+                            </div>
+                            <div class="customButton customButtonPullDown">
+                                <a>Выбрать</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <script type="text/javascript">
 
         $(
-            function() {
+            function () {
                 submitOptIn(-99);
             }
         );
@@ -139,7 +218,7 @@
                         $.each(value.days, function (index2, value2) {
                             if (value2.lastDay) {
                                 result += '<td class="calenderTableLastDay">' + value2.num + '</td>';
-                            }else if (value2.today){
+                            } else if (value2.today) {
                                 result += '<td class="calenderTableToday">' + value2.num + '</td>';
                             } else {
                                 result += '<td>' + value2.num + '</td>';
@@ -170,5 +249,6 @@
                 }
             });
         }
+
     </script>
     </@c.page>

@@ -10,7 +10,7 @@ import ru.sahlob.db.DBImagesRepository;
 import ru.sahlob.db.DBToursRepository;
 import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.InputTour;
-import ru.sahlob.persistance.Tour;
+import ru.sahlob.persistance.tour.Tour;
 
 import java.io.IOException;
 
