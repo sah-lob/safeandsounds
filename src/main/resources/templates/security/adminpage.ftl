@@ -38,6 +38,34 @@
                        placeholder="Цена">
                 <input type="text" class="form-control" name="coolness" onkeyup='this.value=parseInt(this.value) | 0'
                        placeholder="Крутость">
+                <div class="form-check form-check-inline">
+                    <input name="monday" type="checkbox" id="inlineCheckbox1" value="true">
+                    <label for="inlineCheckbox1">monday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="tuesday" type="checkbox" id="inlineCheckbox2" value="true">
+                    <label for="inlineCheckbox2">tuesday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="wednesday" type="checkbox" id="inlineCheckbox3" value="true">
+                    <label for="inlineCheckbox3">wednesday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="thursday" type="checkbox" id="inlineCheckbox4" value="true">
+                    <label for="inlineCheckbox4">thursday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="friday" type="checkbox" id="inlineCheckbox5" value="true">
+                    <label for="inlineCheckbox5">friday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="saturday" type="checkbox" id="inlineCheckbox6" value="true">
+                    <label for="inlineCheckbox6">saturday</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input name="sunday" type="checkbox" id="inlineCheckbox7" value="true">
+                    <label for="inlineCheckbox7">sunday</label>
+                </div>
                 <button type="submit">Найти</button>
             </form>
 

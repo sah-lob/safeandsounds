@@ -26,15 +26,18 @@ public class Tour {
     private String description;
     private Integer price;
     private Integer coolness;
+    @ElementCollection
+    private Set<Integer> availableWeekDays;
 //    @ElementCollection
 //    private Map<TourTypes, Integer> tourPrices = new HashMap<>();
 
-    public Tour(int imageId, String name, String description, Integer price, Integer coolness) {
+    public Tour(int imageId, String name, String description, Integer price, Integer coolness, Set<Integer> availableWeekDays) {
         this.imagesId.add(imageId);
         this.name = name;
         this.description = description;
         this.price = price;
         this.coolness = coolness;
+        this.availableWeekDays = availableWeekDays;
     }
 
     public void addNewImageId(int imageId) {
