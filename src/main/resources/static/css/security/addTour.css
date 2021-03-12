@@ -1,0 +1,57 @@
+.addTour {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.addTourHeader {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.nameContentForm {
+    height: 50px;
+    float: left;
+    width: 100%;
+}
+
+.nameContentForm .name {
+    height: 50px;
+    float: left;
+    width: 40%;
+}
+
+.nameContentForm .content {
+    height: 50px;
+    float: right;
+    width: 60%;
+}
+
+.tourName {
+    width: 100%;
+}
+
+textarea {
+    border-radius: 4px;
+    height: 40px;
+    width: 100%;
+}
+
+.weekDaysName table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.addTourButton {
+    background-color: gray; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+}

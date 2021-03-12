@@ -207,9 +207,10 @@
         );
 
         function submitOptIn(direction) {
+            let tourId = location.search.split('id=')[1];
             let currentMonth = document.getElementById("calenderHeaderMonthsName").innerText;
             let currentYear = document.getElementById("calenderHeaderYear").innerText;
-            $.ajax("/test?currentMonth=" + currentMonth + "&direction=" + direction + "&currentYear=" + currentYear).done(function (data) {
+            $.ajax("/test?currentMonth=" + currentMonth + "&direction=" + direction + "&currentYear=" + currentYear + "&tourId=" + tourId).done(function (data) {
                 let result = '';
                 result += '<table class="calenderTable">'
                 result += '<tbody>'

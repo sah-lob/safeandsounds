@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class InputTour {
     private MultipartFile file;
     private String name;
+    private String smallDescription;
     private String description;
     private Integer price;
     private String monday;

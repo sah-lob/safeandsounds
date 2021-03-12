@@ -50,7 +50,7 @@ public class MainController {
 
     @GetMapping(value = "/test")
     @ResponseBody
-    public CalenderAnswer test(@RequestParam String currentMonth, @RequestParam int direction, @RequestParam int currentYear) {
+    public CalenderAnswer test(@RequestParam String currentMonth, @RequestParam int direction, @RequestParam int currentYear, @RequestParam int tourId) {
         var newCurrentMonth = CalenderUtil.getNumOfMonth(currentMonth) + direction;
         var calenderAnswer = CalenderUtil.getCalenderAnswer(newCurrentMonth, currentYear);
         calenderAnswer.setBackMonth(calenderAnswer.getCurrentMonth() != Calendar.getInstance().get(Calendar.MONTH));
@@ -69,6 +69,17 @@ public class MainController {
         return "security/adminpage";
     }
 
+    @GetMapping(value = "/security/addTour")
+    public String addTour() {
+        return "security/addTour";
+    }
+
+    @PostMapping("/security/addTour")
+    @ResponseBody
+    public void newTour(InputTour inputTour) throws IOException {
+        tourStorage.addTour(inputTour);
+    }
+
 
     @PostMapping("/")
     @ResponseBody
@@ -76,11 +87,11 @@ public class MainController {
         dbFileStorageService.storeFile(multipartFile);
     }
 
-    @PostMapping("/security/adminpage")
-    @ResponseBody
-    public void newTour(InputTour inputTour) throws IOException {
-        tourStorage.addTour(inputTour);
-    }
+//    @PostMapping("/security/adminpage")
+//    @ResponseBody
+//    public void newTour(InputTour inputTour) throws IOException {
+//        tourStorage.addTour(inputTour);
+//    }
 
     @PostMapping("/security/adminpage/addphotototour")
     @ResponseBody

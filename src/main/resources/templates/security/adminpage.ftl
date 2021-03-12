@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Safe and sounds tours</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/security/adminpage.css"/>
-    <script src="../js/getlogo.js"></script>
-    <script src="../js/security/adminpage.js"></script>
-</head>
-<body>
-<br>
-<div class="header">
-    <p class="logo">
-        <pp class="img_с2" id='img_с'>logo</pp>
-    </p>
-    <p class="info">
-        МНОГОКАНАЛЬНЫЙ
-        <br>
-        Круглосуточно
-        <br>
-        +7-916-633-58-00
-    </p>
-</div>
-<br>
+<#import "../parts/common.ftl" as c>
+<#import "../parts/pager.ftl" as p>
+<#import "../parts/logo.ftl" as logo>
+<#import "../parts/headerButtons.ftl" as headerButtons>
+
+<@c.page "../css/parts/common.css" "../css/main.css">
+    <@logo.logo "../css/parts/logo.css" "../css/parts/headerButtons.css"/>
 
 <div class="tourBody">
+    <a href="/security/addTour">
+        Добавить экскурсию
+    </a>
     <div class="form">
         <table class="addTour">
             <tbody>
@@ -83,5 +66,5 @@
         </table>
     </div>
 </div>
-</body>
-</html>
+<#--</html>-->
+</@c.page>
