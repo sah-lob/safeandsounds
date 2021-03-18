@@ -50,9 +50,12 @@ public class MainController {
 
     @GetMapping(value = "/test")
     @ResponseBody
-    public CalenderAnswer test(@RequestParam String currentMonth, @RequestParam int direction, @RequestParam int currentYear, @RequestParam int tourId) {
+    public CalenderAnswer test(@RequestParam String currentMonth,
+                               @RequestParam int direction,
+                               @RequestParam int currentYear,
+                               @RequestParam int tourId) {
         var newCurrentMonth = CalenderUtil.getNumOfMonth(currentMonth) + direction;
-        var calenderAnswer = CalenderUtil.getCalenderAnswer(newCurrentMonth, currentYear);
+        var calenderAnswer = CalenderUtil.getCalenderAnswer(newCurrentMonth, currentYear, tourStorage.findTourById(tourId));
         calenderAnswer.setBackMonth(calenderAnswer.getCurrentMonth() != Calendar.getInstance().get(Calendar.MONTH));
         return calenderAnswer;
     }
@@ -60,7 +63,6 @@ public class MainController {
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model) {
         model.addAttribute("tour", tourStorage.findTourById(id));
-        model.addAttribute("calender", CalenderUtil.getMonth(3, 2021));
         return "chooseTour";
     }
 
@@ -86,12 +88,6 @@ public class MainController {
     public void newPost(@RequestParam("file") MultipartFile multipartFile) {
         dbFileStorageService.storeFile(multipartFile);
     }
-
-//    @PostMapping("/security/adminpage")
-//    @ResponseBody
-//    public void newTour(InputTour inputTour) throws IOException {
-//        tourStorage.addTour(inputTour);
-//    }
 
     @PostMapping("/security/adminpage/addphotototour")
     @ResponseBody

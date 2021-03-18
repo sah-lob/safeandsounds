@@ -2,9 +2,7 @@ package ru.sahlob.storage;
 
 import lombok.Data;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import ru.sahlob.db.DBImagesRepository;
 import ru.sahlob.db.DBToursRepository;
@@ -33,12 +31,12 @@ public class TourStorage {
                         inputTour.getDescription(),
                         inputTour.getPrice(),
                         inputTour.getCoolness(),
-                        getAvailableWeekDays(inputTour)));
-
-        Pageable firstPageWithTwoElements = PageRequest.of(0, 10, Sort.by("coolness").descending());
-        Page<Tour> allProducts = dbToursRepository.findAll(firstPageWithTwoElements);
-        allProducts.getTotalElements();
-        allProducts.getTotalPages();
+                        getAvailableWeekDays(inputTour),
+                        inputTour.getDuration()));
+//        Pageable firstPageWithTwoElements = PageRequest.of(0, 10, Sort.by("coolness").descending());
+//        Page<Tour> allProducts = dbToursRepository.findAll(firstPageWithTwoElements);
+//        allProducts.getTotalElements();
+//        allProducts.getTotalPages();
     }
 
     public Tour findTourById(int id) {

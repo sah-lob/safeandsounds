@@ -11,8 +11,9 @@
     table-layout: fixed;
     width: 100%;
     text-align: center;
-    font-size: 40px;
+    /*font-size: 40px;*/
 }
+
 
 .tourPrice .tourPriceTable .tourPriceTableTd {
     float: left;
@@ -21,7 +22,9 @@
     margin-left: 10%;
     width: 80%;
     text-align: center;
-    font-size: 40px;
+    font-size: 1.6vw;
+    /*display: flex;*/
+    /*align-items: center;*/
 }
 
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdName {
@@ -30,19 +33,49 @@
     width: 100%;
 }
 
+.tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdData {
+    padding-top: 5%;
+    float: left;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdData .tourPriceTableTdAutoLogo {
+    float: left;
+    width: 20%;
+}
+
+.tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdData .tourPriceTableTdDataName {
+    float: left;
+    width: 80%;
+    padding-left: 5%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdAuto {
     padding-top: 5%;
     float: left;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdAuto .tourPriceTableTdAutoLogo {
     float: left;
     width: 20%;
+    display: flex;
+    align-items: center;
 }
 
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdAuto .tourPriceTableTdAutoName {
     float: left;
+    text-align: left;
+    padding-left: 5%;
+    display: flex;
+    align-items: center;
     width: 80%;
 }
 
@@ -55,12 +88,16 @@
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdPrice .tourPriceTableTdPriceLogo {
     float: left;
     width: 20%;
+    display: flex;
+    align-items: center;
 }
 
 .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdPrice .tourPriceTableTdValue {
     padding-left: 5%;
     float: left;
     text-align: left;
+    display: flex;
+    align-items: center;
     width: 80%;
 }
 

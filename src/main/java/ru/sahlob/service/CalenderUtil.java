@@ -3,13 +3,14 @@ package ru.sahlob.service;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.calender.Day;
 import ru.sahlob.persistance.calender.Month;
+import ru.sahlob.persistance.tour.Tour;
 
 import java.util.Calendar;
 import java.util.Date;
 
 public class CalenderUtil {
 
-    public static Month getMonth(int currentMonth, int currentYear) {
+    public static Month getMonth(int currentMonth, int currentYear, Tour tour) {
         var date = new Date();
         var cal = Calendar.getInstance();
         cal.setTime(date);
@@ -38,15 +39,13 @@ public class CalenderUtil {
                 var daysInMonth1 = cal1.getActualMaximum(Calendar.DAY_OF_MONTH);
                 var weekDay = 0;
                 for (var j = k; j > 0; j--) {
-                    month.addNewDay(addDay(currentMonth, currentYear, weekDay, daysInMonth1));
-//                    month.addNewDay(weekDay, daysInMonth1 - j + 1, false);
+                    month.addNewDay(addDay(currentMonth, currentYear, weekDay, daysInMonth1, tour));
                     weekDay++;
                 }
                 flag = false;
                 i--;
             } else {
-                month.addNewDay(addDay(currentMonth, currentYear, k, i + 1));
-//                month.addNewDay(k, i + 1, false);
+                month.addNewDay(addDay(currentMonth, currentYear, k, i + 1, tour));
                 k++;
             }
         }
@@ -56,14 +55,14 @@ public class CalenderUtil {
             var restDays = 7 - week.getDays().size();
             var count = week.getDays().size();
             for (int i = 0; i < restDays; i++) {
-                week.add(addDay(currentMonth + 1, currentYear,  count, i + 1));
-//                week.add(count, i + 1, false);
+                week.add(addDay(currentMonth + 1, currentYear,  count, i + 1, tour));
+                count++;
             }
         }
         return month;
     }
 
-    public static CalenderAnswer getCalenderAnswer(int currentMonth, int currentYear) {
+    public static CalenderAnswer getCalenderAnswer(int currentMonth, int currentYear, Tour tour) {
         var calenderAnswer = new CalenderAnswer();
         if (currentYear == -99) {
             currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -88,7 +87,7 @@ public class CalenderUtil {
         calenderAnswer.setCurrentMonthName(getMonth(currentMonth));
         calenderAnswer.setCurrentMonth(currentMonth);
         calenderAnswer.setCurrentYear(currentYear);
-        calenderAnswer.setMonth(getMonth(currentMonth, currentYear));
+        calenderAnswer.setMonth(getMonth(currentMonth, currentYear, tour));
         return calenderAnswer;
     }
 
@@ -140,7 +139,12 @@ public class CalenderUtil {
         }
     }
 
-    private static Day addDay(int currentMonth, int currentYear, int weekDay, int dayInMonth) {
+    private static Day addDay(int currentMonth,
+                              int currentYear,
+                              int weekDay,
+                              int dayInMonth, Tour tour) {
+
+        var availableWeekDays = tour.getAvailableWeekDays();
         var nowMonth = Calendar.getInstance().get(Calendar.MONTH);
         var nowYear = Calendar.getInstance().get(Calendar.YEAR);
         var nowDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
@@ -154,6 +158,10 @@ public class CalenderUtil {
                 isToday = true;
             }
         }
-        return new Day(dayInMonth, weekDay, lastDay, isToday);
+        var availableWeekDay = false;
+        if(!lastDay && !isToday && availableWeekDays.contains(weekDay)) {
+            availableWeekDay = true;
+        }
+        return new Day(dayInMonth, weekDay, lastDay, isToday,availableWeekDay, tour.getDuration());
     }
 }

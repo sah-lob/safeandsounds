@@ -10,4 +10,6 @@ public class Day {
     private int weekDayNum;
     private boolean lastDay;
     private boolean today;
+    private boolean availableTour;
+    private String duration;
 }

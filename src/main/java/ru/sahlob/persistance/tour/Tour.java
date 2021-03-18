@@ -28,16 +28,22 @@ public class Tour {
     private Integer coolness;
     @ElementCollection
     private Set<Integer> availableWeekDays;
-//    @ElementCollection
-//    private Map<TourTypes, Integer> tourPrices = new HashMap<>();
+    private String duration;
 
-    public Tour(int imageId, String name, String description, Integer price, Integer coolness, Set<Integer> availableWeekDays) {
+    public Tour(int imageId,
+                String name,
+                String description,
+                Integer price,
+                Integer coolness,
+                Set<Integer> availableWeekDays,
+                String duration) {
         this.imagesId.add(imageId);
         this.name = name;
         this.description = description;
         this.price = price;
         this.coolness = coolness;
         this.availableWeekDays = availableWeekDays;
+        this.duration = duration;
     }
 
     public void addNewImageId(int imageId) {
