@@ -1,14 +1,24 @@
 body {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+    min-height:100%;
+    width: 100%;
+}
+
+.cb {
+    width: 100%;
+    float: left;
+    height: 100%;
+    min-height:100%;
+    width: 100%;
 }
 
 .chooseTourBody {
     /*     border: 1px solid gray; */
+    height: 100%;
+    min-height:100%;
     border-radius: 4px;
-    position: absolute;
-    top: 280px;
+    /*position: absolute;*/
+    /*top: 280px;*/
     left: 10%;
     width: 80%;
     margin-left: auto;
@@ -16,7 +26,7 @@ body {
 }
 
 .tourDescription {
-    font-family: "Trebuchet MS", "Lucida Sans";
+    font-family: 'Lato', sans-serif;
     font-size: 18px;
     list-style: none;
     position: relative;

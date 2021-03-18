@@ -53,7 +53,7 @@
 
 .ex .tourHeader {
     vertical-align: middle;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     height: 140px;
     width: 100%;
     font-weight: 700;
@@ -77,7 +77,7 @@
 }
 
 .ex .description {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lato', sans-serif;
     float: left;
     height: 120px;
     width: 100%;

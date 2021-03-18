@@ -1,11 +1,10 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+    min-height:100%;
+    font-family: 'Lato', sans-serif;
     text-align: center;
 }
 
-div {
-    /*     display: inline-block; */
-}
 
 .bigger {
     margin: 0;

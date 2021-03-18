@@ -1,0 +1,70 @@
+footer {
+    width: 100%;
+    /*background-color: red;*/
+    /*height: 500px;*/
+    float: left;
+    padding-top: 40px;
+}
+
+.footer {
+    font-family: 'Lato', sans-serif;
+    padding-top: 0px;
+    background-color: #404040;
+}
+
+.footerGradient {
+    width: 100%;
+    background-image: linear-gradient(180deg, #ffffff, #404040);
+    background-image: linear-gradient(180deg, #ffffff, #404040);
+    height: 250px;
+    position: relative;
+}
+
+.footerContent {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    float: left;
+    bottom: 0;
+    right: 0;
+    padding-right: 10px;
+    padding-bottom: 60px;
+}
+
+.footerContent img {
+    max-width: 50px;
+    max-height: 100%;
+}
+
+.footerContent .footerContentPhone {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    float: right;
+    height: 50px;
+    font-size: 1.6vw;
+}
+.footerContent .footerContentRequestACallBack {
+    display: flex;
+    align-items: center;
+    padding-right: 100px;
+    float: right;
+    height: 50px;
+    font-size: 1.6vw;
+}
+.footerContent .footerContentInstagram {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    float: left;
+    height: 50px;
+    font-size: 1.6vw;
+}
+.footerContent .footerContentFacebook {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    float: left;
+    height: 50px;
+    font-size: 1.6vw;
+}

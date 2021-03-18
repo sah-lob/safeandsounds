@@ -1,3 +1,5 @@
+<#import "../parts/footer.ftl" as footer>
+
 <#macro page mainStyle pageStyle>
     <!DOCTYPE html>
     <html lang="en">
@@ -12,6 +14,9 @@
     </head>
     <body>
     <#nested>
+    <footer>
+        <@footer.footer/>
+    </footer>
     </body>
     </html>
 </#macro>
