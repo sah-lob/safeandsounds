@@ -4,37 +4,38 @@
         <link rel="stylesheet" type="text/css" href="${style2}"/>
         <a href="/">
             <div class="inner-header flex">
-                <h1>Safe & Sounds tours</h1>
+                <div class="inner-header-logo">
+                    <img src="img/logo1.png" alt="e">
+                </div>
+                <div class="inner-header-header">
+                    <h1>Safe & Sounds tours</h1>
+                </div>
             </div>
         </a>
-        <div class="container lightGreen pullDown">
-            <a>TOURS</a>
-            <a>REVIEWS</a>
-            <a>CONTACT</a>
-            <a>ABOUT</a>
-        </div>
         <div class="info">
             <div class="infoLogo">
                 +7-916-633-58-00
             </div>
             <div class="socialNetworking">
-                <div class="callback">
-                    <div class="callbackLogo">
-                        <img src="img/callbackB.png" alt="e">
-                    </div>
-                    <div class="callbackText">
-                        Request a call back
-                    </div>
-                </div>
-                <div class="instagram">
+                <div class="socialNetworkingLogo">
                     <a href="https://www.instagram.com/safeandsoundtours/">
                         <img src="img/instagram.png" alt="e">
                     </a>
                 </div>
-                <div class="facebook">
+                <div class="socialNetworkingLogo">
                     <img src="img/facebook.png" alt="e">
                 </div>
             </div>
+            <div class="callback">
+                <img src="img/callbackB.png" alt="e">
+                    Request a call back
+            </div>
+        </div>
+        <div class="container lightGreen pullDown">
+            <a>TOURS</a>
+            <a>REVIEWS</a>
+            <a>CONTACT</a>
+            <a>ABOUT</a>
         </div>
         <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

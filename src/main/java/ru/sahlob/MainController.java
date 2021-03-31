@@ -15,6 +15,7 @@ import ru.sahlob.db.DBFileStorageService;
 import ru.sahlob.db.DBImagesRepository;
 import ru.sahlob.db.DBLogosRepository;
 import ru.sahlob.persistance.Image;
+import ru.sahlob.persistance.InputOrder;
 import ru.sahlob.persistance.InputTour;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
@@ -82,7 +83,6 @@ public class MainController {
         tourStorage.addTour(inputTour);
     }
 
-
     @PostMapping("/")
     @ResponseBody
     public void newPost(@RequestParam("file") MultipartFile multipartFile) {
@@ -117,5 +117,20 @@ public class MainController {
     public byte[] getLogin(@RequestParam Integer id) {
         var image = dbImagesRepository.findAllById(id);
         return image.getData();
+    }
+
+
+    @PostMapping("/newOrder")
+    @ResponseBody
+    public String newOrder(InputOrder inputOrder) throws IOException {
+        return "/order?tourId=" + inputOrder.getTourId() + "&tourDate=" + inputOrder.getTourDate() + "&tourType=" + inputOrder.getTourType();
+    }
+
+    @GetMapping(value = "/order")
+    public String order(InputOrder inputOrder, Model model) {
+        model.addAttribute("id", inputOrder.getTourId());
+        model.addAttribute("date", inputOrder.getTourDate());
+        model.addAttribute("type", inputOrder.getTourType());
+        return "order";
     }
 }
