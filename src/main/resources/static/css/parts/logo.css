@@ -124,7 +124,7 @@ p {
 
 @media only screen and (min-width: 450px) and (max-width: 767px) {
 
-    .container {
+    .btn {
         visibility: hidden;
     }
 
@@ -203,7 +203,7 @@ p {
 
 @media only screen and (min-width: 768px) and (max-width: 1299px) {
 
-    .container {
+    .btn {
         visibility: hidden;
     }
 

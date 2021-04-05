@@ -16,22 +16,12 @@
             <div class="infoLogo">
                 +7-916-633-58-00
             </div>
-            <div class="socialNetworking">
-                <div class="socialNetworkingLogo">
-                    <a href="https://www.instagram.com/safeandsoundtours/">
-                        <img src="img/instagram.png" alt="e">
-                    </a>
-                </div>
-                <div class="socialNetworkingLogo">
-                    <img src="img/facebook.png" alt="e">
-                </div>
-            </div>
             <div class="callback">
                 <img src="img/callbackB.png" alt="e">
                     Request a call back
             </div>
         </div>
-        <div class="container lightGreen pullDown">
+        <div class="btn lightGreen pullDown">
             <a>TOURS</a>
             <a>REVIEWS</a>
             <a>CONTACT</a>

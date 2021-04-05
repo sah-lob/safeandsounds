@@ -1,6 +1,6 @@
 <#macro headerButtons style>
     <link rel="stylesheet" type="text/css" href="${style}"/>
-    <div class="container lightGreen pullDown">
+    <div class="btn lightGreen pullDown">
         <a>HOMEУ</a>
         <a>ARTICLES</a>
         <a>PORTFOLIO</a>
