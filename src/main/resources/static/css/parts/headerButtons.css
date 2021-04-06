@@ -2,7 +2,7 @@
 
 div.btn
 {
-    color: black;
+    color: #E5DDC8;
     font-family: 'Lato', sans-serif;
     margin: 10px auto;
     padding: 10px 0px;;
@@ -11,6 +11,7 @@ div.btn
 
 div.btn a
 {
+    color: #E5DDC8;
     text-decoration: none;
     font: 20px Raleway;
     margin: 0px 10px;

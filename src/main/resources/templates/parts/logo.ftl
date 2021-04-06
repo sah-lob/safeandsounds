@@ -1,5 +1,6 @@
 <#macro logo style style2>
     <div class="header">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="${style}"/>
         <link rel="stylesheet" type="text/css" href="${style2}"/>
         <a href="/">

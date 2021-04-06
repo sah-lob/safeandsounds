@@ -22,6 +22,7 @@ ul {
 }
 
 .post-module {
+    border: 1px solid #dddddd;
     position: relative;
     z-index: 1;
     display: block;
@@ -34,6 +35,12 @@ ul {
     -ms-transition: all 0.3s linear 0s;
     -o-transition: all 0.3s linear 0s;
     transition: all 0.3s linear 0s;
+}
+
+.post-module:hover {
+    -webkit-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 3px -3px rgba(50, 50, 50, 0.1), 3px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .post-module:hover .photo img,
@@ -51,7 +58,8 @@ ul {
 
 .post-module .photo img {
     display: block;
-    width: 120%;
+    /*width: 120%;*/
+    height: 100%;
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;
@@ -78,7 +86,7 @@ ul {
 .post-module .post-content .title {
     margin: 0;
     padding: 0 0 10px;
-    color: #333333;
+    color: #004369;
     /*font-size: 75px;*/
     font-weight: 700;
 }
@@ -86,20 +94,20 @@ ul {
 .post-module .post-content .sub_title {
     margin: 0;
     padding: 0 0 20px;
-    color: #e74c3c;
-    font-size: 20px;
+    color: #DB1F48;
+    /*font-size: 20px;*/
     font-weight: 400;
 }
 
 .post-module .post-content .description {
     display: none;
     color: #666666;
-    font-size: 14px;
+    /*font-size: 14px;*/
     line-height: 1.8em;
 }
 
 .post-module .post-content .tourBtn {
-    background-color: #ff0000;
+    background-color: #DB1F48;
     width: 100%;
 }
 
@@ -113,7 +121,6 @@ ul {
 
 .post-module .post-content .post-footer .price {
     float: left;
-    background-color: #ccffca;
     height: 100%;
     width: 50%;
     text-align: left;
@@ -121,7 +128,6 @@ ul {
 
 .post-module .post-content .post-footer .duration {
     float: left;
-    background-color: #e09595;
     height: 100%;
     width: 50%;
     text-align: right;
@@ -145,7 +151,19 @@ ul {
     }
 
     .post-module .post-content .post-footer {
-        font-size: 60px;
+        font-size: 50px;
+    }
+
+    .post-module .post-content .sub_title {
+        font-size: 55px;
+    }
+
+    .post-module .post-content .description {
+        font-size: 40px;
+    }
+
+    .post-module .post-content .tourBtn {
+        font-size: 40px;
     }
 }
 
@@ -168,5 +186,17 @@ ul {
 
     .post-module .post-content .post-footer {
         font-size: 20px;
+    }
+
+    .post-module .post-content .sub_title {
+        font-size: 20px;
+    }
+
+    .post-module .post-content .description {
+        font-size: 14px;
+    }
+
+    .post-module .post-content .tourBtn {
+        font-size: 15px;
     }
 }
