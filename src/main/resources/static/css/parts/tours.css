@@ -94,7 +94,7 @@ ul {
 .post-module .post-content .sub_title {
     margin: 0;
     padding: 0 0 20px;
-    color: #DB1F48;
+    color: #01949A;
     /*font-size: 20px;*/
     font-weight: 400;
 }
@@ -107,7 +107,8 @@ ul {
 }
 
 .post-module .post-content .tourBtn {
-    background-color: #DB1F48;
+    background-color: #01949A;
+    font-color: #DB1F48;
     width: 100%;
 }
 
