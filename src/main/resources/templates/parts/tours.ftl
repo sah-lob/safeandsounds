@@ -21,10 +21,14 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="post-meta"><span class="timestamp"><i
-                                                class="fa fa-clock-">from </i> ${tour.price} $</span><span
-                                            class="comments"><i class="fa fa-comments"></i><a
-                                                href="#"> ${tour.duration}</a></span></div>
+                                <div class="post-footer">
+                                    <div class="price">
+                                        ${tour.price} $
+                                    </div>
+                                    <div class="duration">
+                                        ${tour.duration}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +37,3 @@
         </ul>
     </div>
 </#macro>
-
-<#--<#list  page.content as tour>-->
-<#--</#list>-->
-<#--${tour.id}-->

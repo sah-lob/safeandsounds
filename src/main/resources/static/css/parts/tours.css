@@ -4,7 +4,6 @@
     height: auto;
 }
 
-
 ul {
     padding: 0;
 }
@@ -22,33 +21,11 @@ ul {
     transition: width .2s;
 }
 
-@media only screen and (min-width: 450px) and (max-width: 1299px) {
-    .product-wrapper {
-        width: 100%;
-    }
-
-    .post-module {
-        height: 1200px;
-    }
-}
-
-@media only screen and (min-width: 1300px) {
-    .product-wrapper {
-        width: 33.333%;
-    }
-
-    .post-module {
-        height: 600px;
-    }
-}
-
-
 .post-module {
     position: relative;
     z-index: 1;
     display: block;
     background: #FFFFFF;
-    /*height: 600px;*/
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
@@ -69,7 +46,6 @@ ul {
 
 .post-module .photo {
     background: #000000;
-    height: 400px;
     overflow: hidden;
 }
 
@@ -103,7 +79,7 @@ ul {
     margin: 0;
     padding: 0 0 10px;
     color: #333333;
-    font-size: 26px;
+    /*font-size: 75px;*/
     font-weight: 700;
 }
 
@@ -123,20 +99,74 @@ ul {
 }
 
 .post-module .post-content .tourBtn {
-    background-color: red;
+    background-color: #ff0000;
     width: 100%;
 }
 
-.post-module .post-content .post-meta {
-    margin: 30px 0 0;
+.post-module .post-content .post-footer {
+    float: left;
+    width: 100%;
+    /*height: 100px;*/
+    text-align: left;
     color: #999999;
 }
 
-.post-module .post-content .post-meta .timestamp {
-    margin: 0 16px 0 0;
+.post-module .post-content .post-footer .price {
+    float: left;
+    background-color: #ccffca;
+    height: 100%;
+    width: 50%;
+    text-align: left;
 }
 
-.post-module .post-content .post-meta a {
-    color: #999999;
-    text-decoration: none;
+.post-module .post-content .post-footer .duration {
+    float: left;
+    background-color: #e09595;
+    height: 100%;
+    width: 50%;
+    text-align: right;
+}
+
+@media only screen and (min-width: 450px) and (max-width: 1299px) {
+    .product-wrapper {
+        width: 100%;
+    }
+
+    .post-module {
+        height: 1200px;
+    }
+
+    .post-module .photo {
+        height: 804px;
+    }
+
+    .post-module .post-content .title {
+        font-size: 75px;
+    }
+
+    .post-module .post-content .post-footer {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .product-wrapper {
+        width: 33.333%;
+    }
+
+    .post-module {
+        height: 600px;
+    }
+
+    .post-module .photo {
+        height: 400px;
+    }
+
+    .post-module .post-content .title {
+        font-size: 26px;
+    }
+
+    .post-module .post-content .post-footer {
+        font-size: 20px;
+    }
 }

@@ -122,7 +122,7 @@ public class MainController {
 
     @PostMapping("/newOrder")
     @ResponseBody
-    public String newOrder(InputOrder inputOrder) throws IOException {
+    public String newOrder(InputOrder inputOrder) {
         return "/order?tourId=" + inputOrder.getTourId() + "&tourDate=" + inputOrder.getTourDate() + "&tourType=" + inputOrder.getTourType();
     }
 

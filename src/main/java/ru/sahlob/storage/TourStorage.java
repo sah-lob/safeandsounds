@@ -20,7 +20,6 @@ public class TourStorage {
     private final DBImagesRepository dbImagesRepository;
     private final DBToursRepository dbToursRepository;
 
-
     public void addTour(InputTour inputTour) throws IOException {
         var image = new Image(inputTour.getFile());
         dbImagesRepository.save(image);
@@ -33,10 +32,6 @@ public class TourStorage {
                         inputTour.getCoolness(),
                         getAvailableWeekDays(inputTour),
                         inputTour.getDuration()));
-//        Pageable firstPageWithTwoElements = PageRequest.of(0, 10, Sort.by("coolness").descending());
-//        Page<Tour> allProducts = dbToursRepository.findAll(firstPageWithTwoElements);
-//        allProducts.getTotalElements();
-//        allProducts.getTotalPages();
     }
 
     public Tour findTourById(int id) {
