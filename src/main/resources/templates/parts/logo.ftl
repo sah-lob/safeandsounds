@@ -9,7 +9,7 @@
                     <img src="img/logo1.png" alt="e">
                 </div>
                 <div class="inner-header-header">
-                    <h1>Safe & Sounds tours</h1>
+                    Safe & Sounds tours
                 </div>
             </div>
         </a>
