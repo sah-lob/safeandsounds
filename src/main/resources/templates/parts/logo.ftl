@@ -1,8 +1,8 @@
 <#macro logo style style2>
     <div class="header">
-<#--        <meta name="viewport" content="width=device-width, user-scalable=no">-->
-        <link rel="stylesheet" type="text/css" href="${style}"/>
-        <link rel="stylesheet" type="text/css" href="${style2}"/>
+        <link rel="stylesheet" type="text/css" href="../css/parts/logo/logo.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/parts/logo/logoWaves.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/parts/logo/headerButtons.css"/>
         <a href="/">
             <div class="inner-header flex">
                 <div class="inner-header-logo">
@@ -42,7 +42,6 @@
                     <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"/>
                 </g>
             </svg>
-
         </div>
     </div>
 </#macro>

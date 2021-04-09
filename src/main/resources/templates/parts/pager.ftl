@@ -14,7 +14,8 @@
     <#else>
         <#assign body = 1..page.getTotalPages()>
     </#if>
-    <div class="mt-3">
+    <link rel="stylesheet" type="text/css" href="../css/parts/pager.css"/>
+    <div class="paginationClass">
         <ul class="pagination">
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Страницы</a>

@@ -1,6 +1,5 @@
 <#import "parts/common.ftl" as c>
 <#import "parts/logo.ftl" as logo>
-<#import "parts/headerButtons.ftl" as headerButtons>
 <#import "parts/gallery.ftl" as gallery>
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
