@@ -136,7 +136,7 @@ ul {
 @media only screen and (min-width: 300px) and (max-width: 1299px) {
 
     .tours {
-        padding-top: 50px;
+        /*padding-top: 20px;*/
     }
     .product-wrapper {
         float: left;
@@ -196,6 +196,16 @@ ul {
 
     .post-module .photo {
         height: 400px;
+    }
+
+    .post-module .photo img {
+        display: block;
+        height: 100%;
+        -webkit-transition: all 0.3s linear 0s;
+        -moz-transition: all 0.3s linear 0s;
+        -ms-transition: all 0.3s linear 0s;
+        -o-transition: all 0.3s linear 0s;
+        transition: all 0.3s linear 0s;
     }
 
     .post-module .post-content .title {

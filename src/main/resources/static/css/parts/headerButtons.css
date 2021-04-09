@@ -2,19 +2,19 @@
 
 div.btn
 {
-    color: #E5DDC8;
+    color: var(--first-text-color);
     font-family: 'Lato', sans-serif;
     margin: 10px auto;
-    padding: 10px 0px;;
+    padding: 10px 0;
     text-align: center;
 }
 
 div.btn a
 {
-    color: #E5DDC8;
+    color: var(--first-text-color);
     text-decoration: none;
     font: 20px Raleway;
-    margin: 0px 10px;
+    margin: 0 10px;
     padding: 10px 10px;
     position: relative;
     z-index: 0;
@@ -28,8 +28,8 @@ div.pullDown a:before
     position: absolute;
     width: 100%;
     height: 2px;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     content: '';
     background: #FFF;
     opacity: 0.3;

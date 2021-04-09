@@ -1,12 +1,13 @@
-/*calender*/
-
 .calender {
     width: 100%;
     font-family: 'Lato', sans-serif;
 }
 
 .calender .calenderHeader {
-    background: linear-gradient(60deg, #333333 0%, #b7b7b7 100%);
+    background: linear-gradient(
+            60deg,
+            var(--first-primary-color) 0%,
+            var(--second-primary-color) 100%);
     float: left;
     color: white;
     width: 100%;
@@ -43,12 +44,10 @@
     height: 48px;
     font-size: 35px;
     width: calc(100% - 48px);
-    /*background-color: #ccffca;*/
 }
 
 .calender .calenderHeader .calenderHeaderData .calenderHeaderDataButton {
     text-align: left;
-    /*background-color: #e09595;*/
     width: 48px;
     float: left;
 }
@@ -59,7 +58,6 @@
 }
 
 .calender .calenderHeader .calenderHeaderMonths {
-    /*     padding-top: px; */
     padding-bottom: 5px;
     font-size: 30px;
     width: 100%;
@@ -185,7 +183,7 @@
 
 .calenderTableCard .customButton {
     height: 50px;
-    background-color: rgb(138, 138, 138);
+    background-color: var(--first-primary-color);
     float: left;
     width: 100%;
     color: black;
@@ -199,7 +197,7 @@
     vertical-align: middle;
     text-decoration: none;
     width: 100%;
-    background-color: rgb(138, 138, 138);
+    background-color: var(--first-primary-color);
     font: 30px Raleway;
     position: relative;
     display: flex;

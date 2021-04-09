@@ -9,16 +9,12 @@ body {
     float: left;
     height: 100%;
     min-height:100%;
-    width: 100%;
 }
 
 .chooseTourBody {
-    /*     border: 1px solid gray; */
     height: 100%;
     min-height:100%;
     border-radius: 4px;
-    /*position: absolute;*/
-    /*top: 280px;*/
     left: 10%;
     width: 80%;
     margin-left: auto;
@@ -45,7 +41,7 @@ body {
 }
 
 .tourDescription strong {
-    color: black;
+    color: var(--first-primary-color);
     font-size: 25px;
 }
 
@@ -54,7 +50,7 @@ body {
     padding: 7px 20px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border-left: 5px solid #333333;
+    border-left: 5px solid var(--first-primary-color);
     box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
     0 0 0 0 rgba(0, 0, 0, .1);
     font-size: 18px;
