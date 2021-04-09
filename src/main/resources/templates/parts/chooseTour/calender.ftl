@@ -26,15 +26,15 @@
                         <img src="img/west.png" alt="e">
                     </a>
                 </div>
-                <div class="calenderTableHeader">
-                    <div class="calenderTableHeaderDay">Mon</div>
-                    <div class="calenderTableHeaderDay">Tue</div>
-                    <div class="calenderTableHeaderDay">Wed</div>
-                    <div class="calenderTableHeaderDay">Thu</div>
-                    <div class="calenderTableHeaderDay">Fri</div>
-                    <div class="calenderTableHeaderDay">Sat</div>
-                    <div class="calenderTableHeaderDay">Sun</div>
-                </div>
+            </div>
+            <div class="calenderTableHeader">
+                <div class="calenderTableHeaderDay">Mon</div>
+                <div class="calenderTableHeaderDay">Tue</div>
+                <div class="calenderTableHeaderDay">Wed</div>
+                <div class="calenderTableHeaderDay">Thu</div>
+                <div class="calenderTableHeaderDay">Fri</div>
+                <div class="calenderTableHeaderDay">Sat</div>
+                <div class="calenderTableHeaderDay">Sun</div>
             </div>
         </div>
         <div class="calenderBody">

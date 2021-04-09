@@ -65,3 +65,13 @@ footer {
     height: 50px;
     font-size: 1.6vw;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 1299px) {
+
+    .footerContent .footerContentPhone {
+        font-size: 30px;
+    }
+    .footerContent .footerContentRequestACallBack {
+        font-size: 30px;
+    }
+}

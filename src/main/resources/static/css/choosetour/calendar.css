@@ -24,9 +24,6 @@
     padding-left: 10px;
     height: 48px;
     font-size: 2vw;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
     width: calc(100% - 48px);
     background-color: #e09595;
 }
@@ -150,7 +147,6 @@
     padding: 10px 0px;
     margin-top: 17px;
     background: #f3f3f3;
-    /*height: 200px;*/
     text-align: center;
     -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
@@ -223,4 +219,114 @@
 .calenderTableCard .customButtonPullDown a:hover:before {
     height: 110%;
     vertical-align: middle;
+}
+
+
+@media only screen and (min-width: 300px) and (max-width: 1299px) {
+
+    .calender .calenderHeader .calenderHeaderData {
+        font-size: 26px;
+        width: 100%;
+        height: 120px;
+    }
+
+    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelected {
+        text-align: left;
+        float: left;
+        padding-left: 10px;
+        height: 120px;
+        font-size: 4vw;
+        width: calc(100% - 120px);
+        background-color: #e09595;
+    }
+
+    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelectedButton {
+        text-align: left;
+        background-color: #e09595;
+        width: 120px;
+        float: left;
+    }
+
+    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelectedButton img{
+        background-color: #e09595;
+        width: 120px;
+        height: 120px;
+        float: left;
+    }
+
+    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataText {
+        text-align: left;
+        float: left;
+        padding-left: 10px;
+        height: 120px;
+        font-size: 4vw;
+        width: calc(100% - 120px);
+    }
+
+    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataButton {
+        text-align: left;
+        width: 120px;
+        float: left;
+    }
+
+
+
+
+
+
+
+    .calender .calenderHeader .calenderHeaderYear {
+        font-size: 60px;
+        /*background-color: red;*/
+        float: right;
+        width: 40%;
+        height: 100px;
+        /*width: 100%;*/
+    }
+
+    .calender .calenderHeader .calenderHeaderMonths {
+        padding-bottom: 5px;
+        font-size: 60px;
+        width: 60%;
+        height: 100px;
+        float: left;
+    }
+
+    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsBack {
+        text-align: right;
+        padding-top: 10px;
+        width: 20%;
+        height: 100px;
+        float: left;
+        opacity: 1;
+    }
+
+    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsName {
+        padding-top: 10px;
+        width: 60%;
+        float: right;
+        height: 100px;
+    }
+
+    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsNext {
+        text-align: left;
+        padding-top: 10px;
+        width: 20%;
+        height: 100px;
+        float: right;
+    }
+
+    .calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
+        font-size: 40px;
+        padding-top: 10px;
+        width: 14.2857143%;
+        float: left;
+    }
+
+    tbody {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
 }

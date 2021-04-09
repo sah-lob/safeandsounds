@@ -144,3 +144,22 @@
 .customButtonPullDown a:hover:before {
     height: 110%;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 1299px) {
+    .tourPrice .tourPriceTable .tourPriceTableTd {
+        margin-left: 1%;
+        width: 98%;
+    }
+
+    .tourPrice .tourPriceTable .tourPriceTableTd {
+        font-size: 35px;
+    }
+
+    .tourPrice .tourPriceTable .tourPriceTableTd .tourPriceTableTdName {
+        font-size: 40px;
+    }
+
+    .tourPrice .tourPriceTable .customButton a {
+        font-size: 55px;
+    }
+}
