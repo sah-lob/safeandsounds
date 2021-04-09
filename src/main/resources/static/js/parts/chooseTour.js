@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    $('.has-animation').each(function(index) {
-        $(this).delay($(this).data('delay')).queue(function(){
+$(document).ready(function () {
+    $('.has-animation').each(function (index) {
+        $(this).delay($(this).data('delay')).queue(function () {
             $(this).addClass('animate-in');
         });
     });
@@ -123,8 +123,7 @@ function newTour(tourType) {
         onAjaxSuccess
     );
 
-    function onAjaxSuccess(data)
-    {
+    function onAjaxSuccess(data) {
         alert(data);
         window.location.replace(data);
     }

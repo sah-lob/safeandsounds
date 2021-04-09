@@ -39,13 +39,13 @@ public class CalenderUtil {
                 var daysInMonth1 = cal1.getActualMaximum(Calendar.DAY_OF_MONTH);
                 var weekDay = 0;
                 for (var j = k; j > 0; j--) {
-                    month.addNewDay(addDay(currentMonth, currentYear, weekDay, daysInMonth1, tour));
+                    month.addNewDay(addDay(currentMonth, currentYear, weekDay, daysInMonth1, tour, true));
                     weekDay++;
                 }
                 flag = false;
                 i--;
             } else {
-                month.addNewDay(addDay(currentMonth, currentYear, k, i + 1, tour));
+                month.addNewDay(addDay(currentMonth, currentYear, k, i + 1, tour, false));
                 k++;
             }
         }
@@ -55,7 +55,7 @@ public class CalenderUtil {
             var restDays = 7 - week.getDays().size();
             var count = week.getDays().size();
             for (int i = 0; i < restDays; i++) {
-                week.add(addDay(currentMonth + 1, currentYear,  count, i + 1, tour));
+                week.add(addDay(currentMonth + 1, currentYear,  count, i + 1, tour, false));
                 count++;
             }
         }
@@ -142,7 +142,7 @@ public class CalenderUtil {
     private static Day addDay(int currentMonth,
                               int currentYear,
                               int weekDay,
-                              int dayInMonth, Tour tour) {
+                              int dayInMonth, Tour tour, boolean lastMonth) {
 
         var availableWeekDays = tour.getAvailableWeekDays();
         var nowMonth = Calendar.getInstance().get(Calendar.MONTH);
@@ -151,6 +151,9 @@ public class CalenderUtil {
         var lastDay = false;
         var isToday = false;
         if (nowYear == currentYear && nowMonth == currentMonth) {
+            if (lastMonth) {
+                lastDay = true;
+            }
             if (nowDay > dayInMonth) {
                 lastDay = true;
             }
@@ -159,7 +162,7 @@ public class CalenderUtil {
             }
         }
         var availableWeekDay = false;
-        if(!lastDay && !isToday && availableWeekDays.contains(weekDay)) {
+        if (!lastDay && !isToday && availableWeekDays.contains(weekDay)) {
             availableWeekDay = true;
         }
         return new Day(dayInMonth, weekDay, lastDay, isToday,availableWeekDay, tour.getDuration());
