@@ -1,0 +1,40 @@
+.newOrder {
+    height: 1200px;
+}
+
+.newOrderTable {
+    table-layout: fixed;
+    height: auto;
+    margin: 30px auto;
+    position: relative;
+    width: 60%;
+}
+
+td {
+    vertical-align: middle;
+    padding: 10px;
+    text-align: right;
+    font-size: 25px;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    /*border-right: 2px solid #56433D;*/
+}
+
+.newOrderTable .left {
+    font-weight: 700;
+    text-align: left;
+    color: var(--first-primary-color);
+}
+
+.confirmBtn {
+    table-layout: fixed;
+    font-size: 25px;
+    border-radius: 5px;
+    height: auto;
+    margin: auto;
+    position: relative;
+    width: 60%;
+    text-align: center;
+    color: var(--first-text-color);
+    background-color: var(--first-primary-color);
+}
