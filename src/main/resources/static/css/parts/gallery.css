@@ -61,13 +61,30 @@
     text-align: center;
     line-height: 580px;
     font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, 0.3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+    text-shadow: 0 0 15px rgb(119, 119, 119);
 }
 
-.slide:hover + .nav label { opacity: 0.5; }
+.nav .prev {
+    padding-left: 10px;
+    text-align: left;
+    opacity: 1;
+}
 
-.nav label:hover { opacity: 1; }
+.nav .next {
+    padding-right: 10px;
+    text-align: right;
+    opacity: 1;
+}
+
+.slide:hover + .nav label {
+    opacity: 0.5;
+}
+
+.nav label:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    font-size: 186pt;
+    opacity: 1;
+}
 
 .nav .next { right: 0; }
 

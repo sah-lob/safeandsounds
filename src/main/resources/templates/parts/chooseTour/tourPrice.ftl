@@ -3,7 +3,6 @@
         <table class="tourPriceTable">
             <tr>
                 <td>
-
                     <div class="tourPriceTableTd">
                         <div class="tourPriceTableTdName">
                             Эконом
@@ -41,7 +40,7 @@
                             </div>
                         </div>
                         <div class="customButton customButtonPullDown">
-                            <a>Выбрать</a>
+                            <a onclick="newTour('Эконом')">Выбрать</a>
                         </div>
                     </div>
                 </td>
@@ -83,7 +82,7 @@
                             </div>
                         </div>
                         <div class="customButton customButtonPullDown">
-                            <a>Выбрать</a>
+                            <a onclick="newTour('Премиум')">Выбрать</a>
                         </div>
                     </div>
                 </td>

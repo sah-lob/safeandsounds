@@ -1,5 +1,6 @@
 .pagination {
     display: inline-block;
+    background-color: #bb2b2b;
 }
 
 .pagination a {
@@ -9,8 +10,12 @@
     text-decoration: none;
 }
 
+.page-item {
+    background-color: red;
+}
+
 .pagination a.active {
-    background-color: dimgray;
+    background-color: #bb2b2b;
     color: white;
 }
 

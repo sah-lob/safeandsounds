@@ -144,7 +144,7 @@
 
 .calenderTableCard {
     display: none;
-    padding: 10px 0px;
+    padding: 10px 0;
     margin-top: 17px;
     background: #f3f3f3;
     text-align: center;
@@ -269,19 +269,11 @@
         float: left;
     }
 
-
-
-
-
-
-
     .calender .calenderHeader .calenderHeaderYear {
         font-size: 60px;
-        /*background-color: red;*/
         float: right;
         width: 40%;
         height: 100px;
-        /*width: 100%;*/
     }
 
     .calender .calenderHeader .calenderHeaderMonths {
@@ -329,4 +321,10 @@
 }
 
 @media only screen and (min-width: 1300px) {
+    .calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
+        font-size: 30px;
+        padding-top: 10px;
+        width: 14.2857143%;
+        float: left;
+    }
 }

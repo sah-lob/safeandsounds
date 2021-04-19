@@ -38,8 +38,8 @@ ul {
 }
 
 .post-module:hover {
-    -webkit-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 5px 5px 3px -3px rgba(50, 50, 50, 0.1), 3px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,7 +85,7 @@ ul {
 .post-module .post-content .title {
     margin: 0;
     padding: 0 0 10px;
-    color: #004369;
+    color: var(--first-primary-color);
     /*font-size: 75px;*/
     font-weight: 700;
 }
@@ -106,15 +106,13 @@ ul {
 }
 
 .post-module .post-content .tourBtn {
-    background-color: #01949A;
-    font-color: #DB1F48;
+    background-color: var(--first-primary-color);
     width: 100%;
 }
 
 .post-module .post-content .post-footer {
     float: left;
     width: 100%;
-    /*height: 100px;*/
     text-align: left;
     color: #999999;
 }
@@ -225,6 +223,9 @@ ul {
     }
 
     .post-module .post-content .tourBtn {
-        font-size: 15px;
+        padding-top: 12px;
+        font-size: 35px;
+        border-radius: 4px;
+        height: 50px;
     }
 }

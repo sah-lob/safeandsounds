@@ -14,14 +14,18 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.sahlob.db.DBFileStorageService;
 import ru.sahlob.db.DBImagesRepository;
 import ru.sahlob.db.DBLogosRepository;
+import ru.sahlob.db.DBToursRepository;
 import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.InputOrder;
 import ru.sahlob.persistance.InputTour;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.service.CalenderUtil;
+import ru.sahlob.service.GenerateImageUtil;
+import ru.sahlob.service.GenerateTestTours;
 import ru.sahlob.storage.TourStorage;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,12 +36,19 @@ public class MainController {
 
     private final DBImagesRepository dbImagesRepository;
     private final DBLogosRepository dbLogosRepository;
+    private final DBToursRepository dbToursRepository;
     private final TourStorage tourStorage;
     private final DBFileStorageService dbFileStorageService;
 
     @GetMapping(value = "/")
     public String index(Model model,
-                        @PageableDefault(sort = {"coolness"}, direction = Sort.Direction.DESC) Pageable pageable) {
+                        @PageableDefault(
+                                sort = {"coolness"},
+                                direction = Sort.Direction.DESC)
+                                Pageable pageable,
+                        HttpSession session) {
+        String sessionId = session.getId();
+        System.out.println("[session-id]: " + sessionId);
         model.addAttribute("page", tourStorage.findTours(pageable));
         model.addAttribute("url", "/");
         return "index";
@@ -81,6 +92,26 @@ public class MainController {
     @ResponseBody
     public void newTour(InputTour inputTour) throws IOException {
         tourStorage.addTour(inputTour);
+    }
+
+    @GetMapping(value = "/security/testingPage")
+    public String testingPage() {
+        return "security/testingPage";
+    }
+
+    @PostMapping("/security/testingPage")
+    @ResponseBody
+    public void generateTours(@RequestParam int numOfGeneratingTours) {
+        for (int i = 0; i < numOfGeneratingTours; i++) {
+            var tour = GenerateTestTours.generateTours();
+            for (int j = 0; j < 5; j++) {
+                var image = GenerateImageUtil.convertByteToImage(
+                        GenerateImageUtil.generateRandomImage());
+                dbImagesRepository.save(image);
+                tour.addNewImageId(image.getId());
+            }
+            dbToursRepository.save(tour);
+        }
     }
 
     @PostMapping("/")
