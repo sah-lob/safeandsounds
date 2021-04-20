@@ -1,4 +1,4 @@
-package ru.sahlob.db;
+package ru.sahlob.db.interfaces;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

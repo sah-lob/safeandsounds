@@ -38,7 +38,7 @@ public class GenerateImageUtil {
         }
 
 
-        BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        var image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         for (int i = 0; i < w / wCount; i++) {
             for (int j = 0; j < h / hCount; j++) {
                 fillOneReact(image, i * wCount, j * hCount, wCount, hCount);
@@ -54,7 +54,7 @@ public class GenerateImageUtil {
     }
 
     private static Color getRandomRGB() {
-        var random = new Random(); // Probably really put this somewhere where it gets executed only once
+        var random = new Random();
         var red = random.nextInt(256);
         var green = random.nextInt(256);
         var blue = random.nextInt(256);

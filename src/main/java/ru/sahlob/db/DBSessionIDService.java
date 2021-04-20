@@ -2,6 +2,7 @@ package ru.sahlob.db;
 
 import lombok.Data;
 import org.springframework.stereotype.Service;
+import ru.sahlob.db.interfaces.DBSessionIdRepository;
 import ru.sahlob.persistance.sessionid.SessionId;
 
 import java.util.Calendar;

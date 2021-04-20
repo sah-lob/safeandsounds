@@ -161,10 +161,7 @@ public class CalenderUtil {
                 isToday = true;
             }
         }
-        var availableWeekDay = false;
-        if (!lastDay && !isToday && availableWeekDays.contains(weekDay)) {
-            availableWeekDay = true;
-        }
+        var availableWeekDay = !lastDay && !isToday && availableWeekDays.contains(weekDay);
         return new Day(dayInMonth, weekDay, lastDay, isToday,availableWeekDay, tour.getDuration());
     }
 }

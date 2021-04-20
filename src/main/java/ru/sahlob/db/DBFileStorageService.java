@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.persistance.Logo;
 
 import java.io.IOException;

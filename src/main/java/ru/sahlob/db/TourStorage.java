@@ -1,11 +1,11 @@
-package ru.sahlob.storage;
+package ru.sahlob.db;
 
 import lombok.Data;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import ru.sahlob.db.DBImagesRepository;
-import ru.sahlob.db.DBToursRepository;
+import ru.sahlob.db.interfaces.DBImagesRepository;
+import ru.sahlob.db.interfaces.DBToursRepository;
 import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.InputTour;
 import ru.sahlob.persistance.tour.Tour;
