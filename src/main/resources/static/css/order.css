@@ -37,3 +37,398 @@ td {
     color: var(--first-text-color);
     background-color: var(--first-primary-color);
 }
+
+.reveal-if-active {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.communication {
+    float: left;
+    width: 100%;
+}
+
+.communicationMethod {
+    float: left;
+    width: 20%;
+    color: var(--first-text-color);
+    height: 100px;
+}
+
+.communicationMethod .communicationMethod1 {
+    width: 100%;
+    height: 100%;
+}
+
+.communicationMethod .communicationMethod2 {
+    width: 100%;
+    height: 100%;
+}
+
+.communicationMethod .communicationMethod3 {
+    width: 100%;
+    height: 100%;
+}
+
+.communicationMethod .communicationMethod4 {
+    width: 100%;
+    height: 100%;
+}
+
+.communicationMethod .communicationMethod5 {
+    width: 100%;
+    height: 100%;
+}
+
+.w2communicationMethod1 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #43d854;
+}
+
+.w2communicationMethod2 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #08c;
+}
+
+.w2communicationMethod3 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #C13584;
+}
+
+.w2communicationMethod4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+
+.w2communicationMethod5 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: darksalmon;
+}
+
+.w2communicationMethod1 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.w2communicationMethod2 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.w2communicationMethod3 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.w2communicationMethod4 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.w2communicationMethod5 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.s2communicationMethod1 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #43d854;
+}
+
+.s2communicationMethod2 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #08c;
+}
+
+.s2communicationMethod3 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: #C13584;
+}
+
+.s2communicationMethod4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+
+.s2communicationMethod5 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: darksalmon;
+}
+
+.s2communicationMethod1 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.s2communicationMethod2 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.s2communicationMethod3 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.s2communicationMethod4 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.s2communicationMethod5 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.forceField {
+    color: var(--first-text-color);
+    float: left;
+    width: 100%;
+    text-align: center;
+    background-color: var(--first-primary-color);
+}
+
+.communicationName {
+    float: left;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+
+/*whatsapp*/
+.whatsappForceField {
+    background-color: #43d854;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+.whatsappForceField .whatsappTitle {
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;
+    float: left;
+}
+
+.whatsAppCheckboxPlace {
+    float: left;
+}
+
+span {
+    float: left;
+}
+
+.whatsAppPhonePlace {
+    float: left;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+}
+
+.whatsAppPhonePlace img {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+.whatsAppPhonePlace form {
+    float: right;
+    width: calc(100% - 48px);
+}
+
+.whatsAppPhonePlace form input {
+    color: black;
+    float: left;
+    width: 100%;
+}
+
+input:checked ~ .whatsAppPhonePlace {
+    opacity: 1;
+    height: 100%;
+}
+
+
+/*telegram*/
+.telegramForceField {
+    background-color: #08c;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+.telegramForceField .telegramTitle {
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;
+    float: left;
+}
+
+.telegramCheckboxPlace {
+    float: left;
+}
+
+span {
+    float: left;
+}
+
+.telegramPhonePlace {
+    float: left;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+}
+
+.telegramPhonePlace form {
+    float: left;
+    width: 100%;
+}
+
+.telegramPhonePlace form input {
+    color: black;
+    float: left;
+    width: 100%;
+}
+
+input:checked ~ .telegramPhonePlace {
+    opacity: 1;
+    height: 100%;
+}
+
+
+/*instagram*/
+.instagramForceField {
+    background-color: #C13584;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+.instagramForceField .instagramTitle {
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;
+    float: left;
+}
+
+.instagramForceField .instagramAccountNamePlace {
+    float: left;
+    width: 100%;
+    text-align: left;
+}
+
+.instagramAccountNamePlace form {
+    float: left;
+    width: 100%;
+}
+
+.instagramAccountNamePlace form input {
+    color: black;
+    float: left;
+    width: 100%;
+}
+
+
+/*phone*/
+.phoneForceField {
+    background-color: gray;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+.phoneCheckboxPlace {
+    float: left;
+}
+
+span {
+    float: left;
+}
+
+.phonePhonePlace {
+    float: left;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+}
+
+.phonePhonePlace form {
+    float: left;
+    width: 100%;
+}
+
+.phonePhonePlace form input {
+    color: black;
+    float: left;
+    width: 100%;
+}
+
+input:checked ~ .phonePhonePlace {
+    text-align: left;
+    opacity: 1;
+    height: 100%;
+}
+
+.emailForceField {
+    background-color: darksalmon;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+.emailForceField .emailTitle {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
