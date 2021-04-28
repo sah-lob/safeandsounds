@@ -2,8 +2,8 @@ package ru.sahlob.db.interfaces;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ru.sahlob.persistance.Logo;
+import ru.sahlob.persistance.Order;
 
 @Repository
-public interface DBLogosRepository extends CrudRepository<Logo, Integer> {
+public interface DBOrdersRepository extends CrudRepository<Order, Integer> {
 }

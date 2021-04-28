@@ -108,23 +108,8 @@ function addData(data) {
 }
 
 function newTour(tourType) {
-    alert(tourType);
     let tourDate = document.getElementById("tourPriceTableTdDataName3").innerText;
-    alert(tourDate);
     let tourId = location.search.split('id=')[1]
-    alert(tourId);
-    $.post(
-        "/newOrder",
-        {
-            tourType: tourType,
-            tourDate: tourDate,
-            tourId: tourId
-        },
-        onAjaxSuccess
-    );
-
-    function onAjaxSuccess(data) {
-        alert(data);
-        window.location.replace(data);
-    }
+    let path = '/order?tourId=' + tourId + '&tourDate=' + tourDate + '&tourType=' + tourType;
+    window.location.replace(path);
 }

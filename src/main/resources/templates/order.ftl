@@ -37,7 +37,9 @@
                     Введите ваше имя:
                 </td>
                 <td>
-                    Александр
+                    <form>
+                        <input type="search">
+                    </form>
                 </td>
             </tr>
             <tr>
@@ -45,7 +47,9 @@
                     Введите ваш номер телефона:
                 </td>
                 <td>
-                    Александр
+                    <form>
+                        <input type="search">
+                    </form>
                 </td>
             </tr>
             <tr>
@@ -53,7 +57,9 @@
                     Введите ваш email:
                 </td>
                 <td>
-                    Александр
+                    <form>
+                        <input type="search">
+                    </form>
                 </td>
             </tr>
             <tr>

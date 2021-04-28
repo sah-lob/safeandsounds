@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import ru.sahlob.db.DBFileStorageService;
+import ru.sahlob.db.DBOrdersStorage;
 import ru.sahlob.db.TourStorage;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
-import ru.sahlob.persistance.InputOrder;
+import ru.sahlob.persistance.Order;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.service.CalenderUtil;
@@ -33,6 +34,7 @@ public class MainController {
     private final DBLogosRepository dbLogosRepository;
     private final DBToursRepository dbToursRepository;
     private final TourStorage tourStorage;
+    private final DBOrdersStorage dbOrdersStorage;
     private final DBFileStorageService dbFileStorageService;
 
     @GetMapping(value = "/")
@@ -99,18 +101,12 @@ public class MainController {
         return image.getData();
     }
 
-
-    @PostMapping("/newOrder")
-    @ResponseBody
-    public String newOrder(InputOrder inputOrder) {
-        return "/order?tourId=" + inputOrder.getTourId() + "&tourDate=" + inputOrder.getTourDate() + "&tourType=" + inputOrder.getTourType();
-    }
-
     @GetMapping(value = "/order")
-    public String order(InputOrder inputOrder, Model model) {
-        model.addAttribute("id", inputOrder.getTourId());
-        model.addAttribute("date", inputOrder.getTourDate());
-        model.addAttribute("type", inputOrder.getTourType());
+    public String order(Order order, Model model) {
+        dbOrdersStorage.saveOrder(order);
+        model.addAttribute("id", order.getTourId());
+        model.addAttribute("date", order.getTourDate());
+        model.addAttribute("type", order.getTourType());
         return "order";
     }
 }
