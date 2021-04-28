@@ -14,6 +14,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String uuid;
     private String tourType;
     private String tourDate;
     private int tourId;

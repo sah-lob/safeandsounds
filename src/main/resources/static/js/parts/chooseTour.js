@@ -110,6 +110,18 @@ function addData(data) {
 function newTour(tourType) {
     let tourDate = document.getElementById("tourPriceTableTdDataName3").innerText;
     let tourId = location.search.split('id=')[1]
-    let path = '/order?tourId=' + tourId + '&tourDate=' + tourDate + '&tourType=' + tourType;
-    window.location.replace(path);
+    $.post(
+        "/newOrder",
+        {
+            tourType: tourType,
+            tourDate: tourDate,
+            tourId: tourId
+        },
+        onAjaxSuccess
+    );
+
+    function onAjaxSuccess(data) {
+        alert(data);
+        window.location.replace(data);
+    }
 }

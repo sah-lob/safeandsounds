@@ -21,10 +21,12 @@ import ru.sahlob.persistance.Order;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.service.CalenderUtil;
+import ru.sahlob.service.ServiceUtil;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.UUID;
 
 @Controller
 @Data
@@ -101,10 +103,24 @@ public class MainController {
         return image.getData();
     }
 
-    @GetMapping(value = "/order")
-    public String order(Order order, Model model) {
+
+    @PostMapping("/newOrder")
+    @ResponseBody
+    public String newOrder(Order order) {
         dbOrdersStorage.saveOrder(order);
-        model.addAttribute("id", order.getTourId());
+        var uuid = ServiceUtil.getRandomUuid();
+        while (dbOrdersStorage.getOrderByUuid(uuid) != null) {
+            uuid = ServiceUtil.getRandomUuid();
+        }
+        order.setUuid(uuid);
+        return "/order?orderId=" + order.getUuid();
+    }
+
+
+    @GetMapping(value = "/order")
+    public String order(@RequestParam String orderId, Model model) {
+        var order = dbOrdersStorage.getOrderByUuid(orderId);
+        model.addAttribute("id", order.getId());
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
         return "order";

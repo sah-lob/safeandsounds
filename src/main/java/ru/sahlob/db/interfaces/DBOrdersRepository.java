@@ -6,4 +6,6 @@ import ru.sahlob.persistance.Order;
 
 @Repository
 public interface DBOrdersRepository extends CrudRepository<Order, Integer> {
+
+    Order findByUuid(String uuid);
 }

@@ -18,4 +18,8 @@ public class DBOrdersStorage {
     public Order getOrderById(int id) {
         return dbOrdersRepository.findById(id).get();
     }
+
+    public Order getOrderByUuid (String uuid) {
+        return dbOrdersRepository.findByUuid(uuid);
+    }
 }
