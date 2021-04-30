@@ -19,7 +19,7 @@ function selectCommunicationMethod(tourType) {
 }
 
 function setPassiveCommunicationMethod(num) {
-    let passiveCommunicationMethod = '<div class="s2communicationMethod' + num + '">\n' +
+    let passiveCommunicationMethod = '<div class="s2communicationMethod' + num + '" id="s2communicationMethod' + num + '">\n' +
         '                                <a onclick="selectCommunicationMethod(' + num + ')">\n' +
         getImgPath(num) +
         '                                </a>\n' +
@@ -28,7 +28,7 @@ function setPassiveCommunicationMethod(num) {
 }
 
 function setActiveCommunicationMethod(num) {
-    let mes = '<div class="w2communicationMethod' + num + '">\n' +
+    let mes = '<div class="w2communicationMethod' + num + '" id="w2communicationMethod' + num + '">\n' +
         getImgPath(num) +
         '     </div>';
     setForceField(num);
@@ -91,12 +91,12 @@ function setWhatsAppForceField() {
         '                                Your whatsApp phone number\n' +
         '                            </div>\n' +
         '                            <div class="whatsappSameCheck">\n' +
-        '                                <input type="checkbox" name="a4" class="whatsAppCheckboxPlace"><span>Different phone number</span><br>\n' +
+        '                                <input type="checkbox" name="a4" class="whatsAppCheckboxPlace" id="whatsAppCheckboxPlace"><span>Different phone number</span><br>\n' +
         '                                <div class="whatsAppPhonePlace">\n' +
-        '<img src="img/iphone.png" alt="e">' +
-        '<form>\n' +
-        '  <input type="search">\n' +
-        '</form>' +
+        '                                   <img src="img/iphone.png" alt="e">' +
+        '                                   <form>\n' +
+        '                                       <input type="search" id="whatsAppNewPhone">\n' +
+        '                                   </form>' +
         '                                </div>\n' +
         '                            </div>\n' +
         '                        </div>';
@@ -108,10 +108,10 @@ function setTelegramForceField() {
         '                                Your telegram phone number\n' +
         '                            </div>\n' +
         '                            <div class="telegramSameCheck">\n' +
-        '                                <input type="checkbox" name="a4" class="telegramCheckboxPlace"><span>Different phone number</span><br>\n' +
+        '                                <input type="checkbox" name="a4" class="telegramCheckboxPlace" id="telegramCheckboxPlace"><span>Different phone number</span><br>\n' +
         '                                <div class="telegramPhonePlace">\n' +
         '<form>\n' +
-        '  <input type="search">\n' +
+        '  <input type="search" id="telegramNewPhone">\n' +
         '</form>' +
         '                                </div>\n' +
         '                            </div>\n' +
@@ -125,7 +125,7 @@ function setInstagramForceField() {
         '                            </div>\n' +
         '                            <div class="instagramAccountNamePlace">\n' +
         '<form>\n' +
-        '  <input type="search">\n' +
+        '  <input type="search" id="instagramAccountNewName">\n' +
         '</form>' +
         '                            </div>\n' +
         '                        </div>'
@@ -135,10 +135,10 @@ function setPhoneForceField() {
     return '<div class="phoneForceField" id="forceField">\n' +
         '                            <div class="phoneSameCheck">\n' +
         '                                <input type="checkbox" name="a4"\n' +
-        '                                       class="phoneCheckboxPlace"><span>Different phone number</span><br>\n' +
+        '                                       class="phoneCheckboxPlace" id="phoneCheckboxPlace"><span>Different phone number</span><br>\n' +
         '                                <div class="phonePhonePlace">\n' +
         '<form>\n' +
-        '  <input type="search">\n' +
+        '  <input type="search" id="phoneNewPhone">\n' +
         '</form>' +
         '                                </div>\n' +
         '                            </div>\n' +
@@ -153,3 +153,50 @@ function setEmailForceField() {
         '                        </div>'
 }
 
+function confirmOrder() {
+    let orderID = document.getElementById("orderID").innerText;
+    let orderDate = document.getElementById("orderDate").innerText;
+    let orderType = document.getElementById("orderType").innerText;
+    let orderUserName = document.getElementById('orderUserName').value
+    let orderUserPhone = document.getElementById('orderUserPhone').value
+    let orderUserEmail = document.getElementById(']').value
+    let communicationMethodNum = getCommunicationMethod();
+    let communicationMethodAdditionalValue = getCommunicationMethodAdditionalValue(communicationMethodNum);
+    alert(communicationMethodAdditionalValue);
+}
+
+function getCommunicationMethod() {
+    let communicationMethodNum = -1;
+    if (document.getElementById("w2communicationMethod1") !== null) {
+        communicationMethodNum = 1;
+    } else if (document.getElementById("w2communicationMethod2") !== null) {
+        communicationMethodNum = 2;
+    } else if (document.getElementById("w2communicationMethod3") !== null) {
+        communicationMethodNum = 3;
+    } else if (document.getElementById("w2communicationMethod4") !== null) {
+        communicationMethodNum = 4;
+    } else if (document.getElementById("w2communicationMethod5") !== null) {
+        communicationMethodNum = 5;
+    }
+    return communicationMethodNum;
+}
+
+function getCommunicationMethodAdditionalValue(communicationMethodNum) {
+    let communicationMethodAdditionalValue = "no additional value";
+    if (communicationMethodNum === 1) {
+        if (document.getElementById('whatsAppCheckboxPlace').checked) {
+            communicationMethodAdditionalValue = document.getElementById('whatsAppNewPhone').value;
+        }
+    } else if (communicationMethodNum === 2) {
+        if (document.getElementById('telegramCheckboxPlace').checked) {
+            communicationMethodAdditionalValue = document.getElementById('telegramNewPhone').value;
+        }
+    } else if (communicationMethodNum === 3) {
+        communicationMethodAdditionalValue = document.getElementById('instagramAccountNewName').value;
+    } else if (communicationMethodNum === 4) {
+        if (document.getElementById('phoneCheckboxPlace').checked) {
+            communicationMethodAdditionalValue = document.getElementById('phoneNewPhone').value;
+        }
+    }
+    return communicationMethodAdditionalValue;
+}

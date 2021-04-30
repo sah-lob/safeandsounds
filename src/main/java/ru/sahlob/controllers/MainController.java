@@ -17,8 +17,8 @@ import ru.sahlob.db.TourStorage;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
-import ru.sahlob.persistance.Order;
 import ru.sahlob.persistance.Logo;
+import ru.sahlob.persistance.Order;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.service.CalenderUtil;
 import ru.sahlob.service.ServiceUtil;
@@ -26,7 +26,6 @@ import ru.sahlob.service.ServiceUtil;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.UUID;
 
 @Controller
 @Data

@@ -12,7 +12,7 @@
                 <td class="left">
                     Номер заказа
                 </td>
-                <td>
+                <td id="orderID">
                     ${id}
                 </td>
             </tr>
@@ -20,7 +20,7 @@
                 <td class="left">
                     Дата
                 </td>
-                <td>
+                <td id="orderDate">
                     ${date}
                 </td>
             </tr>
@@ -28,7 +28,7 @@
                 <td class="left">
                     Тип
                 </td>
-                <td>
+                <td id="orderType">
                     ${type}
                 </td>
             </tr>
@@ -38,7 +38,7 @@
                 </td>
                 <td>
                     <form>
-                        <input type="search">
+                        <input type="search" id="orderUserName">
                     </form>
                 </td>
             </tr>
@@ -48,7 +48,7 @@
                 </td>
                 <td>
                     <form>
-                        <input type="search">
+                        <input type="search" id="orderUserPhone">
                     </form>
                 </td>
             </tr>
@@ -58,7 +58,7 @@
                 </td>
                 <td>
                     <form>
-                        <input type="search">
+                        <input type="search" id="orderUserEmail">
                     </form>
                 </td>
             </tr>
@@ -67,13 +67,13 @@
                     Предпочтительный способ связи:
                 </td>
                 <td>
-                    <div class="communication">
+                    <div class="communication" id="communication">
                         <div class="communicationName" id="communicationName">
                             Предпочтительный способ связи
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod1" id="communicationMethod1">
-                                <div class="s2communicationMethod1">
+                                <div class="s2communicationMethod1" id="s2communicationMethod1">
                                     <a onclick="selectCommunicationMethod(1)">
                                         <img src="img/callbackB.png" alt="e">
                                     </a>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod2" id="communicationMethod2">
-                                <div class="s2communicationMethod2">
+                                <div class="s2communicationMethod2" id="s2communicationMethod2">
                                     <a onclick="selectCommunicationMethod(2)">
                                         <img src="img/callbackB.png" alt="e">
                                     </a>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod3" id="communicationMethod3">
-                                <div class="s2communicationMethod3">
+                                <div class="s2communicationMethod3" id="s2communicationMethod3">
                                     <a onclick="selectCommunicationMethod(3)">
                                         <img src="img/callbackB.png" alt="e">
                                     </a>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod4" id="communicationMethod4">
-                                <div class="s2communicationMethod4">
+                                <div class="s2communicationMethod4" id="s2communicationMethod4">
                                     <a onclick="selectCommunicationMethod(4)">
                                         <img src="img/callbackB.png" alt="e">
                                     </a>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod5" id="communicationMethod5">
-                                <div class="s2communicationMethod5">
+                                <div class="s2communicationMethod5" id="s2communicationMethod5">
                                     <a onclick="selectCommunicationMethod(5)">
                                         <img src="img/callbackB.png" alt="e">
                                     </a>
@@ -123,8 +123,10 @@
                 </td>
             </tr>
         </table>
-        <div class="confirmBtn">
-            Забронировать
-        </div>
+        <a onclick="confirmOrder()">
+            <div class="confirmBtn">
+                Забронировать
+            </div>
+        </a>
     </div>
 </@c.page>
