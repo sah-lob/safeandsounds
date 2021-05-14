@@ -13,7 +13,7 @@ import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
 import ru.sahlob.persistance.Image;
-import ru.sahlob.persistance.InputTour;
+import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.service.GenerateImageUtil;
 import ru.sahlob.service.GenerateTestTours;
 

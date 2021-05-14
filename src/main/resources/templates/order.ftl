@@ -122,6 +122,17 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <td class="left">
+                    Ваш комментарий:
+                </td>
+                <td>
+                    <div class="content">
+                    <textarea id="orderUserComment" name="smallDescription" rows="5" cols="45" placeholder="Введите ваш комментарий тут"
+                              name="text"></textarea>
+                    </div>
+                </td>
+            </tr>
         </table>
         <a onclick="confirmOrder()">
             <div class="confirmBtn">

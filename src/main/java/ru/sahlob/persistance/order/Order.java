@@ -1,4 +1,4 @@
-package ru.sahlob.persistance;
+package ru.sahlob.persistance.order;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,4 +16,10 @@ public class Order {
     private String uuid;
     private String tourType;
     private String tourDate;
+    private String tourName;
+    private Integer tourPrice;
+    private String comment;
+    private int tourId;
+    private OrderStatus orderStatus = OrderStatus.created;
+    private PerformCommunicationMethod performCommunicationMethod;
 }

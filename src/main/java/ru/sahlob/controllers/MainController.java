@@ -17,9 +17,12 @@ import ru.sahlob.db.TourStorage;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
+import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.persistance.Logo;
-import ru.sahlob.persistance.Order;
+import ru.sahlob.persistance.order.InputOrder;
+import ru.sahlob.persistance.order.Order;
 import ru.sahlob.persistance.calender.CalenderAnswer;
+import ru.sahlob.persistance.order.utils.InputTourUtils;
 import ru.sahlob.service.CalenderUtil;
 import ru.sahlob.service.ServiceUtil;
 
@@ -37,6 +40,7 @@ public class MainController {
     private final TourStorage tourStorage;
     private final DBOrdersStorage dbOrdersStorage;
     private final DBFileStorageService dbFileStorageService;
+    private final DBUsersStorage dbUsersStorage;
 
     @GetMapping(value = "/")
     public String index(Model model,
@@ -123,5 +127,20 @@ public class MainController {
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
         return "order";
+    }
+
+    @PostMapping(value = "/confirmNewOrder")
+    @ResponseBody
+    public String confirmNewOrder(InputOrder inputOrder) {
+        var order = dbOrdersStorage.getOrderById(inputOrder.getOrderID());
+        var client = dbUsersStorage.getClientByPhoneOrEmail(inputOrder.getClientPhone(), inputOrder.getClientEmail());
+        if (client == null) {
+            client = dbUsersStorage.addNewUser(inputOrder);
+        }
+        InputTourUtils.addAdditionalInfo(client, order, inputOrder);
+        order.setComment(inputOrder.getComment());
+        dbUsersStorage.saveUser(client);
+        dbOrdersStorage.saveOrder(order);
+        return "/order";
     }
 }

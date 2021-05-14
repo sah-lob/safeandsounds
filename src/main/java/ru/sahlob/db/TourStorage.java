@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
 import ru.sahlob.persistance.Image;
-import ru.sahlob.persistance.InputTour;
+import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.persistance.tour.Tour;
 
 import java.io.IOException;

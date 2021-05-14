@@ -3,7 +3,7 @@ package ru.sahlob.db;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 import ru.sahlob.db.interfaces.DBOrdersRepository;
-import ru.sahlob.persistance.Order;
+import ru.sahlob.persistance.order.Order;
 
 @Data
 @Component
@@ -19,7 +19,7 @@ public class DBOrdersStorage {
         return dbOrdersRepository.findById(id).get();
     }
 
-    public Order getOrderByUuid (String uuid) {
+    public Order getOrderByUuid(String uuid) {
         return dbOrdersRepository.findByUuid(uuid);
     }
 }

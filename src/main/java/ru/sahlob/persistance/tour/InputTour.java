@@ -1,4 +1,4 @@
-package ru.sahlob.persistance;
+package ru.sahlob.persistance.tour;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
