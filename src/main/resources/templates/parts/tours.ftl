@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="post-footer">
                                     <div class="price">
-                                        ${tour.price} $
+                                        ${tour.economyPrice} $
                                     </div>
                                     <div class="duration">
                                         ${tour.duration}

@@ -34,6 +34,14 @@
             </tr>
             <tr>
                 <td class="left">
+                    Стоимость
+                </td>
+                <td id="orderType">
+                    ${price}
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
                     Введите ваше имя:
                 </td>
                 <td>

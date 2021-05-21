@@ -28,7 +28,9 @@ public class TourStorage {
                         image.getId(),
                         inputTour.getName(),
                         inputTour.getDescription(),
-                        inputTour.getPrice(),
+                        inputTour.getPrice1(),
+                        inputTour.getPrice2(),
+                        inputTour.getPrice3(),
                         inputTour.getCoolness(),
                         getAvailableWeekDays(inputTour),
                         inputTour.getDuration()));

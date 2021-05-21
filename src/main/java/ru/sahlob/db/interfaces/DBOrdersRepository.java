@@ -8,4 +8,6 @@ import ru.sahlob.persistance.order.Order;
 public interface DBOrdersRepository extends CrudRepository<Order, Integer> {
 
     Order findByUuid(String uuid);
+
+    Order findByUuid2(String uuid2);
 }

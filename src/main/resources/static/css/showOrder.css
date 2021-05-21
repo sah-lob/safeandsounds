@@ -1,0 +1,131 @@
+.showOrder {
+    padding-top: 40px;
+    float: left;
+    width: 100%;
+}
+
+.showOrder .soBody {
+    float: left;
+    margin-left: 10%;
+    width: 80%;
+    position: relative;
+    min-height: 1000px;
+    height: 100%;
+}
+
+.showOrder .orderPhoto {
+    height: 920px;
+    width: 100%;
+    background-color: #2f2f2f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.showOrder .orderPhoto img {
+    min-width: auto;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.showOrder .orderPaper {
+    float: left;
+    height: 1000px;
+    width: 80%;
+    padding: 35px;
+    background-color: white;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+    left: 20%;
+}
+
+hr {
+    /*margin-left: 2%;*/
+    /*margin-right: 2%;*/
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: black;
+    height: 1px;
+}
+
+/*Order paper header*/
+
+.showOrder .orderPaper .orderPaperHeader {
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 50px;
+}
+
+.showOrder .orderPaper .orderPaperHeader .orderPaperHeaderNameDear {
+    font-size: 50px;
+    position: relative;
+    float: left;
+    width: 70%;
+}
+
+.showOrder .orderPaper .orderPaperHeader .orderPaperHeaderOrderNum {
+    padding: 15px;
+    font-size: 30px;
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+
+/*Order paper body*/
+
+.showOrder .orderPaper .orderPaperBody {
+    width: 100%;
+    float: left;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyName {
+    width: 100%;
+    float: left;
+    font-size: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyParam {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    width: 100%;
+    font-size: 27px;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyLeftParam {
+    float: left;
+    width: 67%;
+    text-align: left;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyRightParam {
+    float: left;
+    width: 33%;
+    text-align: left;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyEmail {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+    font-size: 25px;
+}
+
+.showOrder .orderPaper .orderPaperBody .orderPaperBodyPrice {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+    padding-left: 30px;
+    font-size: 40px;
+}

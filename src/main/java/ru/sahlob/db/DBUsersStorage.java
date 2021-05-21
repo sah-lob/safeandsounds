@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.sahlob.db.interfaces.DBUsersRepository;
 import ru.sahlob.persistance.client.Client;
 import ru.sahlob.persistance.order.InputOrder;
+import ru.sahlob.service.ServiceUtil;
 
 @Service
 @Data
@@ -14,7 +15,7 @@ public class DBUsersStorage {
 
 
     public Client saveUser(Client client) {
-       return dbUsersRepository.save(client);
+        return dbUsersRepository.save(client);
     }
 
     public Client addNewUser(InputOrder inputOrder) {
@@ -23,6 +24,7 @@ public class DBUsersStorage {
                 inputOrder.getClientName(),
                 inputOrder.getClientPhone(),
                 inputOrder.getClientEmail());
+        client.setUuid(ServiceUtil.getRandomUuid());
         return dbUsersRepository.save(client);
     }
 
@@ -36,6 +38,10 @@ public class DBUsersStorage {
         return dbUsersRepository.findById(id).get();
     }
 
+    public Client getClientByUuid(String uuid) {
+        return dbUsersRepository.findByUuid(uuid);
+    }
+
     public Client getClientByPhone(String phone) {
         return dbUsersRepository.findByPhone(phone);
     }
@@ -43,14 +49,4 @@ public class DBUsersStorage {
     public Client getClientByEmail(String email) {
         return dbUsersRepository.findByEmail(email);
     }
-
-//    private void addAdditionalInfoToClientFromOrderAndInputOrder(Client client, InputOrder inputOrder, Order order) {
-//        var additionalInfo = inputOrder.getCommunicationMethodAdditionalValue();
-//        if (!additionalInfo.isEmpty()) {
-//            var communicationMethod = order.getPerformCommunicationMethod();
-//            if (communicationMethod == PerformCommunicationMethod.telegram) {
-//                client.setTelegramPhone(additionalInfo);
-//            }
-//        }
-//    }
 }

@@ -12,7 +12,9 @@ public class InputTour {
     private String smallDescription;
     private String description;
     private String duration;
-    private Integer price;
+    private Integer price1;
+    private Integer price2;
+    private Integer price3;
     private String monday;
     private String tuesday;
     private String wednesday;

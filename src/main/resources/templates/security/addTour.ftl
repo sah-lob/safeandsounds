@@ -53,11 +53,31 @@
 
             <div class="nameContentForm">
                 <div class="name">
-                    Цена
+                    Цена эконом
                 </div>
                 <div class="content">
-                    <input type="text" class="form-control" name="price" onkeyup='this.value=parseInt(this.value) | 0'
-                           placeholder="Цена">
+                    <input type="text" class="form-control" name="price1" onkeyup='this.value=parseInt(this.value) | 0'
+                           placeholder="Цена эконом">
+                </div>
+            </div>
+
+            <div class="nameContentForm">
+                <div class="name">
+                    Цена премиум
+                </div>
+                <div class="content">
+                    <input type="text" class="form-control" name="price2" onkeyup='this.value=parseInt(this.value) | 0'
+                           placeholder="Цена премиум">
+                </div>
+            </div>
+
+            <div class="nameContentForm">
+                <div class="name">
+                    Цена групповая
+                </div>
+                <div class="content">
+                    <input type="text" class="form-control" name="price3" onkeyup='this.value=parseInt(this.value) | 0'
+                           placeholder="Цена групповая">
                 </div>
             </div>
 

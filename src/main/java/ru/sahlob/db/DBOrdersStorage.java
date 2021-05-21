@@ -22,4 +22,8 @@ public class DBOrdersStorage {
     public Order getOrderByUuid(String uuid) {
         return dbOrdersRepository.findByUuid(uuid);
     }
+
+    public Order getOrderByUuid2(String uuid) {
+        return dbOrdersRepository.findByUuid2(uuid);
+    }
 }

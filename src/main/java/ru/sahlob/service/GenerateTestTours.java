@@ -1,7 +1,9 @@
 package ru.sahlob.service;
 
+import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.persistance.tour.Tour;
 
+import java.util.HashSet;
 import java.util.Random;
 
 public class GenerateTestTours {
@@ -12,9 +14,12 @@ public class GenerateTestTours {
         tour.setName(generateToursName());
         tour.setSmallDescription(generateToursSmallDescription());
         tour.setCoolness(generateToursCoolness());
-        tour.setPrice(generateToursPrice());
+        tour.setEconomyPrice(generateToursPrice());
+        tour.setGroupPrice(generateToursPrice());
+        tour.setPremiumPrice(generateToursPrice());
         tour.setDuration(generateToursDuration());
         tour.setDescription(generateToursDescription());
+        tour.setAvailableWeekDays(generateAvailableWeekDays());
         return tour;
     }
 
@@ -72,5 +77,33 @@ public class GenerateTestTours {
             newString.append(letters.charAt(new Random().nextInt(letters.length())));
         }
         return newString.toString();
+    }
+
+    private static HashSet<Integer> generateAvailableWeekDays() {
+
+        new Random().nextBoolean();
+        var availableWeekDays = new HashSet<Integer>();
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(0);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(1);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(2);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(3);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(4);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(5);
+        }
+        if (new Random().nextBoolean()) {
+            availableWeekDays.add(6);
+        }
+        return availableWeekDays;
     }
 }

@@ -36,7 +36,7 @@
                                 <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
                             </div>
                             <div class="tourPriceTableTdValue">
-                                300$
+                                ${tour.economyPrice}$
                             </div>
                         </div>
                         <div class="customButton customButtonPullDown">
@@ -78,7 +78,7 @@
                                 <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
                             </div>
                             <div class="tourPriceTableTdValue">
-                                1 300$
+                                ${tour.premiumPrice}$
                             </div>
                         </div>
                         <div class="customButton customButtonPullDown">
@@ -120,7 +120,7 @@
                                 <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
                             </div>
                             <div class="tourPriceTableTdValue">
-                                1 300$
+                                ${tour.groupPrice}$
                             </div>
                         </div>
                         <div class="customButton customButtonPullDown">
