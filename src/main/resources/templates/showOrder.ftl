@@ -56,7 +56,6 @@
                             ${orderComment}
                         </div>
                     </div>
-
                     <hr>
                     <div class="orderPaperBodyEmail">
                         ${orderEmail} - на данный email отправлено письмо с подтверждением

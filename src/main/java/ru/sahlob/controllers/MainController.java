@@ -86,7 +86,6 @@ public class MainController {
         dbFileStorageService.storeFile(multipartFile);
     }
 
-
     @GetMapping(value = "/getLogo")
     @ResponseBody
     public byte[] getLogo() {
@@ -106,7 +105,6 @@ public class MainController {
         return image.getData();
     }
 
-
     @PostMapping("/newOrder")
     @ResponseBody
     public String newOrder(Order order) {
@@ -124,7 +122,6 @@ public class MainController {
         order.setUuid(uuid);
         return "/order?orderId=" + order.getUuid();
     }
-
 
     @GetMapping(value = "/order")
     public String order(@RequestParam String orderId, Model model) {
