@@ -64,8 +64,8 @@
                     <div class="orderPaperBodyPrice">
                         Price: ${price}
                     </div>
-                    <div class="orderPaperButton">
-
+                    <div class="customButton customButtonPullDown">
+                        <a href="/">To other tours</a>
                     </div>
                 </div>
             </div>

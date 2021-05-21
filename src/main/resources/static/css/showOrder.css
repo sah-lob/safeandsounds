@@ -129,3 +129,43 @@ hr {
     padding-left: 30px;
     font-size: 40px;
 }
+
+
+
+
+
+.customButton {
+    padding-top: 20px;
+    float: left;
+    width: 100%;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.customButton a {
+    float: left;
+    text-decoration: none;
+    width: 100%;
+    background-color: var(--first-primary-color);
+    font: 40px Raleway;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.customButtonPullDown a:before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 0;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+.customButtonPullDown a:hover:before {
+    height: 110%;
+}
