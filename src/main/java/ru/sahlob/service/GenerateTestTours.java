@@ -80,7 +80,6 @@ public class GenerateTestTours {
     }
 
     private static HashSet<Integer> generateAvailableWeekDays() {
-
         new Random().nextBoolean();
         var availableWeekDays = new HashSet<Integer>();
         if (new Random().nextBoolean()) {

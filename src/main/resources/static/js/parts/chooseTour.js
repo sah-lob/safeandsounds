@@ -88,8 +88,6 @@ function addData(data) {
         $('#calenderHeaderData').html(calenderHeaderData);
 
     } else {
-        alert(data);
-
         $('#tourPriceTableTdDataName1').html(data);
         $('#tourPriceTableTdDataName2').html(data);
         $('#tourPriceTableTdDataName3').html(data);
@@ -109,19 +107,22 @@ function addData(data) {
 
 function newTour(tourType) {
     let tourDate = document.getElementById("tourPriceTableTdDataName3").innerText;
-    let tourId = location.search.split('id=')[1]
-    $.post(
-        "/newOrder",
-        {
-            tourType: tourType,
-            tourDate: tourDate,
-            tourId: tourId
-        },
-        onAjaxSuccess
-    );
+    if (tourDate !== "No date selected yet") {
+        let tourId = location.search.split('id=')[1]
+        $.post(
+            "/newOrder",
+            {
+                tourType: tourType,
+                tourDate: tourDate,
+                tourId: tourId
+            },
+            onAjaxSuccess
+        );
 
-    function onAjaxSuccess(data) {
-        alert(data);
-        window.location.replace(data);
+        function onAjaxSuccess(data) {
+            window.location.replace(data);
+        }
+    } else {
+        alert("Please select a date");
     }
 }

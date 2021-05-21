@@ -155,16 +155,12 @@ function setEmailForceField() {
 
 function confirmOrder() {
     let orderID = document.getElementById("orderID").innerText;
-    // let orderDate = document.getElementById("orderDate").innerText;
-    // let orderType = document.getElementById("orderType").innerText;
     let orderUserName = document.getElementById('orderUserName').value
     let orderUserPhone = document.getElementById('orderUserPhone').value
     let orderUserEmail = document.getElementById('orderUserEmail').value
     let orderUserComment = document.getElementById('orderUserComment').value
     let communicationMethodNum = getCommunicationMethod();
     let communicationMethodAdditionalValue = getCommunicationMethodAdditionalValue(communicationMethodNum);
-    alert(communicationMethodAdditionalValue);
-    alert(orderUserComment);
 
     $.post(
         "/confirmNewOrder",
@@ -181,7 +177,6 @@ function confirmOrder() {
     );
 
     function onAjaxSuccess(data) {
-        alert(data);
         window.location.replace(data);
     }
 
