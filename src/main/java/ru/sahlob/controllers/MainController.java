@@ -23,12 +23,14 @@ import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.order.InputOrder;
 import ru.sahlob.persistance.order.Order;
 import ru.sahlob.persistance.order.utils.InputTourUtils;
-import ru.sahlob.service.CalenderUtil;
 import ru.sahlob.service.ServiceUtil;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
+import static ru.sahlob.service.calender.GeneralCalenderUtils.getNumOfMonthByTitle;
 
 @Controller
 @Data
@@ -68,8 +70,8 @@ public class MainController {
                                @RequestParam int direction,
                                @RequestParam int currentYear,
                                @RequestParam int tourId) {
-        var newCurrentMonth = CalenderUtil.getNumOfMonth(currentMonth) + direction;
-        var calenderAnswer = CalenderUtil.getCalenderAnswer(newCurrentMonth, currentYear, tourStorage.findTourById(tourId));
+        var newCurrentMonth = getNumOfMonthByTitle(currentMonth) + direction;
+        var calenderAnswer = getCalenderAnswer(newCurrentMonth, currentYear, tourStorage.findTourById(tourId));
         calenderAnswer.setBackMonth(calenderAnswer.getCurrentMonth() != Calendar.getInstance().get(Calendar.MONTH));
         return calenderAnswer;
     }

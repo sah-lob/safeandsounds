@@ -162,24 +162,28 @@ function confirmOrder() {
     let communicationMethodNum = getCommunicationMethod();
     let communicationMethodAdditionalValue = getCommunicationMethodAdditionalValue(communicationMethodNum);
 
-    $.post(
-        "/confirmNewOrder",
-        {
-            orderID: orderID,
-            clientName: orderUserName,
-            clientPhone: orderUserPhone,
-            clientEmail: orderUserEmail,
-            communicationMethodNum: communicationMethodNum,
-            communicationMethodAdditionalValue: communicationMethodAdditionalValue,
-            comment: orderUserComment
-        },
-        onAjaxSuccess
-    );
+    let errorString = validateInputData(orderUserName, orderUserPhone, orderUserEmail);
+    if (errorString.length === 0) {
+        $.post(
+            "/confirmNewOrder",
+            {
+                orderID: orderID,
+                clientName: orderUserName,
+                clientPhone: orderUserPhone,
+                clientEmail: orderUserEmail,
+                communicationMethodNum: communicationMethodNum,
+                communicationMethodAdditionalValue: communicationMethodAdditionalValue,
+                comment: orderUserComment
+            },
+            onAjaxSuccess
+        );
 
-    function onAjaxSuccess(data) {
-        window.location.replace(data);
+        function onAjaxSuccess(data) {
+            window.location.replace(data);
+        }
+    } else {
+        $('#possibleProblems').html(errorString);
     }
-
 }
 
 function getCommunicationMethod() {
@@ -216,4 +220,31 @@ function getCommunicationMethodAdditionalValue(communicationMethodNum) {
         }
     }
     return communicationMethodAdditionalValue;
+}
+
+function validateInputData(userName, userPhone, userEmail) {
+    let checkErrorText = "";
+    if (!validateName(userName)) {
+        checkErrorText += " фиговое имя."
+    }
+    if (!validateEmail(userEmail)) {
+        checkErrorText += " фиговый email"
+    }
+    if (!validatePhone(userPhone)) {
+        checkErrorText += " фиговый телефон"
+    }
+    return checkErrorText;
+}
+
+function validateName(value) {
+    return value.length !== 0;
+}
+
+function validateEmail(email) {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+function validatePhone(value) {
+    return true;
 }

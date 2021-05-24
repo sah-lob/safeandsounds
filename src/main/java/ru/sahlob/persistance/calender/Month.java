@@ -10,6 +10,9 @@ public class Month {
     private List<Week> weeks = new ArrayList<>();
 
     public void addNewDay(Day day) {
+        if (weeks.isEmpty()) {
+            addNewWeek();
+        }
         weeks.get(weeks.size() - 1).add(day);
     }
 

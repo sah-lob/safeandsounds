@@ -32,7 +32,7 @@ function submitOptIn(direction) {
                         result += '<td class="calenderTableAvailableTour">' +
                             value2.num +
                             '                    <div class="calenderTableCard">\n' +
-                            '<div class="calenderTableCardDate">\n' + value2.num + ' ' + data.currentMonthName + ' ' + data.currentYear +
+                            '<div class="calenderTableCardDate">\n' + value2.num + ' ' + value2.month + ' ' + data.currentYear +
                             '                        </div>' +
                             '                        <div class="calenderTableCardStartTime">\n' +
                             '                            Начало: 12:00\n' +
@@ -42,7 +42,6 @@ function submitOptIn(direction) {
                             '                            </div>' +
                             '                    </div>\n' +
                             '        </td>';
-                        // result += '<td class="calenderTableAvailableTour">' + value2.num + '</td>';
                     } else {
                         result += '<td>' + value2.num + '</td>';
                     }

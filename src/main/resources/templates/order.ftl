@@ -142,6 +142,9 @@
                 </td>
             </tr>
         </table>
+        <div class="possibleProblems" id="possibleProblems">
+<#--            тут будут возможные проблемы-->
+        </div>
         <a onclick="confirmOrder()">
             <div class="confirmBtn">
                 Забронировать

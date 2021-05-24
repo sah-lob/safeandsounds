@@ -459,3 +459,11 @@ input:checked ~ .phonePhonePlace {
     text-align: left;
     padding-left: 10px;
 }
+
+.possibleProblems {
+    width: 60%;
+    margin-left: 20%;
+    padding-left: 10%;
+    background-color: red;
+    margin-bottom: 50px;
+}
