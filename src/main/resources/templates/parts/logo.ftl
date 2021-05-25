@@ -1,4 +1,4 @@
-<#macro logo style style2>
+<#macro logo style style2 user>
     <div class="header">
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logo.css"/>
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logoWaves.css"/>
@@ -19,7 +19,11 @@
             </div>
             <div class="callback">
                 <img src="img/callbackB.png" alt="e">
-                    Request a call back
+                <#if user?exists>
+                    Hi ${user}, How are you?
+                <#else>
+                    Here we go agein
+                </#if>
             </div>
         </div>
         <div class="btn lightGreen pullDown">

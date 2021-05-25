@@ -49,4 +49,8 @@ public class DBUsersStorage {
     public Client getClientByEmail(String email) {
         return dbUsersRepository.findByEmail(email);
     }
+
+    public Client getClientByName(String name) {
+        return dbUsersRepository.findByFirstName(name);
+    }
 }
