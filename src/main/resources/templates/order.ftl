@@ -4,7 +4,7 @@
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
     <link rel="stylesheet" type="text/css" href="../css/order.css"/>
-    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" personalAccount/>
     <script src="/js/parts/order.js"></script>
     <div class="newOrder">
         <table class="newOrderTable">
@@ -45,9 +45,15 @@
                     Введите ваше имя:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserName">
-                    </form>
+                    <#if name??>
+                        <div id="orderUserName2">
+                            ${name}
+                        </div>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserName">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
@@ -55,9 +61,15 @@
                     Введите ваш номер телефона:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserPhone">
-                    </form>
+                    <#if phone??>
+                        <form>
+                            <input type="search" id="orderUserPhone" value="${phone}">
+                        </form>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserPhone">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
@@ -65,9 +77,15 @@
                     Введите ваш email:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserEmail">
-                    </form>
+                    <#if email??>
+                        <div id="orderUserEmail2">
+                            ${email}
+                        </div>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserEmail">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
@@ -136,14 +154,15 @@
                 </td>
                 <td>
                     <div class="content">
-                    <textarea id="orderUserComment" name="smallDescription" rows="5" cols="45" placeholder="Введите ваш комментарий тут"
+                    <textarea id="orderUserComment" name="smallDescription" rows="5" cols="45"
+                              placeholder="Введите ваш комментарий тут"
                               name="text"></textarea>
                     </div>
                 </td>
             </tr>
         </table>
         <div class="possibleProblems" id="possibleProblems">
-<#--            тут будут возможные проблемы-->
+            <#--            тут будут возможные проблемы-->
         </div>
         <a onclick="confirmOrder()">
             <div class="confirmBtn">

@@ -155,13 +155,12 @@ function setEmailForceField() {
 
 function confirmOrder() {
     let orderID = document.getElementById("orderID").innerText;
-    let orderUserName = document.getElementById('orderUserName').value
+    let orderUserName = getValue("orderUserName2", "orderUserName");
     let orderUserPhone = document.getElementById('orderUserPhone').value
-    let orderUserEmail = document.getElementById('orderUserEmail').value
+    let orderUserEmail = getValue("orderUserEmail2", "orderUserEmail");
     let orderUserComment = document.getElementById('orderUserComment').value
     let communicationMethodNum = getCommunicationMethod();
     let communicationMethodAdditionalValue = getCommunicationMethodAdditionalValue(communicationMethodNum);
-
     let errorString = validateInputData(orderUserName, orderUserPhone, orderUserEmail);
     if (errorString.length === 0) {
         $.post(
@@ -224,6 +223,7 @@ function getCommunicationMethodAdditionalValue(communicationMethodNum) {
 
 function validateInputData(userName, userPhone, userEmail) {
     let checkErrorText = "";
+    alert(userName);
     if (!validateName(userName)) {
         checkErrorText += " фиговое имя."
     }
@@ -238,6 +238,16 @@ function validateInputData(userName, userPhone, userEmail) {
 
 function validateName(value) {
     return value.length !== 0;
+}
+
+function getValue(divValue, inputValue) {
+    let name = '';
+    if (document.getElementById(inputValue) != null) {
+        name = document.getElementById(inputValue).value;
+    } else {
+        name = document.getElementById(divValue).innerText;
+    }
+    return name;
 }
 
 function validateEmail(email) {

@@ -1,19 +1,29 @@
 package ru.sahlob.controllers;
 
 import lombok.Data;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.sahlob.db.DBOrdersStorage;
 import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.interfaces.DBToursRepository;
+import ru.sahlob.db.interfaces.EmailSecretCodeRepository;
+import ru.sahlob.persistance.client.EmailSecretCode;
+import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.persistance.order.InputOrder;
 import ru.sahlob.persistance.order.Order;
 import ru.sahlob.persistance.order.utils.InputTourUtils;
+import ru.sahlob.security.MyUserDetailsService;
+import ru.sahlob.security.MyUserPrincipal;
 import ru.sahlob.service.ServiceUtil;
+import ru.sahlob.service.mail.MailSender;
+
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 @Controller
 @Data
@@ -22,6 +32,9 @@ public class OrderController {
     private final DBToursRepository dbToursRepository;
     private final DBOrdersStorage dbOrdersStorage;
     private final DBUsersStorage dbUsersStorage;
+    private final EmailSecretCodeRepository emailSecretCodeRepository;
+    private final MailSender mailSender;
+    private final MyUserDetailsService userService;
 
     @PostMapping("/newOrder")
     @ResponseBody
@@ -32,22 +45,35 @@ public class OrderController {
                         dbToursRepository.findById(
                                 order.getTourId())
                                 .get()));
-        dbOrdersStorage.saveOrder(order);
         var uuid = ServiceUtil.getRandomUuid();
         while (dbOrdersStorage.getOrderByUuid(uuid) != null) {
             uuid = ServiceUtil.getRandomUuid();
         }
         order.setUuid(uuid);
+        dbOrdersStorage.saveOrder(order);
         return "/order?orderId=" + order.getUuid();
     }
 
     @GetMapping(value = "/order")
-    public String order(@RequestParam String orderId, Model model) {
+    public String order(@RequestParam String orderId, Model model, @AuthenticationPrincipal final Principal principal) {
         var order = dbOrdersStorage.getOrderByUuid(orderId);
+        String email = null;
+        String phone = null;
+        String name = null;
+        if (principal != null) {
+            var user = dbUsersStorage.getClientByPhoneOrEmail(principal.getName());
+            email = user.getEmail();
+            phone = user.getPhone();
+            name = user.getFirstName();
+        }
+        model.addAttribute("personalAccount", new PersonalAccount(principal));
         model.addAttribute("id", order.getId());
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
         model.addAttribute("price", order.getTourPrice());
+        model.addAttribute("email", email);
+        model.addAttribute("phone", phone);
+        model.addAttribute("name", name);
         return "order";
     }
 
@@ -76,10 +102,19 @@ public class OrderController {
     }
 
     @GetMapping(value = "/showOrder")
-    public String showOrder(@RequestParam String orderId, Model model) {
+    public String showOrder(@RequestParam String orderId, Model model, @AuthenticationPrincipal final Principal user) {
         var order = dbOrdersStorage.getOrderByUuid2(orderId);
         var client = dbUsersStorage.getClientByUuid(order.getClientUuid());
         var tour = dbToursRepository.findById(order.getTourId()).get();
+        if (user == null) {
+            var emailSecretCode = new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid());
+            var url = "http://localhost:8080/confirmCode/" + emailSecretCode.getUuid();
+            var subject = "Подтверждение email";
+            var message = "Для подтверждения email перейдите по ссылке: " + url;
+            emailSecretCodeRepository.save(new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid()));
+            mailSender.send(client.getEmail(), subject, message);
+        }
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         model.addAttribute("name", client.getFirstName());
         model.addAttribute("imgId", tour.getImagesId().get(0));
         model.addAttribute("tourDate", order.getTourDate());
@@ -93,4 +128,42 @@ public class OrderController {
         model.addAttribute("performCommunicationMethod", order.getPerformCommunicationMethod());
         return "/showOrder";
     }
+
+
+    @GetMapping(value = "confirmCode/{code}")
+    public String confirmSecretCode(@PathVariable String code, Model model, @AuthenticationPrincipal Principal user, HttpServletRequest httpRequest) {
+        var emailCode = emailSecretCodeRepository.findFirstByUuid(code);
+        var statusCode = 0;
+        PersonalAccount personalAccount;
+        if (emailCode != null) {
+            var client = dbUsersStorage.getClientById(emailCode.getClientId());
+            dbUsersStorage.saveUser(client);
+            statusCode = 1;
+            var userDetails = userService.loadUserByUsername(client.getEmail());
+            var token = new UsernamePasswordAuthenticationToken(
+                    userDetails,
+                    null,
+                    userDetails.getAuthorities());
+            token.setDetails(new WebAuthenticationDetails(httpRequest));
+            SecurityContextHolder.getContext().setAuthentication(token);
+            personalAccount = new PersonalAccount(
+                    (MyUserPrincipal) SecurityContextHolder
+                            .getContext()
+                            .getAuthentication()
+                            .getPrincipal());
+            var newClientsPassword = ServiceUtil.generatePassword();
+            var subject = "Safe and sounds tours. Your new password";
+            var message = "Your new password: " + newClientsPassword;
+            mailSender.send(client.getEmail(), subject, message);
+            client.setPassword(newClientsPassword);
+            dbUsersStorage.saveUser(client);
+            emailSecretCodeRepository.delete(emailCode);
+        } else {
+            personalAccount = new PersonalAccount(user);
+        }
+        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute("status", statusCode);
+        return "confirmEmail";
+    }
 }
+

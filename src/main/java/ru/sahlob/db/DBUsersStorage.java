@@ -34,6 +34,10 @@ public class DBUsersStorage {
         return client == null ? getClientByEmail(email) : client;
     }
 
+    public Client getClientByPhoneOrEmail(String data) {
+        return getClientByPhoneOrEmail(data, data);
+    }
+
     public Client getClientById(int id) {
         return dbUsersRepository.findById(id).get();
     }

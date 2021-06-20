@@ -4,7 +4,7 @@
 <#import "parts/tours.ftl" as tours>
 
 <@c.page "css/parts/common.css" "css/main.css">
-    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" user!"wer"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" personalAccount/>
     <link rel="stylesheet" type="text/css" href="../css/registration.css"/>
     <div class="registrationBody">
         <form action="/registration" method="post">

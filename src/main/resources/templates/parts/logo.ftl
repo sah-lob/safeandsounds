@@ -1,4 +1,4 @@
-<#macro logo style style2 user>
+<#macro logo style style2 personalAccount>
     <div class="header">
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logo.css"/>
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logoWaves.css"/>
@@ -17,12 +17,47 @@
             <div class="infoLogo">
                 +7-916-633-58-00
             </div>
-            <div class="callback">
-                <img src="img/callbackB.png" alt="e">
-                <#if user?exists>
-                    Hi ${user}, How are you?
+            <div class="personalAccount">
+                <#if personalAccount.authorized>
+                    <nav id="primary_nav_wrap">
+                        <ul>
+                            <li><a href="#">
+                                    <div class="authorizedPersonalAccount">
+                                        <div class="authorizedPersonalAccountLogo">
+                                            (*)
+                                        </div>
+                                        <div class="authorizedPersonalAccountName">
+                                            ${personalAccount.name}
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul>
+                                    <#--                                    Личная информация, понравившиеся, мои заказы, выход из аккаунта-->
+                                    <li><a href="#">Личная информация</a></li>
+                                    <li><a href="#">Понравившиеся</a></li>
+                                    <li><a href="#">Мои заказы</a></li>
+                                    <li>
+                                        <form action="/logout" method="post">
+                                            <button class="logoutBtn" type="submit">Log out</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                <#--                    Hi ${personalAccount.name}, How are you?-->
                 <#else>
-                    Here we go agein
+                    <div class="unauthorizedAccount">
+                        <div class="unauthorizedAccountTitle">
+                        </div>
+                        <div class="unauthorizedAccountBody">
+                            <div class="unauthorizedAccountBodyBtn">
+                                <div class="customButton customButtonPullDown">
+                                    <a href="/login">Login / Sign up</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </#if>
             </div>
         </div>

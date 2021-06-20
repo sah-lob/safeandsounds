@@ -3,7 +3,7 @@
 <#import "../parts/logo.ftl" as logo>
 
 <@c.page "../css/parts/common.css" "../css/main.css">
-    <@logo.logo "../css/parts/logo.css" "../css/parts/headerButtons.css"/>
+    <@logo.logo "../css/parts/logo.css" "../css/parts/headerButtons.css" personalAccount/>
     <link rel="stylesheet" type="text/css" href="../css/security/addTour.css"/>
     <div class="addTour">
         <form method="post" enctype="multipart/form-data">

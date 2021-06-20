@@ -21,8 +21,9 @@ import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.client.Client;
 import ru.sahlob.persistance.client.ClientRoles;
+import ru.sahlob.persistance.client.PersonalAccount;
+import ru.sahlob.service.mail.MailSender;
 
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +41,7 @@ public class MainController {
     private final DBLogosRepository dbLogosRepository;
     private final TourStorage tourStorage;
     private final DBFileStorageService dbFileStorageService;
+    private final MailSender mailSender;
 
     @GetMapping(value = "/")
     public String index(Model model,
@@ -47,18 +49,12 @@ public class MainController {
                                 sort = {"coolness"},
                                 direction = Sort.Direction.DESC)
                                 Pageable pageable,
-                        HttpSession session,
                         @AuthenticationPrincipal final Principal user) {
-        String userName = null;
-        if (user != null) {
-            userName = user.getName();
-        }
-        var sessionId = session.getId();
-        System.out.println("[session-id]: " + sessionId);
-        System.out.println("[userName]: " + userName);
-        model.addAttribute("user", userName);
+
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         model.addAttribute("page", tourStorage.findTours(pageable));
         model.addAttribute("url", "/");
+//        mailSender.send("sah-lob@ya.ru", "тема", "тело письма");
         return "index";
     }
 
@@ -66,6 +62,12 @@ public class MainController {
     public String login() {
         return "login";
     }
+
+    @GetMapping(value = "/login2")
+    public String login2() {
+        return "login2";
+    }
+
 
     @GetMapping(value = "/registration")
     public String registration() {
@@ -88,7 +90,6 @@ public class MainController {
         return "redirect:/login";
     }
 
-
     @GetMapping(value = "/test")
     @ResponseBody
     public CalenderAnswer test(@RequestParam String currentMonth,
@@ -102,7 +103,9 @@ public class MainController {
     }
 
     @GetMapping(value = "/chooseTour")
-    public String chooseTour(@RequestParam int id, Model model) {
+    public String chooseTour(@RequestParam int id, Model model,
+                             @AuthenticationPrincipal final Principal user) {
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }

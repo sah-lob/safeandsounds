@@ -5,7 +5,7 @@
 <#import "parts/chooseTour/tourPrice.ftl" as tourPrice>
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
-    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" personalAccount/>
     <link rel="stylesheet" type="text/css" href="css/choosetour/chooseTour.css"/>
     <link rel="stylesheet" type="text/css" href="css/choosetour/chooseTour2.css"/>
     <link rel="stylesheet" type="text/css" href="css/choosetour/calendar.css"/>

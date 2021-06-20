@@ -4,7 +4,7 @@
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
     <link rel="stylesheet" type="text/css" href="../css/showOrder.css"/>
-    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" personalAccount/>
     <div class="showOrder">
         <div class="soBody">
             <div class="orderPhoto">

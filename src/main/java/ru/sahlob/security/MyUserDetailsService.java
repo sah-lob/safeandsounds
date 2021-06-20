@@ -17,7 +17,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Client user = dbUsersStorage.getClientByName(username);
+        Client user = dbUsersStorage.getClientByPhoneOrEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }

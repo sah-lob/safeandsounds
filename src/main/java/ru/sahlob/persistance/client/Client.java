@@ -25,6 +25,7 @@ public class Client implements Serializable {
     private boolean active;
     private String phone;
     private String email;
+//    private boolean verifiedEmail = false;
     private String whatsAppPhone;
     private String telegramPhone;
     private String instagramAccount;
@@ -32,7 +33,6 @@ public class Client implements Serializable {
     private List<Order> orders = new ArrayList<>();
 
     @ElementCollection(targetClass = ClientRoles.class, fetch = FetchType.EAGER)
-//    @CollectionTable(name = "client_roles", joinColumns = @JoinColumn(name = ))
     private Set<ClientRoles> roles;
 
     public Client(String firstName, String phone, String email) {

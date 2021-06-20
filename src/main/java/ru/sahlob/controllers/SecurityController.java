@@ -1,7 +1,9 @@
 package ru.sahlob.controllers;
 
 import lombok.Data;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,11 +15,13 @@ import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
 import ru.sahlob.persistance.Image;
+import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.service.GenerateImageUtil;
 import ru.sahlob.service.GenerateTestTours;
 
 import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 @Data
@@ -31,12 +35,16 @@ public class SecurityController {
 
 
     @GetMapping(value = "/security/adminpage")
-    public String adminPage() {
+    public String adminPage(Model model,
+                            @AuthenticationPrincipal final Principal user) {
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         return "security/adminpage";
     }
 
     @GetMapping(value = "/security/addTour")
-    public String addTour() {
+    public String addTour(Model model,
+                          @AuthenticationPrincipal final Principal user) {
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         return "security/addTour";
     }
 
@@ -47,7 +55,9 @@ public class SecurityController {
     }
 
     @GetMapping(value = "/security/testingPage")
-    public String testingPage() {
+    public String testingPage(Model model,
+                              @AuthenticationPrincipal final Principal user) {
+        model.addAttribute("personalAccount", new PersonalAccount(user));
         return "security/testingPage";
     }
 
