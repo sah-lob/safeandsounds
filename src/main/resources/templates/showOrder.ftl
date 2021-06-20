@@ -58,7 +58,7 @@
                     </div>
                     <hr>
                     <div class="orderPaperBodyEmail">
-                        ${orderEmail} - на данный email отправлено письмо с подтверждением
+                        ${message}
                     </div>
                     <div class="orderPaperBodyPrice">
                         Price: ${price}

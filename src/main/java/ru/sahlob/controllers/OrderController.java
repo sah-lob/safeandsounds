@@ -106,6 +106,7 @@ public class OrderController {
         var order = dbOrdersStorage.getOrderByUuid2(orderId);
         var client = dbUsersStorage.getClientByUuid(order.getClientUuid());
         var tour = dbToursRepository.findById(order.getTourId()).get();
+        String messageToUser;
         if (user == null) {
             var emailSecretCode = new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid());
             var url = "http://localhost:8080/confirmCode/" + emailSecretCode.getUuid();
@@ -113,6 +114,9 @@ public class OrderController {
             var message = "Для подтверждения email перейдите по ссылке: " + url;
             emailSecretCodeRepository.save(new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid()));
             mailSender.send(client.getEmail(), subject, message);
+            messageToUser = client.getEmail() + " - на данный email отправлено письмо с подтверждением";
+        } else {
+            messageToUser = "Заказ можно посмотреть в личном кабинете";
         }
         model.addAttribute("personalAccount", new PersonalAccount(user));
         model.addAttribute("name", client.getFirstName());
@@ -126,6 +130,7 @@ public class OrderController {
         model.addAttribute("orderEmail", client.getEmail());
         model.addAttribute("price", order.getTourPrice());
         model.addAttribute("performCommunicationMethod", order.getPerformCommunicationMethod());
+        model.addAttribute("message", messageToUser);
         return "/showOrder";
     }
 
