@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import ru.sahlob.db.DBFileStorageService;
+import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.TourStorage;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBLogosRepository;
@@ -39,6 +40,7 @@ public class MainController {
     private final DBUsersRepository dbUsersRepository;
     private final DBImagesRepository dbImagesRepository;
     private final DBLogosRepository dbLogosRepository;
+    private final DBUsersStorage dbUsersStorage;
     private final TourStorage tourStorage;
     private final DBFileStorageService dbFileStorageService;
     private final MailSender mailSender;
@@ -51,7 +53,7 @@ public class MainController {
                                 Pageable pageable,
                         @AuthenticationPrincipal final Principal user) {
 
-        model.addAttribute("personalAccount", new PersonalAccount(user));
+        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
         model.addAttribute("page", tourStorage.findTours(pageable));
         model.addAttribute("url", "/");
 //        mailSender.send("sah-lob@ya.ru", "тема", "тело письма");
@@ -105,7 +107,7 @@ public class MainController {
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model,
                              @AuthenticationPrincipal final Principal user) {
-        model.addAttribute("personalAccount", new PersonalAccount(user));
+        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }

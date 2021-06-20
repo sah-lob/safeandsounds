@@ -66,7 +66,7 @@ public class OrderController {
             phone = user.getPhone();
             name = user.getFirstName();
         }
-        model.addAttribute("personalAccount", new PersonalAccount(principal));
+        model.addAttribute("personalAccount", new PersonalAccount(principal, dbUsersStorage));
         model.addAttribute("id", order.getId());
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
@@ -118,7 +118,7 @@ public class OrderController {
         } else {
             messageToUser = "Заказ можно посмотреть в личном кабинете";
         }
-        model.addAttribute("personalAccount", new PersonalAccount(user));
+        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
         model.addAttribute("name", client.getFirstName());
         model.addAttribute("imgId", tour.getImagesId().get(0));
         model.addAttribute("tourDate", order.getTourDate());
@@ -155,7 +155,7 @@ public class OrderController {
                     (MyUserPrincipal) SecurityContextHolder
                             .getContext()
                             .getAuthentication()
-                            .getPrincipal());
+                            .getPrincipal(), dbUsersStorage);
             var newClientsPassword = ServiceUtil.generatePassword();
             var subject = "Safe and sounds tours. Your new password";
             var message = "Your new password: " + newClientsPassword;
@@ -164,7 +164,7 @@ public class OrderController {
             dbUsersStorage.saveUser(client);
             emailSecretCodeRepository.delete(emailCode);
         } else {
-            personalAccount = new PersonalAccount(user);
+            personalAccount = new PersonalAccount(user, dbUsersStorage);
         }
         model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("status", statusCode);
