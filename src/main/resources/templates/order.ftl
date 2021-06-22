@@ -18,6 +18,14 @@
             </tr>
             <tr>
                 <td class="left">
+                    Название
+                </td>
+                <td id="orderName">
+                    ${orderName}
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
                     Дата
                 </td>
                 <td id="orderDate">

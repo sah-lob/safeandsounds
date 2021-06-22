@@ -106,6 +106,10 @@ function addData(data) {
 
 function newTour(tourType) {
     let tourDate = document.getElementById("tourPriceTableTdDataName3").innerText;
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const product = urlParams.get('id')
+    alert(product);
     if (tourDate !== "No date selected yet") {
         let tourId = location.search.split('id=')[1]
         $.post(

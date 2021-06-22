@@ -74,6 +74,7 @@ public class OrderController {
         model.addAttribute("email", email);
         model.addAttribute("phone", phone);
         model.addAttribute("name", name);
+        model.addAttribute("orderName", order.getTourName());
         return "order";
     }
 
