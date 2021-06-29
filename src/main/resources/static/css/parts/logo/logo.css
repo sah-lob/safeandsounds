@@ -1,5 +1,4 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-@import 'https://fonts.googleapis.com/css?family=Raleway';
 
 body {
     margin: 0;
@@ -123,7 +122,6 @@ p {
         float: left;
         font-family: 'Lato', sans-serif;
         padding-left: 40px;
-        /*width: 50%;*/
         font-size: 40px;
         text-align: left;
     }
@@ -168,78 +166,91 @@ p {
     }
 
 
-* {box-sizing: border-box;}
-.logo {
-    color: #D5B45B;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    padding: 20px 0;
-}
-nav {
-    display: table;
-    margin: 0 auto;
-}
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.infoMenu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.topmenu:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.topmenu > li {
-    float: left;
-    position: relative;
-    font-family: 'Lato', sans-serif;
-    /*font-family: 'Open Sans', sans-serif;*/
-}
-.topmenu > li > a {
-    /*text-transform: uppercase;*/
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--first-text-color);
-    padding: 15px 30px;
-}
-.topmenu li a:hover {
-    color: #D5B45B;
-    font-size: 20px;
-}
-.submenu-link:after {
-    content: "\f107";
-    font-family: 'Lato', sans-serif;
-    /*font-family: "FontAwesome";*/
-    color: inherit;
-    margin-left: 10px;
-}
-.submenu {
-    background: rgba(54, 54, 54, 0.6);
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 5;
-    width: 180px;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin :0 0;
-    transition: .5s ease-in-out;
-}
-.submenu a {
-    color: white;
-    text-align: left;
-    padding: 12px 15px;
-    font-size: 13px;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.submenu li:last-child a {border-bottom: none;}
-.topmenu > li:hover .submenu {
-    opacity: 1;
-    transform: scaleY(1);
+    .logo {
+        color: #D5B45B;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5em;
+        padding: 20px 0;
+    }
+
+    nav {
+        display: table;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .infoMenu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .topmenu:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .topmenu > li {
+        float: left;
+        position: relative;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .topmenu > li > a {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--first-text-color);
+        padding: 15px 30px;
+    }
+
+    .topmenu li a:hover {
+        color: var(--hover-a-color);
+    }
+
+    .submenu-link:after {
+        content: "\f107";
+        font-family: 'Lato', sans-serif;
+        color: inherit;
+        margin-left: 10px;
+    }
+
+    .submenu {
+        background: rgba(54, 54, 54, 0.6);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 5;
+        width: 180px;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: 0 0;
+        transition: .5s ease-in-out;
+    }
+
+    .submenu a {
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .submenu li:last-child a {
+        border-bottom: none;
+    }
+
+    .topmenu > li:hover .submenu {
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }

@@ -33,7 +33,6 @@
                 <#if personalAccount.authorized>
                     <li><a href="" class="submenu-link">${personalAccount.name}</a>
                         <ul class="submenu">
-                            <#--                            <li><a href="">Liked</a></li>-->
                             <li><a href="">My orders</a></li>
                             <li><a href="">Settings</a></li>
                             <li><a href="/logout">logout</a></li>
@@ -44,55 +43,6 @@
                 </#if>
             </ul>
         </nav>
-        <#--        <div class="info">-->
-        <#--            <div class="infoLogo">-->
-        <#--                +7-916-633-58-00-->
-        <#--            </div>-->
-        <#--            <div class="personalAccount">-->
-        <#--                <#if personalAccount.authorized>-->
-        <#--                    <nav id="primary_nav_wrap">-->
-        <#--                        <ul>-->
-        <#--                            <li><a href="#">-->
-        <#--                                    <div class="authorizedPersonalAccount">-->
-        <#--                                        <div class="authorizedPersonalAccountLogo">-->
-        <#--                                            <img src="img/account.png" alt="e">-->
-        <#--                                        </div>-->
-        <#--                                        <div class="authorizedPersonalAccountName">-->
-        <#--                                            ${personalAccount.name}-->
-        <#--                                        </div>-->
-        <#--                                    </div>-->
-        <#--                                </a>-->
-        <#--                                <ul>-->
-        <#--                                    <li><a href="#">Settings</a></li>-->
-        <#--                                    <li><a href="#">Liked</a></li>-->
-        <#--                                    <li><a href="#">My orders</a></li>-->
-        <#--                                    <li>-->
-        <#--                                        <form action="/logout" method="post">-->
-        <#--                                            <button class="logoutBtn" type="submit">Log out</button>-->
-        <#--                                        </form>-->
-        <#--                                    </li>-->
-        <#--                                </ul>-->
-        <#--                            </li>-->
-        <#--                        </ul>-->
-        <#--                    </nav>-->
-        <#--                <#else>-->
-        <#--                    <div class="unauthorizedAccount">-->
-        <#--                        <div class="unauthorizedAccountTitle">-->
-        <#--                        </div>-->
-        <#--                        <div class="unauthorizedAccountBody">-->
-        <#--                            <div class="unauthorizedAccountBodyBtn">-->
-        <#--                                <div class="customButton customButtonPullDown">-->
-        <#--                                    <a href="/login">Login</a>-->
-        <#--                                </div>-->
-        <#--                            </div>-->
-        <#--                        </div>-->
-        <#--                    </div>-->
-        <#--                </#if>-->
-        <#--            </div>-->
-        <#--            <div class="logoLike">-->
-        <#--                <img src="img/account.png" alt="e">-->
-        <#--            </div>-->
-        <#--        </div>-->
         <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
