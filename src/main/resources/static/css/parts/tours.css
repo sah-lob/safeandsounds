@@ -85,7 +85,7 @@ ul {
 .post-module .post-content .title {
     margin: 0;
     padding: 0 0 10px;
-    color: var(--first-primary-color);
+    color: var(--first-text-color);
     /*font-size: 75px;*/
     font-weight: 700;
 }
@@ -93,7 +93,7 @@ ul {
 .post-module .post-content .sub_title {
     margin: 0;
     padding: 0 0 20px;
-    color: #01949A;
+    color: var(--hover-a-color);
     /*font-size: 20px;*/
     font-weight: 400;
 }

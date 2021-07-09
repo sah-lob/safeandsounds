@@ -3,6 +3,7 @@
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logo.css"/>
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/logoWaves.css"/>
         <link rel="stylesheet" type="text/css" href="../css/parts/logo/headerButtons.css"/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <a href="/">
             <div class="inner-header flex">
                 <div class="inner-header-logo">
@@ -16,22 +17,31 @@
 
         <nav class="infoMenu">
             <ul class="topmenu">
-                <li><a href="">Tours</a>
-                    <ul class="submenu">
-                        <li><a href="">по Москве</a></li>
-                        <li><a href="">речные прогулки</a></li>
-                        <li><a href="">по Подмосковью</a></li>
-                    </ul>
-                </li>
-                <li><a href="">+7 916 633 58 00</a>
+                <li><a href="#">+7 916 633 58 00</a>
                     <ul class="submenu">
                         <li><a href="">Обратный звонок</a></li>
+                    </ul>
+                </li>
+                <li><a class="aClass" href="#">
+                        Tours
+                    </a>
+                    <ul class="submenu">
+                        <li><a class="aClass" href="">по Москве</a></li>
+                        <li><a href="">речные прогулки</a></li>
+                        <li><a href="">по Подмосковью</a></li>
                     </ul>
                 </li>
                 <li><a href="">About us</a></li>
                 <li><a href="">Liked</a></li>
                 <#if personalAccount.authorized>
-                    <li><a href="" class="submenu-link">${personalAccount.name}</a>
+                    <li><a href="#" class="submenu-link">
+                            <div class="aLeft">
+                                <img src="img/account.png" alt="e">
+                            </div>
+                            <div class="aRight">
+                                ${personalAccount.name}
+                            </div>
+                        </a>
                         <ul class="submenu">
                             <li><a href="">My orders</a></li>
                             <li><a href="">Settings</a></li>

@@ -38,7 +38,7 @@ body {
 }
 
 .tourDescription strong {
-    color: var(--first-primary-color);
+    color: var(--first-text-color);
     font-size: 25px;
 }
 
@@ -47,7 +47,7 @@ body {
     padding: 7px 20px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border-left: 5px solid var(--first-primary-color);
+    border-left: 5px solid var(--first-text-color);
     box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
     0 0 0 0 rgba(0, 0, 0, .1);
     font-size: 18px;
@@ -77,7 +77,7 @@ body {
         padding: 7px 20px;
         margin-bottom: 10px;
         border-radius: 5px;
-        border-left: 5px solid var(--first-primary-color);
+        border-left: 5px solid var(--first-text-color);
         box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
         0 0 0 0 rgba(0, 0, 0, .1);
         font-size: 35px;

@@ -13,7 +13,7 @@ a {
 }
 
 a:hover {
-    color: var(--first-text-color);
+    color: var(--hover-a-color);
     text-decoration: none;
 }
 
@@ -71,6 +71,22 @@ p {
     height: 110%;
 }
 
+.aLeft {
+    padding-top: 5px;
+    float: left;
+}
+
+.aLeft img {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.aRight {
+    padding-left: 5px;
+    float: left;
+}
 
 @media only screen and (min-width: 68px) and (max-width: 1299px) {
 
@@ -102,44 +118,93 @@ p {
         visibility: hidden;
     }
 
-    h1 {
-        float: left;
-        font-size: 120px;
+
+    * {
+        box-sizing: border-box;
     }
 
-    .info {
-        padding-top: 20px;
+    .logo {
+        color: #D5B45B;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5em;
+        padding: 20px 0;
+    }
+
+    nav {
+        display: table;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .infoMenu {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    .topmenu:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .topmenu > li {
         float: left;
-        width: 100%;
+        position: relative;
         font-family: 'Lato', sans-serif;
+    }
+
+    .topmenu > li > a {
+        font-size: 20px;
+        font-weight: bold;
         color: var(--first-text-color);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        padding: 15px 30px;
     }
 
-    .info .infoLogo {
-        float: left;
+    .topmenu li a:hover {
+        color: var(--hover-a-color);
+    }
+
+    .submenu-link:after {
+        content: "\f107";
         font-family: 'Lato', sans-serif;
-        padding-left: 40px;
-        font-size: 40px;
-        text-align: left;
+        color: inherit;
+        margin-left: 10px;
     }
 
-    .info .socialNetworking {
+    .submenu {
+        background: rgba(54, 54, 54, 0.6);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 5;
+        width: 180px;
         opacity: 0;
+        transform: scaleY(0);
+        transform-origin: 0 0;
+        transition: .5s ease-in-out;
     }
 
-    .info .callback {
-        color: var(--first-text-color);
-        float: right;
-        font-size: 40px;
-        padding-right: 40px;
+    .submenu a {
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
     }
 
-    .info .callback img {
-        width: 28px;
-        height: 28px;
+    .submenu li:last-child a {
+        border-bottom: none;
+    }
+
+    .topmenu > li:hover .submenu {
+        opacity: 1;
+        transform: scaleY(1);
     }
 }
 
@@ -190,7 +255,7 @@ p {
 
     .infoMenu {
         position: absolute;
-        top: 20px;
+        top: 10px;
         right: 20px;
     }
 
@@ -217,13 +282,12 @@ p {
         color: var(--hover-a-color);
     }
 
-    .submenu-link:after {
-        content: "\f107";
-        font-family: 'Lato', sans-serif;
-        color: inherit;
-        margin-left: 10px;
-    }
-
+    /*.submenu-link:after {*/
+    /*    content: "\f107";*/
+    /*    font-family: 'Lato', sans-serif;*/
+    /*    color: inherit;*/
+    /*    margin-left: 10px;*/
+    /*}*/
     .submenu {
         background: rgba(54, 54, 54, 0.6);
         position: absolute;

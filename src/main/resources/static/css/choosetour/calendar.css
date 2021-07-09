@@ -9,7 +9,7 @@
             var(--first-primary-color) 0%,
             var(--second-primary-color) 100%);
     float: left;
-    color: white;
+    color: var(--first-text-color);
     width: 100%;
 }
 .calender .calenderHeader .calenderHeaderData {
@@ -134,7 +134,7 @@
 }
 
 .calenderTableToday {
-    color: white;
+    color: var(--first-text-color);
     background-color: #333333;
 }
 
