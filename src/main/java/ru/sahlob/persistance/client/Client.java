@@ -35,6 +35,9 @@ public class Client implements Serializable {
     @ElementCollection(targetClass = ClientRoles.class, fetch = FetchType.EAGER)
     private Set<ClientRoles> roles;
 
+    @ElementCollection
+    private Set<Integer> likedToursId;
+
     public Client(String firstName, String phone, String email) {
         this.firstName = firstName;
         this.phone = phone;

@@ -6,3 +6,18 @@ $(window).load(function () {
         }, 300);
     });
 });
+
+
+$(function(){
+    $('.like-toggle').click(function(){
+        let tourId = $(this).val();
+        $.post(
+            "/like",
+            {
+                tourId: tourId
+            }
+        );
+        $(this).toggleClass('like-active');
+        $(this).next().toggleClass('hidden');
+    });
+});

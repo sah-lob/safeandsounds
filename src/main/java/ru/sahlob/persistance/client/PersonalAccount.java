@@ -11,13 +11,14 @@ import java.security.Principal;
 public class PersonalAccount {
     private boolean authorized;
     private String name;
+    private Client client;
 
     public PersonalAccount(Principal user, DBUsersStorage dbUsersStorage) {
         if (user == null) {
             authorized = false;
         } else {
             authorized = true;
-            var client = dbUsersStorage.getClientByPhoneOrEmail(user.getName());
+            client = dbUsersStorage.getClientByPhoneOrEmail(user.getName());
             name = client.getFirstName();
         }
     }
@@ -27,7 +28,7 @@ public class PersonalAccount {
             authorized = false;
         } else {
             authorized = true;
-            var client = dbUsersStorage.getClientByPhoneOrEmail(myUserPrincipal.getUsername());
+            client = dbUsersStorage.getClientByPhoneOrEmail(myUserPrincipal.getUsername());
             name = client.getFirstName();
         }
     }

@@ -31,6 +31,8 @@ public class Tour {
     @ElementCollection
     private Set<Integer> availableWeekDays;
     private String duration;
+    @Transient
+    private boolean likedByPerson;
 
     public Tour(int imageId,
                 String name,

@@ -8,7 +8,7 @@
                     <div class="tour">
                         <div class="post-module">
                             <div class="photo">
-                                <img src="/getLogin/?id=${tour.imagesId[0]}"/>
+                                <img src="img/tt.png"/>
                             </div>
                             <div class="post-content">
                                 <h1 class="title">${tour.name}</h1>
@@ -25,6 +25,26 @@
                                     <div class="price">
                                         ${tour.economyPrice} $
                                     </div>
+                                    <#if tour.likedByPerson>
+                                        <div class='like'>
+                                            <button class="like-toggle basic2 like-active"
+                                                    id="calenderHeaderMonthsNametest"
+                                                    value="${tour.id}"> ♥
+                                            </button>
+                                            <span class="">I like this</span>
+                                        </div>
+                                    <#else>
+                                        <div class='like'>
+                                            <button class='like-toggle basic2' id="calenderHeaderMonthsNametest"
+                                                    value="${tour.id}"> ♥
+                                            </button>
+                                            <span class='hidden'>I like this</span>
+                                        </div>
+                                    </#if>
+
+                                    <#--                                    <div class="price">-->
+                                    <#--                                        ${tour.economyPrice} $-->
+                                    <#--                                    </div>-->
                                     <div class="duration">
                                         ${tour.duration}
                                     </div>

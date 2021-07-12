@@ -9,6 +9,7 @@ ul {
 }
 
 .tour {
+    /*border: 1px solid #f80707;*/
     margin-left: 0;
     padding: 30px;
 }
@@ -22,14 +23,15 @@ ul {
 }
 
 .post-module {
-    border: 1px solid #dddddd;
+    /*border: 1px solid #f1f1f1;*/
     position: relative;
     z-index: 1;
     display: block;
     background: #FFFFFF;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    text-align: center;
+    /*-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
+    /*-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
+    /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;
@@ -38,6 +40,7 @@ ul {
 }
 
 .post-module:hover {
+    text-align: center;
     -webkit-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 5px 2px -3px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 5px 5px 3px -3px rgba(50, 50, 50, 0.1), 3px 6px 15px rgba(0, 0, 0, 0.1);
@@ -45,6 +48,9 @@ ul {
 
 .post-module:hover .photo img,
 .hover .photo img {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     transform: scale(1.1);
@@ -52,13 +58,19 @@ ul {
 }
 
 .post-module .photo {
-    background: #000000;
+    background: #ffffff;
     overflow: hidden;
+    text-align: center;
 }
 
 .post-module .photo img {
+    width: 100%;
     display: block;
+    /*display: block;*/
+    margin: 0 auto;
     /*height: 100%;*/
+    display: table-cell;
+    vertical-align: middle;
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;
@@ -67,6 +79,9 @@ ul {
 }
 
 .post-module .post-content {
+    border: 1px solid #d0d0d0;
+    float: left;
+    /*height: 200px;*/
     position: absolute;
     bottom: 0;
     background: #FFFFFF;
@@ -81,6 +96,10 @@ ul {
     -o-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 }
+
+/*.post-module .post-content {*/
+/*    height: 220px;*/
+/*}*/
 
 .post-module .post-content .title {
     margin: 0;
@@ -120,14 +139,14 @@ ul {
 .post-module .post-content .post-footer .price {
     float: left;
     height: 100%;
-    width: 50%;
+    /*width: %;*/
     text-align: left;
 }
 
 .post-module .post-content .post-footer .duration {
-    float: left;
+    float: right;
     height: 100%;
-    width: 50%;
+    /*width: 50%;*/
     text-align: right;
 }
 
@@ -189,16 +208,18 @@ ul {
     }
 
     .post-module {
-        height: 600px;
+        height: 570px;
     }
 
     .post-module .photo {
         height: 400px;
+        text-align: center;
     }
 
     .post-module .photo img {
         display: block;
         height: 100%;
+        vertical-align: middle;
         -webkit-transition: all 0.3s linear 0s;
         -moz-transition: all 0.3s linear 0s;
         -ms-transition: all 0.3s linear 0s;
@@ -228,4 +249,77 @@ ul {
         border-radius: 4px;
         height: 50px;
     }
+}
+
+
+
+
+
+
+
+/**{transition: all 0.3s linear;}*/
+
+.hidden{
+    color: #ffc9c9;
+    font-size: 0;
+}
+
+.heading{
+    font-family: 'Amatic SC', cursive;
+    font-size: 5em;
+    margin: 0;
+}
+
+.like,p{
+    font-family: 'Open Sans';
+}
+
+.like-toggle{
+    transition: all 0.3s linear;
+    outline:none;
+    box-shadow:none;
+    border: none;
+    width: 40px;
+    height: 30px;
+    font-size: 1.3em;
+    border-radius: 100px;
+}
+
+
+.like-toggle.basic2{
+    transition: all 0.3s linear;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1.3em;
+    border-radius: 100px;
+    background: #ffffff;
+    color: #919191;
+}
+
+.like-active.basic2{
+    color: #ffc9c9;
+    /*background: #F06EA9;*/
+}
+
+.like-toggle.basic2:not(.like-active):hover{
+    background-color: white;
+    color: #777777;
+    width: 60px;
+}
+
+.like span {
+    font-family: 'Lato', sans-serif;
+    color: #ffc9c9;
+}
+
+.like {
+    padding-left: 20px;
+    float: left;
+    padding-bottom: 5px;
+    /*width: 20%;*/
+}
+
+.like button {
+    padding: 0;
 }

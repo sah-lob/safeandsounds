@@ -53,10 +53,18 @@ public class MainController {
                                 Pageable pageable,
                         @AuthenticationPrincipal final Principal user) {
 
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
-        model.addAttribute("page", tourStorage.findTours(pageable));
+        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+        var client = personalAccount.getClient();
+        var tours = tourStorage.findTours(pageable);
+        if (client != null) {
+            tours.forEach(x ->
+                    x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
+            );
+        }
+
+        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute("page", tours);
         model.addAttribute("url", "/");
-//        mailSender.send("sah-lob@ya.ru", "тема", "тело письма");
         return "index";
     }
 
@@ -107,7 +115,8 @@ public class MainController {
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model,
                              @AuthenticationPrincipal final Principal user) {
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
+        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+        model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }
@@ -135,5 +144,21 @@ public class MainController {
     public byte[] getLogin(@RequestParam Integer id) {
         var image = dbImagesRepository.findAllById(id);
         return image.getData();
+    }
+
+
+    @PostMapping(value = "/like")
+    @ResponseBody
+    public void like(@RequestParam Integer tourId, @AuthenticationPrincipal final Principal user) {
+        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+        var client = personalAccount.getClient();
+        if (client != null) {
+            if (client.getLikedToursId().contains(tourId)) {
+                client.getLikedToursId().remove(tourId);
+            } else {
+                client.getLikedToursId().add(tourId);
+            }
+        }
+        dbUsersStorage.saveUser(client);
     }
 }
