@@ -125,7 +125,15 @@ ul {
 }
 
 .post-module .post-content .tourBtn {
-    background-color: var(--first-primary-color);
+    border: 1px solid var(--first-text-color);
+    transition: all 0.3s linear;
+    width: 100%;
+}
+
+.post-module .post-content .tourBtn:hover {
+    border: 1px solid var(--hover-a-color);
+    background: rgba(213, 180, 91, 0.2);
+    transition: all 0.3s linear;
     width: 100%;
 }
 
@@ -321,5 +329,6 @@ ul {
 }
 
 .like button {
+    margin: 0;
     padding: 0;
 }

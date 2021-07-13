@@ -17,7 +17,7 @@
                                     ${tour.smallDescription}
                                     <a href="/chooseTour?id=${tour.id}">
                                         <div class="tourBtn">
-                                            Подробнее
+                                            Detail
                                         </div>
                                     </a>
                                 </div>
