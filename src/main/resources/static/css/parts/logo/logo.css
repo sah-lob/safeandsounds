@@ -282,12 +282,6 @@ p {
         color: var(--hover-a-color);
     }
 
-    /*.submenu-link:after {*/
-    /*    content: "\f107";*/
-    /*    font-family: 'Lato', sans-serif;*/
-    /*    color: inherit;*/
-    /*    margin-left: 10px;*/
-    /*}*/
     .submenu {
         background: rgba(54, 54, 54, 0.6);
         position: absolute;

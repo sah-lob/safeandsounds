@@ -9,7 +9,6 @@ ul {
 }
 
 .tour {
-    /*border: 1px solid #f80707;*/
     margin-left: 0;
     padding: 30px;
 }
@@ -23,15 +22,11 @@ ul {
 }
 
 .post-module {
-    /*border: 1px solid #f1f1f1;*/
     position: relative;
     z-index: 1;
     display: block;
     background: #FFFFFF;
     text-align: center;
-    /*-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
-    /*-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
-    /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);*/
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;
@@ -66,9 +61,7 @@ ul {
 .post-module .photo img {
     width: 100%;
     display: block;
-    /*display: block;*/
     margin: 0 auto;
-    /*height: 100%;*/
     display: table-cell;
     vertical-align: middle;
     -webkit-transition: all 0.3s linear 0s;
@@ -81,7 +74,6 @@ ul {
 .post-module .post-content {
     border: 1px solid #d0d0d0;
     float: left;
-    /*height: 200px;*/
     position: absolute;
     bottom: 0;
     background: #FFFFFF;
@@ -97,15 +89,10 @@ ul {
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 }
 
-/*.post-module .post-content {*/
-/*    height: 220px;*/
-/*}*/
-
 .post-module .post-content .title {
     margin: 0;
     padding: 0 0 10px;
     color: var(--first-text-color);
-    /*font-size: 75px;*/
     font-weight: 700;
 }
 
@@ -113,14 +100,12 @@ ul {
     margin: 0;
     padding: 0 0 20px;
     color: var(--hover-a-color);
-    /*font-size: 20px;*/
     font-weight: 400;
 }
 
 .post-module .post-content .description {
     display: none;
     color: #666666;
-    /*font-size: 14px;*/
     line-height: 1.8em;
 }
 
@@ -147,22 +132,17 @@ ul {
 .post-module .post-content .post-footer .price {
     float: left;
     height: 100%;
-    /*width: %;*/
     text-align: left;
 }
 
 .post-module .post-content .post-footer .duration {
     float: right;
     height: 100%;
-    /*width: 50%;*/
     text-align: right;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 1299px) {
 
-    .tours {
-        /*padding-top: 20px;*/
-    }
     .product-wrapper {
         float: left;
         width: 100%;
@@ -259,14 +239,6 @@ ul {
     }
 }
 
-
-
-
-
-
-
-/**{transition: all 0.3s linear;}*/
-
 .hidden{
     color: #ffc9c9;
     font-size: 0;
@@ -307,7 +279,6 @@ ul {
 
 .like-active.basic2{
     color: #ffc9c9;
-    /*background: #F06EA9;*/
 }
 
 .like-toggle.basic2:not(.like-active):hover{
@@ -325,7 +296,6 @@ ul {
     padding-left: 20px;
     float: left;
     padding-bottom: 5px;
-    /*width: 20%;*/
 }
 
 .like button {

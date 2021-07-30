@@ -8,8 +8,8 @@ $(window).load(function () {
 });
 
 
-$(function(){
-    $('.like-toggle').click(function(){
+$(function () {
+    $('.like-toggle').click(function () {
         let tourId = $(this).val();
         $.post(
             "/like",

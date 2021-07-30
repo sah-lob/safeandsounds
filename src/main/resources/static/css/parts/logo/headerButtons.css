@@ -21,8 +21,6 @@ div.btn a
     cursor: pointer;
 }
 
-
-/* Pull down  */
 div.pullDown a:before
 {
     position: absolute;

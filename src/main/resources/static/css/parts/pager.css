@@ -1,25 +1,44 @@
-.pagination {
-    display: inline-block;
-    background-color: #bb2b2b;
-}
-
-.pagination a {
-    color: black;
+.pager {
+    font-family: 'Lato', sans-serif;
+    padding-top: 20px;
+    font-size: 18px;
     float: left;
-    padding: 8px 16px;
-    text-decoration: none;
+    width: 100%;
+    position: relative;
 }
 
-.page-item {
-    background-color: red;
+.pager .pagerBody {
+    display: inline-block;
 }
 
-.pagination a.active {
-    background-color: #bb2b2b;
-    color: white;
+.pagerBtn {
+    transition: .5s;
 }
 
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
+.pagerBtn:hover {
+    color: var(--hover-a-color);
+    transition: .5s;
 }
 
+.pagerBodyPrev {
+    padding: 5px 25px;
+    float: left;
+}
+
+.pagerBodyNext {
+    padding: 5px 25px;
+    float: left;
+}
+
+.pagerBodyPaginationContainer {
+    float: left;
+}
+
+.pagerBodyNum {
+    padding: 5px 10px;
+    float: left;
+}
+
+.pagerBtnActive {
+    background-color: var(--hover-a-color);
+}
