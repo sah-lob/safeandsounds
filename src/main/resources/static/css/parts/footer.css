@@ -5,7 +5,7 @@ footer {
 }
 
 .footer {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     padding-top: 0px;
     background-color: #404040;
 }

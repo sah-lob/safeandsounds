@@ -12,7 +12,8 @@
                     Введите название экскурсии
                 </div>
                 <div class="content">
-                    <input type="text" class="numOfGeneratingTours" name="numOfGeneratingTours" placeholder="Введите название экскурсии">
+                    <input type="text" class="numOfGeneratingTours" name="numOfGeneratingTours"
+                           placeholder="Введите название экскурсии">
                 </div>
             </div>
             <button class="addTourButton" type="submit">Добавить экскурсию</button>

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     margin: auto;
     text-align: center;
     width: 98%;

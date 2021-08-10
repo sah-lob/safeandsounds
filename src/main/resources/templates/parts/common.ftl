@@ -8,6 +8,7 @@
         <title>Safe and sounds tours</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/parts/colors.css"/>
+        <link rel="stylesheet" type="text/css" href="css/parts/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="${pageStyle}"/>
         <link rel="stylesheet" type="text/css" href="${mainStyle}"/>
     </head>

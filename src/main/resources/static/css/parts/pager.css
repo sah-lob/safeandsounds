@@ -1,5 +1,5 @@
 .pager {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     padding-top: 20px;
     font-size: 18px;
     float: left;

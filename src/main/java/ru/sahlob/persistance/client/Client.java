@@ -25,7 +25,7 @@ public class Client implements Serializable {
     private boolean active;
     private String phone;
     private String email;
-//    private boolean verifiedEmail = false;
+    //    private boolean verifiedEmail = false;
     private String whatsAppPhone;
     private String telegramPhone;
     private String instagramAccount;

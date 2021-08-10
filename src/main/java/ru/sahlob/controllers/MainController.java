@@ -86,17 +86,13 @@ public class MainController {
 
     @PostMapping("/registration")
     public String addUser(Client client, Model model) {
-        Client userFromDb = dbUsersRepository.findByFirstName(client.getFirstName());
-
-        if (userFromDb != null) {
+        if (dbUsersRepository.findByFirstName(client.getFirstName()) != null) {
             model.addAttribute("message", "User exists");
             return "registration";
         }
-
         client.setActive(true);
         client.setRoles(Collections.singleton(ClientRoles.CLIENT));
         dbUsersRepository.save(client);
-
         return "redirect:/login";
     }
 

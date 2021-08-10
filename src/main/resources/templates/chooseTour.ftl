@@ -16,13 +16,13 @@
 
     <div class="cb">
         <div class="chooseTourBody">
-                <p class="bigger">${tour.name}</p>
-                <@gallery.page tour.imagesId/>
-                <div class="tourDescription">
-                    ${tour.description}
-                </div>
-                <@calender.calender/>
-                <@tourPrice.tourPrice/>
+            <p class="bigger">${tour.name}</p>
+            <@gallery.page tour.imagesId/>
+            <div class="tourDescription">
+                ${tour.description}
+            </div>
+            <@calender.calender/>
+            <@tourPrice.tourPrice/>
         </div>
     </div>
 </@c.page>

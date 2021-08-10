@@ -1,6 +1,6 @@
 body {
     height: 100%;
-    min-height:100%;
+    min-height: 100%;
     width: 100%;
 }
 
@@ -8,12 +8,12 @@ body {
     width: 100%;
     float: left;
     height: 100%;
-    min-height:100%;
+    min-height: 100%;
 }
 
 .chooseTourBody {
     height: 100%;
-    min-height:100%;
+    min-height: 100%;
     border-radius: 4px;
     left: 10%;
     margin-left: auto;
@@ -21,7 +21,7 @@ body {
 }
 
 .tourDescription {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     list-style: none;
     position: relative;
     width: 100%;

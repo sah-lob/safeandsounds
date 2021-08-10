@@ -131,15 +131,12 @@ hr {
 }
 
 
-
-
-
 .customButton {
     padding-top: 20px;
     float: left;
     width: 100%;
     color: black;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     text-align: center;
 }
 
@@ -148,7 +145,7 @@ hr {
     text-decoration: none;
     width: 100%;
     background-color: var(--first-primary-color);
-    font: 40px Raleway;
+    font: 40px var(--first-font-style);
     position: relative;
     z-index: 0;
     cursor: pointer;

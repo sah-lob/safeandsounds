@@ -239,25 +239,21 @@ ul {
     }
 }
 
-.hidden{
+.hidden {
     color: #ffc9c9;
     font-size: 0;
 }
 
-.heading{
-    font-family: 'Amatic SC', cursive;
+.heading {
+    font-family: var(--first-font-style);
     font-size: 5em;
     margin: 0;
 }
 
-.like,p{
-    font-family: 'Open Sans';
-}
-
-.like-toggle{
+.like-toggle {
     transition: all 0.3s linear;
-    outline:none;
-    box-shadow:none;
+    outline: none;
+    box-shadow: none;
     border: none;
     width: 40px;
     height: 30px;
@@ -266,7 +262,7 @@ ul {
 }
 
 
-.like-toggle.basic2{
+.like-toggle.basic2 {
     transition: all 0.3s linear;
     border: none;
     width: 30px;
@@ -277,18 +273,18 @@ ul {
     color: #919191;
 }
 
-.like-active.basic2{
+.like-active.basic2 {
     color: #ffc9c9;
 }
 
-.like-toggle.basic2:not(.like-active):hover{
+.like-toggle.basic2:not(.like-active):hover {
     background-color: white;
     color: #777777;
     width: 60px;
 }
 
 .like span {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     color: #ffc9c9;
 }
 
