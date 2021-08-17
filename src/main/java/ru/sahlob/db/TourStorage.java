@@ -33,7 +33,7 @@ public class TourStorage {
                         inputTour.getPrice3(),
                         inputTour.getCoolness(),
                         getAvailableWeekDays(inputTour),
-                        inputTour.getDuration()));
+                        inputTour.getDuration(), inputTour.getBeginningTour()));
     }
 
     public Tour findTourById(int id) {

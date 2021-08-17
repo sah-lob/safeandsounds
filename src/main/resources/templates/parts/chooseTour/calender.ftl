@@ -14,7 +14,7 @@
             </div>
             <div class="calenderHeaderMonths">
                 <div class="calenderHeaderMonthsNext">
-                    <a onclick="submitOptIn(1)">
+                    <a onclick="updateСalendar(1)">
                         <img src="img/east.png" alt="e">
                     </a>
                 </div>
@@ -22,7 +22,7 @@
                     January
                 </div>
                 <div class="calenderHeaderMonthsBack" id="calenderHeaderMonthsBack">
-                    <a onclick="submitOptIn(-1)">
+                    <a onclick="updateСalendar(-1)">
                         <img src="img/west.png" alt="e">
                     </a>
                 </div>

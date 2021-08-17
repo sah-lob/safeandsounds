@@ -1,0 +1,200 @@
+.calender {
+    height: 100%;
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.calender .calendarFirstView {
+    float: left;
+    width: 75%;
+    position: relative;
+    background-color: var(--first-primary-color);
+}
+
+.calender .calenderSecondView {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    bottom: 35px;
+    float: left;
+    width: 25%;
+    background-color: var(--second-primary-color);
+}
+
+.calender .calenderHeader {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.calender .calenderHeader .calenderHeaderMonthsBack {
+    padding: 10px 30px;
+    float: left;
+    text-align: right;
+}
+
+.calender .calenderHeader .calenderHeaderMonthsName {
+    padding: 10px 10px 10px 30px;
+    float: left;
+    text-align: right;
+}
+
+.calender .calenderHeader .calenderHeaderYear {
+    padding: 10px 30px 10px 10px;
+    float: left;
+    text-align: left;
+}
+
+.calender .calenderHeader .calenderHeaderMonthsNext {
+    padding: 10px 30px;
+    float: left;
+    text-align: left;
+}
+
+.calender .calenderWeekDays {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.calender .calenderWeekDays .calenderWeekDay {
+    width: calc(100% / 7);
+    float: left;
+    text-align: center;
+}
+
+.calender .calenderBody {
+    width: 100%;
+    float: left;
+}
+
+.calender .calenderBody .calenderTable {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.calender .calenderBody .calenderTable td {
+    position: relative;
+    padding: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.calenderTableLastDay {
+    color: darkgray;
+}
+
+.calenderTableToday {
+    color: var(--hover-a-color);
+}
+
+.calenderTableAvailableTour {
+    color: #396437;
+    background-color: #94ca91;
+    transition: all .3s ease-in-out;
+    position: relative;
+}
+
+.calenderTableAvailableTour:hover {
+    color: var(--hover-a-color);
+    border-radius: 3px;
+    background-color: #7dab7a;
+    transition: all .3s ease-in-out;
+}
+
+.calenderTableAvailableTour a {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.calenderTableAvailableTourSelectDate {
+    position: relative;
+    padding: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.calenderSecondView {
+    float: left;
+    font-size: 25px;
+}
+
+.calenderSecondView .calenderSecondViewHeader {
+    padding: 10px;
+}
+
+.calenderSecondView .calenderSecondViewData {
+    color: var(--hover-a-color);
+    font-size: 35px;
+    float: left;
+}
+
+.calenderSecondView .calenderSecondViewExitBtn {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.calenderSecondView .calenderSecondViewExitBtn img {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.calenderSecondView .calenderSecondViewBody {
+    float: left;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.calenderSecondViewBodyString {
+    width: 100%;
+    text-align: left;
+    font-size: 32px;
+    padding: 15px;
+    float: left;
+}
+
+.otherDayAvailable {
+    color: darkgray;
+    background-color: #dbecd9;
+}
+
+.thisDayAvailable {
+    background-color: #7dab7a;
+}
+
+.otherCalenderTableAvailableTour {
+    color: darkgray;
+}
+
+.calenderSecondViewSvg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    fill: var(--first-primary-color);
+}
+
+.calenderSecondViewSvg svg {
+    width: 100%;
+}
+
+.calenderSecondViewSvgAvailableCalendar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    fill: var(--first-primary-color);
+}
+
+.calenderSecondViewSvgAvailableCalendar svg {
+    width: 50%;
+}

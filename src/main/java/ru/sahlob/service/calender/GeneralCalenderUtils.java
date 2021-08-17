@@ -1,5 +1,7 @@
 package ru.sahlob.service.calender;
 
+import java.util.Calendar;
+
 public class GeneralCalenderUtils {
 
     public static String getMonthByNum(int month) {
@@ -26,6 +28,9 @@ public class GeneralCalenderUtils {
     }
 
     public static int getNumOfMonthByTitle(String month) {
+        if (month.equals("")) {
+            return Calendar.getInstance().get(Calendar.MONTH);
+        }
         switch (month) {
             case ("January"):
                 return 0;

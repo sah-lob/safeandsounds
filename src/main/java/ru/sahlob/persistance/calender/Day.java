@@ -12,6 +12,7 @@ public class Day {
     private boolean today;
     private boolean availableTour;
     private String duration;
+    private String beginningTour;
     private int monthNum;
     private String month;
 }

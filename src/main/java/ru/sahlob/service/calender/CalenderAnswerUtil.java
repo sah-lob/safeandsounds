@@ -1,38 +1,43 @@
 package ru.sahlob.service.calender;
 
 import lombok.Data;
+import ru.sahlob.db.TourStorage;
 import ru.sahlob.persistance.calender.CalenderAnswer;
-import ru.sahlob.persistance.tour.Tour;
+import ru.sahlob.persistance.calender.CalenderInput;
 
 import java.util.Calendar;
 
 import static ru.sahlob.service.calender.GeneralCalenderUtils.getMonthByNum;
+import static ru.sahlob.service.calender.GeneralCalenderUtils.getNumOfMonthByTitle;
 
 @Data
 public class CalenderAnswerUtil {
 
     private final static CalenderUtil calenderUtil = new CalenderUtil();
 
-    public static CalenderAnswer getCalenderAnswer(int currentMonth, int currentYear, Tour tour) {
+    public static CalenderAnswer getCalenderAnswer(CalenderInput calenderInput, TourStorage tourStorage) {
         var calenderAnswer = new CalenderAnswer();
-        if (currentYear == -99) {
-            currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        var newCurrentMonth = getNumOfMonthByTitle(calenderInput.getCurrentMonth()) + calenderInput.getDirection();
+        var intCurrentYear = calenderInput
+                .getCurrentYear()
+                .equals("") ? Calendar.getInstance().get(Calendar.YEAR) : Integer.parseInt(calenderInput.getCurrentYear());
+
+        if (newCurrentMonth > 11) {
+            newCurrentMonth = 0;
+            intCurrentYear += 1;
         }
-        if (currentMonth == -99) {
-            currentMonth = Calendar.getInstance().get(Calendar.MONTH);
+        if (newCurrentMonth < 0) {
+            newCurrentMonth = 11;
+            intCurrentYear -= 1;
         }
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear += 1;
-        }
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear -= 1;
-        }
-        calenderAnswer.setCurrentMonthName(getMonthByNum(currentMonth));
-        calenderAnswer.setCurrentMonth(currentMonth);
-        calenderAnswer.setCurrentYear(currentYear);
-        calenderAnswer.setMonth(calenderUtil.getMonthByYearAndMonthNum(currentMonth, currentYear, tour));
+        calenderAnswer.setCurrentMonthName(getMonthByNum(newCurrentMonth));
+        calenderAnswer.setCurrentMonth(newCurrentMonth);
+        calenderAnswer.setCurrentYear(intCurrentYear);
+        calenderAnswer.setMonth(calenderUtil.getMonthByYearAndMonthNum(
+                newCurrentMonth,
+                intCurrentYear,
+                tourStorage
+                        .findTourById(calenderInput.getTourId())));
         return calenderAnswer;
     }
 }

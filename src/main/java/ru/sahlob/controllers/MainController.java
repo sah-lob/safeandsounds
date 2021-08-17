@@ -20,6 +20,7 @@ import ru.sahlob.db.interfaces.DBLogosRepository;
 import ru.sahlob.db.interfaces.DBUsersRepository;
 import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
+import ru.sahlob.persistance.calender.CalenderInput;
 import ru.sahlob.persistance.client.Client;
 import ru.sahlob.persistance.client.ClientRoles;
 import ru.sahlob.persistance.client.PersonalAccount;
@@ -31,7 +32,6 @@ import java.util.Calendar;
 import java.util.Collections;
 
 import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
-import static ru.sahlob.service.calender.GeneralCalenderUtils.getNumOfMonthByTitle;
 
 @Controller
 @Data
@@ -96,14 +96,10 @@ public class MainController {
         return "redirect:/login";
     }
 
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/getCalender")
     @ResponseBody
-    public CalenderAnswer test(@RequestParam String currentMonth,
-                               @RequestParam int direction,
-                               @RequestParam int currentYear,
-                               @RequestParam int tourId) {
-        var newCurrentMonth = getNumOfMonthByTitle(currentMonth) + direction;
-        var calenderAnswer = getCalenderAnswer(newCurrentMonth, currentYear, tourStorage.findTourById(tourId));
+    public CalenderAnswer getCalender(CalenderInput calenderInput) {
+        var calenderAnswer = getCalenderAnswer(calenderInput, tourStorage);
         calenderAnswer.setBackMonth(calenderAnswer.getCurrentMonth() != Calendar.getInstance().get(Calendar.MONTH));
         return calenderAnswer;
     }

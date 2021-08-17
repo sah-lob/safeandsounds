@@ -23,4 +23,5 @@ public class InputTour {
     private String saturday;
     private String sunday;
     private Integer coolness;
+    private String beginningTour;
 }

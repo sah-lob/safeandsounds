@@ -20,6 +20,7 @@ public class GenerateTestTours {
         tour.setDuration(generateToursDuration());
         tour.setDescription(generateToursDescription());
         tour.setAvailableWeekDays(generateAvailableWeekDays());
+        tour.setBeginningTour(generateBeginningTourTime());
         return tour;
     }
 
@@ -43,6 +44,10 @@ public class GenerateTestTours {
 
     public static String generateToursDuration() {
         return new Random().nextInt(9) + " часов";
+    }
+
+    public static String generateBeginningTourTime() {
+        return new Random().nextInt(20) + " : 00";
     }
 
     public static String generateToursDescription() {
