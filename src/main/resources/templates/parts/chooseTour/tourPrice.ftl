@@ -1,134 +1,158 @@
 <#macro tourPrice>
     <div class="tourPrice">
-        <table class="tourPriceTable">
-            <tr>
-                <td>
-                    <div class="tourPriceTableTd">
-                        <div class="tourPriceTableTdName">
-                            Эконом
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/event.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName1">
-                                No date selected yet
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/timelapse.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataDuration">
-                                ${tour.duration}
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdAuto">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/car2.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdAutoName">
-                                Ford Mondeo
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdPrice">
-                            <div class="tourPriceTableTdPriceLogo">
-                                <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdValue">
-                                ${tour.economyPrice}$
-                            </div>
-                        </div>
-                        <div class="customButton customButtonPullDown">
-                            <a onclick="newTour('Эконом')">Выбрать</a>
-                        </div>
+        <div class="tourPriceEconomy">
+            <div class="tourPriceEconomyCard">
+                <p>Economy
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconDate" id="tourPriceStringIconDate1">
                     </div>
-                </td>
-                <td>
-                    <div class="tourPriceTableTd">
-                        <div class="tourPriceTableTdName">
-                            Премиум
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/event.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName2">
-                                No date selected yet
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/timelapse.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataDuration">
-                                ${tour.duration}
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdAuto">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/car2.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdAutoName">
-                                BMW M5 F90
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdPrice">
-                            <div class="tourPriceTableTdPriceLogo">
-                                <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdValue">
-                                ${tour.premiumPrice}$
-                            </div>
-                        </div>
-                        <div class="customButton customButtonPullDown">
-                            <a onclick="newTour('Премиум')">Выбрать</a>
-                        </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName1">
+                        <p>No date selected yet
                     </div>
-                </td>
-                <td>
-                    <div class="tourPriceTableTd">
-                        <div class="tourPriceTableTdName">
-                            Групповая
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/event.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName3">
-                                No date selected yet
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdData">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/timelapse.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataDuration">
-                                ${tour.duration}
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdAuto">
-                            <div class="tourPriceTableTdAutoLogo">
-                                <img src="img/car2.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdAutoName">
-                                Ford Transit
-                            </div>
-                        </div>
-                        <div class="tourPriceTableTdPrice">
-                            <div class="tourPriceTableTdPriceLogo">
-                                <img src="img/tourPriceTableTdPriceLogo.png" alt="e">
-                            </div>
-                            <div class="tourPriceTableTdValue">
-                                ${tour.groupPrice}$
-                            </div>
-                        </div>
-                        <div class="customButton customButtonPullDown">
-                            <a onclick="newTour('Групповая')">Выбрать</a>
-                        </div>
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconDuration" id="tourPriceStringIconDuration1">
                     </div>
-                </td>
-            </tr>
-        </table>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.duration}
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconCar" id="tourPriceStringIconCar1">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>Ford Mondeo
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconPrice" id="tourPriceStringIconPrice1">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.economyPrice}$
+                </div>
+            </div>
+            <div class="tourPriceBtn">
+                <a onclick="newTour('Эконом')">
+                    <div class="tourPriceActiveBtn">
+                        <p>Select
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="tourPricePremium">
+            <div class="tourPricePremiumCard">
+                <div class="tourPriceCardText">
+                    <p>Premium
+                </div>
+            </div>
+            <div class="tourPriceString tourPriceStringPr">
+                <div class="tourPriceStringIcon tourPriceStringIconPr">
+                    <div class="tourPriceStringIconDate" id="tourPriceStringIconDate2">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName2">
+                        <p>No date selected yet
+                    </div>
+                </div>
+            </div>
+            <div class="tourPriceString tourPriceStringPr">
+                <div class="tourPriceStringIcon tourPriceStringIconPr">
+                    <div class="tourPriceStringIconDuration" id="tourPriceStringIconDuration2">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.duration}
+                </div>
+            </div>
+            <div class="tourPriceString tourPriceStringPr">
+                <div class="tourPriceStringIcon tourPriceStringIconPr">
+                    <div class="tourPriceStringIconCar" id="tourPriceStringIconCar2">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>BMW M5 F90
+                </div>
+            </div>
+            <div class="tourPriceString tourPriceStringPr">
+                <div class="tourPriceStringIcon tourPriceStringIconPr">
+                    <div class="tourPriceStringIconPrice" id="tourPriceStringIconPrice2">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.premiumPrice}$
+                </div>
+            </div>
+            <div class="tourPriceBtn">
+                <a onclick="newTour('Премиум')">
+                    <div class="tourPriceActiveBtn tourPriceActiveBtnPr">
+                        <p>Select
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="tourPriceGroup">
+            <div class="tourPriceGroupCard">
+                <div class="tourPriceCardText">
+                    <p>Group
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconDate" id="tourPriceStringIconDate3">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <div class="tourPriceTableTdDataName" id="tourPriceTableTdDataName3">
+                        <p>No date selected yet
+                    </div>
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconDuration" id="tourPriceStringIconDuration3">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.duration}
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconCar" id="tourPriceStringIconCar3">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>Ford Transit
+                </div>
+            </div>
+            <div class="tourPriceString">
+                <div class="tourPriceStringIcon">
+                    <div class="tourPriceStringIconPrice" id="tourPriceStringIconPrice3">
+                    </div>
+                </div>
+                <div class="tourPriceStringText">
+                    <p>${tour.groupPrice}$
+                </div>
+            </div>
+            <div class="tourPriceBtn">
+                <a onclick="newTour('Групповая')">
+                    <div class="tourPriceActiveBtn">
+                        <p>Select
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </#macro>

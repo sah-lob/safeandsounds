@@ -1,6 +1,5 @@
 package ru.sahlob.service;
 
-import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.persistance.tour.Tour;
 
 import java.util.HashSet;
@@ -43,7 +42,7 @@ public class GenerateTestTours {
     }
 
     public static String generateToursDuration() {
-        return new Random().nextInt(9) + " часов";
+        return new Random().nextInt(9) + " hours";
     }
 
     public static String generateBeginningTourTime() {

@@ -10,6 +10,22 @@ $(
     function () {
         updateСalendar(0);
         getSVGIMG("calenderSecondViewSvg", "edit_calendar2");
+
+        getSVGIMG("tourPriceStringIconDate1", "tour_price_calender");
+        getSVGIMG("tourPriceStringIconDuration1", "tour_price_duration");
+        getSVGIMG("tourPriceStringIconCar1", "tour_price_car");
+        getSVGIMG("tourPriceStringIconPrice1", "tour_price_price");
+
+        getSVGIMG("tourPriceStringIconDate2", "tour_price_calender");
+        getSVGIMG("tourPriceStringIconDuration2", "tour_price_duration");
+        getSVGIMG("tourPriceStringIconCar2", "tour_price_car");
+        getSVGIMG("tourPriceStringIconPrice2", "tour_price_price");
+
+        getSVGIMG("tourPriceStringIconDate3", "tour_price_calender");
+        getSVGIMG("tourPriceStringIconDuration3", "tour_price_duration");
+        getSVGIMG("tourPriceStringIconCar3", "tour_price_car");
+        getSVGIMG("tourPriceStringIconPrice3", "tour_price_price");
+
     }
 );
 
@@ -70,9 +86,9 @@ function updateСalendar(direction) {
 function addData(monthDay, month, year, duration, beginningTour) {
     let i;
     if (monthDay === -1) {
-        $('#tourPriceTableTdDataName1').html('No date selected yet');
-        $('#tourPriceTableTdDataName2').html('No date selected yet');
-        $('#tourPriceTableTdDataName3').html('No date selected yet');
+        $('#tourPriceTableTdDataName1').html('<p>No date selected yet');
+        $('#tourPriceTableTdDataName2').html('<p>No date selected yet');
+        $('#tourPriceTableTdDataName3').html('<p>No date selected yet');
 
         let calenderSecondScreen = 'The date has not been selected yet.\n' +
             '                    Select an available date' +
@@ -93,7 +109,7 @@ function addData(monthDay, month, year, duration, beginningTour) {
         getSVGIMG("calenderSecondViewSvg", "edit_calendar2");
 
     } else {
-        let dayMonthYear = monthDay + ' ' + month + ' ' + year;
+        let dayMonthYear = '<p>' + monthDay + ' ' + month + ' ' + year;
         $('#tourPriceTableTdDataName1').html(dayMonthYear);
         $('#tourPriceTableTdDataName2').html(dayMonthYear);
         $('#tourPriceTableTdDataName3').html(dayMonthYear);
