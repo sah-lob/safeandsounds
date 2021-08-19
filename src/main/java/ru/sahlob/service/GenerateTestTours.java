@@ -1,8 +1,11 @@
 package ru.sahlob.service;
 
 import ru.sahlob.persistance.tour.Tour;
+import ru.sahlob.persistance.tour.VisitedPlace;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 
 public class GenerateTestTours {
@@ -20,6 +23,7 @@ public class GenerateTestTours {
         tour.setDescription(generateToursDescription());
         tour.setAvailableWeekDays(generateAvailableWeekDays());
         tour.setBeginningTour(generateBeginningTourTime());
+        tour.setVisitedPlaces(generateVisitedPlaces());
         return tour;
     }
 
@@ -50,26 +54,25 @@ public class GenerateTestTours {
     }
 
     public static String generateToursDescription() {
-        return "<p>Одно из самых странных и загадочных мест Москвы &ndash; музей&ndash;заповедник Коломенское &ndash; предлагаем Вам посетить в компании нашего экскурсовода.<br /><br />Настоящие знатоки московской истории скажут, что Вы не видели настоящего Коломенского, если не подошли к его тайнам.<br /><br />Коломенское всегда считалось местом, где сокрыто множество тайн, зачастую не объяснимых с точки зрения обычного представления о мире. Здесь постоянно происходили мистические события, которые люди не могли принять как реальные. Однако множество свидетельств, зафиксированных документально, только подогревают интерес к этой местности.<br /><br /><strong>В ходе авторской пешеходной экскурсии по парку&ndash;музею и заповеднику Коломенское туристы смогут ознакомиться:</strong></p>\n" +
+        return "<header class=\"entry-header\">\n" +
+                "<p><strong>Home</strong></p>\n" +
+                "<p>Snipe eel Sundaland noodlefish elasmobranch parasitic catfish. Walleye mud cat kissing gourami armorhead catfish halfmoon lizardfish archerfish mrigal Oregon chub northern anchovy bonytongue. Mozambique tilapia jack tommy ruff; southern smelt bangus Japanese eel. Snoek salamanderfish golden dojo Redfin perch clown loach; bristlenose catfish, mudminnow loach minnow; staghorn sculpin. Dartfish alligatorfish pomfret bullhead yellow-and-black triplefin barbeled houndshark poacher dragonet spiny-back ground shark yellow-and-black triplefin Atlantic salmon. Electric knifefish featherfin knifefish blue eye Hammerjaw orange roughy clownfish peacock flounder. Rough sculpin: African lungfish basslet halibut pencil catfish; chum salmon cod icefish. Tiger barb cisco tiger shark parrotfish mooneye nurse shark.</p>\n" +
+                "<p>Kanyu spinefoot; largenose fish; whiting rocket danio spinyfin mako shark Blobfish crestfish staghorn sculpin wormfish whitefish tiger barb. Longnose lancetfish houndshark Red salmon whale shark warbonnet.</p>\n" +
+                "<p>&nbsp;</p>\n" +
+                "<p><strong>New Home</strong></p>\n" +
+                "<p>Platy Australian grayling turkeyfish, zebra turkeyfish. Cuchia, forehead brooder bullhead; staghorn sculpin, algae eater wels catfish tarpon Billfish sand goby. Filefish bobtail snipe eel clown loach bat ray freshwater eel monkfish luderick torrent catfish jewel tetra, African glass catfish Lost River sucker ribbon eel. Yellow tang lizardfish, hake humuhumunukunukuapua&amp;rsquo;a Blind shark oldwife Black swallower! Rio Grande perch, airbreathing catfish, smalltooth sawfish sawfish, ziege; harelip sucker ladyfish New World rivuline, &amp;laquo;char tarpon frogmouth catfish stickleback cow shark.&amp;raquo;</p>\n" +
+                "<p>&nbsp;</p>\n" +
                 "<ul>\n" +
-                "<li>с бытом царского двора &ndash; Конюшенным, Сытным и Поваренным дворами, с тем, чем жила резиденция в летнее время, как отмечала праздники и как встречала иностранных послов;</li>\n" +
-                "<li>с деятельностью русских зодчих, чьи творения стали гордостью страны, &ndash; церковью Вознесения Господня, храмом Казанской иконы Божьей Матери, колокольней святого Георгия Победоносца;</li>\n" +
-                "<li>с домиком Петра I, где формировался характер будущего царя;</li>\n" +
-                "<li>с образом жизни &laquo;капустных королей&raquo; &ndash; предприимчивых и трудолюбивых Коломенских крестьян;</li>\n" +
-                "<li>с принципом работы водяной мельницы;</li>\n" +
-                "<li>с удивительным по красоте русским деревянным зодчеством;</li>\n" +
-                "<li>с местом жительства царя Алексея Михайловича &ndash; отца Петра Великого;</li>\n" +
-                "<li>со знаменитым на всю Москву яблоневым садом.</li>\n" +
+                "<li>first poin ray roach blobfish mustache triggerfish pumpkinseed eelpout ling cod LostRiver sucker horn shark</li>\n" +
+                "<li>fish. Titan triggerfish barreleye Rasbora; crappie bull shark thresher shark grunion platy barramundi. Tripod fish, boga pearleye Peter&amp;rsquo;s elephantnose fish Indian mul Mexican golden trout. Halfmoon cherry salmon, seatrout river shark filefish sabert</li>\n" +
+                "<li>starry flounder cardinalfish scorpionfish. Titan triggerfish barreleye Rasbora; crappie bull shark thresher shark grunion platy barramundi. Tripod fish, boga pearleye Peter&amp;rsquo;s elephantnose fish Indian mul Mexican golden trout. Halfmoon cherry salmon, seatrout river shark filefish sabertooth. Pilot fish antenna codlet, anemonefish popeye catafula kappy African lungfish. Barbelless catfish, sea toad eel-goby mud</li>\n" +
+                "<li>qwerqeqer eriwvljrjkwref</li>\n" +
+                "<li>wefkljqwefnv;kj dfqewlkjqwe efoqiweufklj sdvaev;klj weoqpiuwef</li>\n" +
                 "</ul>\n" +
-                "<p><br /><strong>Есть в Коломенском удивительное место, называемое Голосовым оврагом. Это одно из самых таинственных и мистических мест не только в Москве, но и целой стране. Во время прогулки по Голосовому оврагу в Коломенском мы попытаемся:</strong></p>\n" +
-                "<ul>\n" +
-                "<li>восстановить картину битвы Георгия Победоносца со страшным Змием;</li>\n" +
-                "<li>найти останки коня Георгия Победоносца;</li>\n" +
-                "<li>обнаружить целебные родники;</li>\n" +
-                "<li>отыскать пространственно&ndash;временной портал &ndash; говорят, он открывается по определённым дням, а таинственное зеленое свечение является проходом в него;</li>\n" +
-                "<li>разыскать странных волосатых великанов, говорящих на незнакомом языке.</li>\n" +
-                "</ul>\n" +
-                "<p><br />По окончании экскурсии каждый турист узнает много новых и интересных фактов о Коломенском, о тайнах и загадках известного музея&ndash;заповедника, запомнив эту прогулку навсегда!</p>\n";
+                "<p>Ray roach Blobfish mustache triggerfish, pumpkinseed eelpout ling cod Lost River sucker horn shark&amp;mdash;African lungfish. Tench, skipping goby gopher rockfish, gianttail soldierfish wallago. Manta Ray kissing gourami, mustard eel killifish redlip blenny sheepshead killifish duckbill eel Pacific cod dottyback velvetfish danio! Scaleless black dragonfish shark; Blind shark. Wobbegong false brotula, yellowfin surgeonfish cusk-eel hamlet blue shark; sablefish plaice requiem shark tailor mustard eel.</p>\n" +
+                "<p>White marlin pineconefish northern sea robin, naked-back knifefish longnose sucker paperbone barbeled houndshark; sculpin, gulper eel; footballfish, mola pompano Redfin perch, popeye catafula. Bigscale pomfret sandroller snook frilled shark gopher rockfish&amp;mdash;round stingray, cowfish steelhead archerfish grenadier, temperate ocean-bass. Combtail gourami zebra pleco mola mola sunfish vendace northern lampfish zebra pleco; spiderfish Ratfish, sheepshead Atlantic saury Hammerjaw pricklefish. Temperate ocean-bass creek chub: rough pomfret: bocaccio starry flounder cardinalfish scorpionfish. Titan triggerfish barreleye Rasbora; crappie bull shark thresher shark grunion platy barramundi. Tripod fish, boga pearleye Peter&amp;rsquo;s elephantnose fish Indian mul Mexican golden trout. Halfmoon cherry salmon, seatrout river shark filefish sabertooth. Pilot fish antenna codlet, anemonefish popeye catafula kappy African lungfish. Barbelless catfish, sea toad eel-goby mudminnow gouramie livebearer Rabbitfish alligatorfish crocodile shark, Lost River sucker. Pikehead velvet catfish dab Atlantic eel coelacanth tui chub carpsucker warmouth!</p>\n" +
+                "<p><br />Does your lorem ipsum text long for something a&amp;nbsp;little fishier? Give our generator a&amp;nbsp;try... it&amp;rsquo;s fishy!</p>\n" +
+                "</header>";
     }
 
     private static String generateSimpleRandomString(int len) {
@@ -108,5 +111,18 @@ public class GenerateTestTours {
             availableWeekDays.add(6);
         }
         return availableWeekDays;
+    }
+
+    private static List<VisitedPlace> generateVisitedPlaces() {
+        var visitedPlaces = new ArrayList<VisitedPlace>();
+        var countPlaces = new Random().nextInt(7) + 3;
+        for (int i = 0; i < countPlaces; i++) {
+            var visitPlace = new VisitedPlace();
+            visitPlace.setName(generateSimpleRandomString(new Random().nextInt(30) + 8));
+            visitPlace.setDescription(generateSimpleRandomString(new Random().nextInt(30) + 40));
+            visitPlace.setDuration(new Random().nextInt(3));
+            visitedPlaces.add(visitPlace);
+        }
+        return visitedPlaces;
     }
 }

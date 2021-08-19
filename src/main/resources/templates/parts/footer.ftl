@@ -1,6 +1,6 @@
 <#macro footer>
     <link rel="stylesheet" type="text/css" href="../css/parts/footer.css"/>
-    <script src="../js/parts/footer.js"></script>
+    <script src="/js/parts/footer.js"></script>
     <div class="footer">
         <div id="site-footer"></div>
         <div class="footerGradient">
@@ -21,12 +21,14 @@
                 </div>
                 <div class="footerContentInstagram">
                     <a href="https://www.instagram.com/safeandsoundtours/">
-                        <img src="img/instagram.png" alt="e">
+                        <div class="footerInstagram" id="footerInstagram"></div>
+<#--                        <img src="img/instagram.png" alt="e">-->
                     </a>
                 </div>
                 <div class="footerContentFacebook">
                     <a href="https://www.instagram.com/safeandsoundtours/">
-                        <img src="img/facebook.png" alt="e">
+                        <div class="footerFacebook" id="footerFacebook"></div>
+<#--                        <img src="img/facebook.png" alt="e">-->
                     </a>
                 </div>
             </div>

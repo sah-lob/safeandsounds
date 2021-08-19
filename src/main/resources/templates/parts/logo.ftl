@@ -19,16 +19,16 @@
             <ul class="topmenu">
                 <li><a href="#">+7 916 633 58 00</a>
                     <ul class="submenu">
-                        <li><a href="">Обратный звонок</a></li>
+                        <li><a href="">Callback me</a></li>
                     </ul>
                 </li>
                 <li><a class="aClass" href="#">
                         Tours
                     </a>
                     <ul class="submenu">
-                        <li><a class="aClass" href="">по Москве</a></li>
-                        <li><a href="">речные прогулки</a></li>
-                        <li><a href="">по Подмосковью</a></li>
+                        <li><a class="aClass" href="">in Moscow</a></li>
+                        <li><a href="">Moscow region</a></li>
+                        <li><a href="">river trips</a></li>
                     </ul>
                 </li>
                 <li><a href="">About us</a></li>

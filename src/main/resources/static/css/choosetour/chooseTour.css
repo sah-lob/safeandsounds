@@ -10,7 +10,20 @@ body {
     height: 100%;
     min-height: 100%;
 }
+.mainTourDuration {
+    width: 100%;
+    float: left;
+}
 
+.mainTourDuratinActivePlace {
+    float: left;
+    border-radius: 4px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--hover-a-color);
+    padding: 5px;
+    border: 1px solid var(--second-primary-color);
+}
 .chooseTourBody {
     height: 100%;
     min-height: 100%;
@@ -34,7 +47,8 @@ body {
     position: relative;
     letter-spacing: 2px;
     transition: 0.3s all linear;
-    color: rgb(87, 87, 87);
+    color: rgb(64, 64, 64);
+    text-align: justify;
 }
 
 .tourDescription strong {
@@ -43,17 +57,17 @@ body {
 }
 
 .tourDescription li {
-    list-style: none;
+    /*list-style: none;*/
     padding: 7px 20px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    border-left: 5px solid var(--first-text-color);
-    box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
-    0 0 0 0 rgba(0, 0, 0, .1);
-    font-size: 18px;
+    /*border-left: 5px solid var(--first-text-color);*/
+    /*box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),*/
+    /*0 0 0 0 rgba(0, 0, 0, .1);*/
+    font-size: 20px;
     letter-spacing: 2px;
     transition: 0.3s all linear;
-    color: rgb(87, 87, 87);
+    color: rgb(64, 64, 64);
+    text-align: justify;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 1299px) {

@@ -32,6 +32,9 @@ public class Tour {
     private Set<Integer> availableWeekDays;
     private String duration;
     private String beginningTour;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<VisitedPlace> visitedPlaces = new ArrayList<>();
     @Transient
     private boolean likedByPerson;
 
