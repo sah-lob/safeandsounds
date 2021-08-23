@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface DBToursRepository extends PagingAndSortingRepository<Tour, Integer> {
     List<Tour> findAll();
+    Tour findFirstById(int id);
 }

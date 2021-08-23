@@ -50,6 +50,9 @@ public class OrderController {
             uuid = ServiceUtil.getRandomUuid();
         }
         order.setUuid(uuid);
+        order.setTourName(dbToursRepository
+                .findFirstById(order.getTourId())
+                .getName());
         dbOrdersStorage.saveOrder(order);
         return "/order?orderId=" + order.getUuid();
     }

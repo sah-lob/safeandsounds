@@ -10,7 +10,7 @@
         <table class="newOrderTable">
             <tr>
                 <td class="left">
-                    Номер заказа
+                    Order number
                 </td>
                 <td id="orderID">
                     ${id}
@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Название
+                    Title
                 </td>
                 <td id="orderName">
                     ${orderName}
@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Дата
+                    Date
                 </td>
                 <td id="orderDate">
                     ${date}
@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Тип
+                    Type
                 </td>
                 <td id="orderType">
                     ${type}
@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Стоимость
+                    Price
                 </td>
                 <td id="orderType">
                     ${price}
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваше имя:
+                    Enter your name:
                 </td>
                 <td>
                     <#if name??>
@@ -66,7 +66,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваш номер телефона:
+                    Your mobile phone:
                 </td>
                 <td>
                     <#if phone??>
@@ -82,7 +82,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваш email:
+                    Your email:
                 </td>
                 <td>
                     <#if email??>
@@ -98,12 +98,12 @@
             </tr>
             <tr>
                 <td class="left">
-                    Предпочтительный способ связи:
+                    Preferred communication method:
                 </td>
                 <td>
                     <div class="communication" id="communication">
                         <div class="communicationName" id="communicationName">
-                            Предпочтительный способ связи
+                            Preferred communication method:
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod1" id="communicationMethod1">
@@ -151,14 +151,14 @@
                             </div>
                         </div>
                         <div class="forceField" id="forceField">
-                            Выберете способ.
+                            Choose a method
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td class="left">
-                    Ваш комментарий:
+                    Your comment:
                 </td>
                 <td>
                     <div class="content">

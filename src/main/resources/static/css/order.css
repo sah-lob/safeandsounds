@@ -16,13 +16,12 @@ td {
     text-align: right;
     font-size: 25px;
     border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
 }
 
 .newOrderTable .left {
     font-weight: 700;
     text-align: left;
-    color: var(--first-primary-color);
+    color: black;
 }
 
 .confirmBtn {
