@@ -19,7 +19,6 @@ public class DBUsersStorage {
     }
 
     public Client addNewUser(InputOrder inputOrder) {
-        inputOrder.getCommunicationMethodNum();
         Client client = new Client(
                 inputOrder.getClientName(),
                 inputOrder.getClientPhone(),

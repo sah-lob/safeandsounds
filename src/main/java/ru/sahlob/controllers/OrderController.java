@@ -63,11 +63,15 @@ public class OrderController {
         String email = null;
         String phone = null;
         String name = null;
+        String communicationMethod = null;
+        String instagram = null;
         if (principal != null) {
             var user = dbUsersStorage.getClientByPhoneOrEmail(principal.getName());
             email = user.getEmail();
             phone = user.getPhone();
             name = user.getFirstName();
+            communicationMethod = user.getCommunicationMethod();
+            instagram = user.getInstagramAccount();
         }
         model.addAttribute("personalAccount", new PersonalAccount(principal, dbUsersStorage));
         model.addAttribute("id", order.getId());
@@ -78,7 +82,9 @@ public class OrderController {
         model.addAttribute("phone", phone);
         model.addAttribute("name", name);
         model.addAttribute("orderName", order.getTourName());
-        return "order";
+        model.addAttribute("communicationMethod", communicationMethod);
+        model.addAttribute("instagram", instagram);
+        return "newOrder";
     }
 
     @PostMapping(value = "/confirmNewOrder")
@@ -92,7 +98,9 @@ public class OrderController {
             client = dbUsersStorage
                     .addNewUser(inputOrder);
         }
-        InputTourUtils.addAdditionalInfo(client, order, inputOrder);
+        client.setCommunicationMethod(inputOrder.getCommunicationMethodAdditionalValue());
+        client.setInstagramAccount(inputOrder.getInstagram());
+        order.setPerformCommunicationMethod(inputOrder.getCommunicationMethodAdditionalValue());
         order.setComment(inputOrder.getComment());
         if (client.getUuid() == null) {
             client.setUuid(ServiceUtil.getRandomUuid());
@@ -175,4 +183,3 @@ public class OrderController {
         return "confirmEmail";
     }
 }
-

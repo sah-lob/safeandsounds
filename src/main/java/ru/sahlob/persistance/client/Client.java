@@ -25,10 +25,10 @@ public class Client implements Serializable {
     private boolean active;
     private String phone;
     private String email;
-    //    private boolean verifiedEmail = false;
+    private String communicationMethod;
     private String whatsAppPhone;
     private String telegramPhone;
-    private String instagramAccount;
+    private String instagramAccount = "";
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 

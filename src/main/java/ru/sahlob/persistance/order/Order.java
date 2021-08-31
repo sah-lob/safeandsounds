@@ -23,5 +23,5 @@ public class Order {
     private String comment;
     private int tourId;
     private OrderStatus orderStatus = OrderStatus.created;
-    private PerformCommunicationMethod performCommunicationMethod;
+    private String performCommunicationMethod;
 }
