@@ -34,7 +34,7 @@
                 <li><a href="">About us</a></li>
                 <li><a href="">Liked</a></li>
                 <#if personalAccount.authorized>
-                    <li><a href="#" class="submenu-link">
+                    <li><a href="/personalAccount" class="submenu-link">
                             <div class="aLeft">
                                 <img src="img/account.png" alt="e">
                             </div>

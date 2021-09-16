@@ -108,6 +108,7 @@ public class OrderController {
         order.setClientUuid(client.getUuid());
         order.setUuid2(ServiceUtil.getRandomUuid());
         order.setUuid(null);
+        client.addNewOrder(order);
         dbUsersStorage.saveUser(client);
         dbOrdersStorage.saveOrder(order);
         return "/showOrder?orderId=" + order.getUuid2();

@@ -3,4 +3,18 @@
     --second-primary-color: #d4d4d4;
     --first-text-color: #393939;
     --hover-a-color: #d5b45b;
+
+    --telegram-color: #57aed9;
+    --telegram-color-hover: #0d90d0;
+    --whatsApp-color: #8aba90;
+    --whatsApp-color-hover: #57be64;
+    --instagram-color: #c477a3;
+    --instagram-color-hover: #ca3f8e;
+    --email-color: #a097bf;
+    --email-color-hover: #7a64c4;
+    --phone-color: #ffa68b;
+    --phone-color-hover: #fd825d;
+
+
+    --error-color: #ff7e7e;
 }

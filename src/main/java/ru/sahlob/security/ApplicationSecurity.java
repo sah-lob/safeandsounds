@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import javax.sql.DataSource;
+import java.util.Collections;
 
 @Configuration
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
@@ -20,7 +21,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().regexMatchers("(?!/security/.*)/.*")
+                .authorizeRequests().regexMatchers("(?!/security/.*)(?!/personalAccount.*)/.*")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -36,6 +37,12 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     @SuppressWarnings("deprecation")
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {
+        String s = "asfewfewf";
+
+        var chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+
+        }
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 

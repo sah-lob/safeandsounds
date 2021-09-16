@@ -20,19 +20,12 @@
         </form>
     </div>
     <div class="container b-container" id="b-container">
-        <#--        <form action="/registration" method="post">-->
-        <#--            <div><label> User Name : <input type="text" name="firstName"/> </label></div>-->
-        <#--            <div><label> Password: <input type="password" name="password"/> </label></div>-->
-        <#--            &lt;#&ndash;            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />&ndash;&gt;-->
-        <#--            <div><input type="submit" value="Sign In"/></div>-->
-        <#--        </form>-->
         <form class="form" id="b-form" method="post" action="/registration">
             <h2 class="form_title title">Create Account</h2>
             <input class="form__input" type="text" name="firstName" placeholder="Name">
             <input class="form__input" type="text" name="email" placeholder="Email">
             <input class="form__input" type="password" name="password" placeholder="Password">
             <div><input class="button" type="submit" value="Sign up"/></div>
-            <#--            <button class="form__button button submit">SIGN UP</button>-->
         </form>
     </div>
     <div class="switch" id="switch-cnt">
@@ -52,7 +45,6 @@
     </div>
 </div>
 <script src="/js/parts/login2.js"></script>
-<#--<script src="main.js"></script>-->
 </body>
 
 </html>

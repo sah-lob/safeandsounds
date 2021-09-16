@@ -43,4 +43,8 @@ public class Client implements Serializable {
         this.phone = phone;
         this.email = email;
     }
+
+    public void addNewOrder(Order order) {
+        orders.add(order);
+    }
 }

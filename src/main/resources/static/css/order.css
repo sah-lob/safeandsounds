@@ -164,98 +164,98 @@
 }
 
 .cmWhatsApp {
-    fill: #8aba90;
-    color: #8aba90;
+    fill: var(--whatsApp-color);
+    color: var(--whatsApp-color);
 }
 
 .cmWhatsApp:hover {
-    fill: #57be64;
-    color: #57be64;
+    fill: var(--whatsApp-color-hover);
+    color: var(--whatsApp-color-hover);
 }
 
 .cmWhatsAppPressed {
-    fill: #57be64;
-    color: #57be64;
+    fill: var(--whatsApp-color-hover);
+    color: var(--whatsApp-color-hover);
 }
 
 .borderWhatsApp {
-    border-top: 1px solid #57be64;
+    border-top: 1px solid var(--whatsApp-color-hover);
 }
 
 .cmTelegram {
-    fill: #57aed9;
-    color: #57aed9;
+    fill: var(--telegram-color);
+    color: var(--telegram-color);
 }
 
 .cmTelegram:hover {
-    fill: #0d90d0;
-    color: #0d90d0;
+    fill: var(--telegram-color-hover);
+    color: var(--telegram-color-hover);
 }
 
 .cmTelegramPressed {
-    fill: #0d90d0;
-    color: #0d90d0;
+    fill: var(--telegram-color-hover);
+    color: var(--telegram-color-hover);
 }
 
 .borderTelegram {
-    border-top: 1px solid #0d90d0;
+    border-top: 1px solid var(--telegram-color-hover)
 }
 
 .cmInstagram {
-    fill: #c477a3;
-    color: #c477a3;
+    fill: var(--instagram-color);
+    color: var(--instagram-color);
 }
 
 .cmInstagram:hover {
-    fill: #ca3f8e;
-    color: #ca3f8e;
+    fill: var(--instagram-color-hover);
+    color: var(--instagram-color-hover);
 }
 
 .cmInstagramPressed {
-    fill: #ca3f8e;
-    color: #ca3f8e;
+    fill: var(--instagram-color-hover);
+    color: var(--instagram-color-hover);
 }
 
 .borderInstagram {
-    border-top: 1px solid #ca3f8e;
+    border-top: 1px solid var(--instagram-color-hover);
 }
 
 .cmEmail {
-    fill: #a097bf;
-    color: #a097bf;
+    fill: var(--email-color);
+    color: var(--email-color);
 }
 
 .cmEmail:hover {
-    fill: #7a64c4;
-    color: #7a64c4;
+    fill: var(--email-color-hover);
+    color: var(--email-color-hover);
 }
 
 .cmEmailPressed {
-    fill: #7a64c4;
-    color: #7a64c4;
+    fill: var(--email-color-hover);
+    color: var(--email-color-hover);
 }
 
 .borderEmail {
-    border-top: 1px solid #7a64c4;
+    border-top: 1px solid var(--email-color-hover);
 }
 
 .cmPhone {
-    fill: #ffa68b;
-    color: #ffa68b;
+    fill: var(--phone-color);
+    color: var(--phone-color);
 }
 
 .cmPhone:hover {
-    fill: #fd825d;
-    color: #fd825d;
+    fill: var(--phone-color-hover);
+    color: var(--phone-color-hover);
 }
 
 .cmPhonePressed {
-    fill: #fd825d;
-    color: #fd825d;
+    fill: var(--phone-color-hover);
+    color: var(--phone-color-hover);
 }
 
 .borderPhone {
-    border-top: 1px solid #fd825d;
+    border-top: 1px solid var(--phone-color-hover);
 }
 
 .communicationMethodBodySelected {
@@ -388,7 +388,7 @@
 .errorBackGround {
     float: left;
     width: auto;
-    background-color: #ff7e7e;
+    background-color: var(--error-color);
     border-radius: 5px;
 }
 
