@@ -19,6 +19,7 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private Integer imageId = -1;
     private String uuid;
     private String firstName;
     private String password;

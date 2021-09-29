@@ -241,8 +241,13 @@ function editParam(editParam, oldParam) {
 function confirmOrder() {
     let orderID = document.getElementById("orderID").innerText;
     let orderUserName = getValue("orderUserName", "orderUserNameInput");
+    alert(orderUserName);
+    orderUserName = orderUserName.replaceAll(" edit", "");
+    alert(orderUserName);
     let orderUserPhone = getValue("orderUserPhone", "orderUserPhoneInput");
+    orderUserPhone = orderUserPhone.replaceAll(" edit", "");
     let orderUserEmail = getValue("orderUserEmail", "orderUserEmailInput");
+    orderUserEmail = orderUserEmail.replaceAll(" edit", "");
     let orderUserComment = document.getElementById('orderUserComment').value;
     let communicationMethodBodySelected = document.getElementById("communicationMethodBodySelected").innerText;
     let instagram = "";

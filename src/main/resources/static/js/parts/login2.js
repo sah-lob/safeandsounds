@@ -24,7 +24,6 @@ let changeForm = (e) => {
     switchCtn.classList.toggle("is-txr");
     switchCircle[0].classList.toggle("is-txr");
     switchCircle[1].classList.toggle("is-txr");
-
     switchC1.classList.toggle("is-hidden");
     switchC2.classList.toggle("is-hidden");
     aContainer.classList.toggle("is-txl");
