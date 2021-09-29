@@ -31,6 +31,12 @@ public class Tour {
     @ElementCollection
     private Set<Integer> availableWeekDays;
     private String duration;
+    private String beginningTour;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<VisitedPlace> visitedPlaces = new ArrayList<>();
+    @Transient
+    private boolean likedByPerson;
 
     public Tour(int imageId,
                 String name,
@@ -40,7 +46,7 @@ public class Tour {
                 Integer premiumPrice,
                 Integer coolness,
                 Set<Integer> availableWeekDays,
-                String duration) {
+                String duration, String beginningTour) {
         this.imagesId.add(imageId);
         this.name = name;
         this.description = description;
@@ -50,6 +56,7 @@ public class Tour {
         this.coolness = coolness;
         this.availableWeekDays = availableWeekDays;
         this.duration = duration;
+        this.beginningTour = beginningTour;
     }
 
     public void addNewImageId(int imageId) {

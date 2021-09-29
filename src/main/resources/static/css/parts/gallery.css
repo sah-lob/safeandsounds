@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
-
 /*html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }*/
 
 .slides {
@@ -21,9 +19,13 @@
     -webkit-touch-callout: none;
 }
 
-.slides input { display: none; }
+.slides input {
+    display: none;
+}
 
-.slide-container { display: block; }
+.slide-container {
+    display: block;
+}
 
 .slide {
     top: 0;
@@ -60,7 +62,7 @@
     font-size: 156pt;
     text-align: center;
     line-height: 580px;
-    font-family: "Varela Round", sans-serif;
+    font-family: var(--first-font-style);
     text-shadow: 0 0 15px rgb(119, 119, 119);
 }
 
@@ -86,9 +88,11 @@
     opacity: 1;
 }
 
-.nav .next { right: 0; }
+.nav .next {
+    right: 0;
+}
 
-input:checked + .slide-container  .slide {
+input:checked + .slide-container .slide {
     opacity: 1;
 
     transform: scale(1);
@@ -96,7 +100,9 @@ input:checked + .slide-container  .slide {
     transition: opacity 1s ease-in-out;
 }
 
-input:checked + .slide-container .nav label { display: block; }
+input:checked + .slide-container .nav label {
+    display: block;
+}
 
 .nav-dots {
     width: 100%;

@@ -1,0 +1,398 @@
+.personalAccountBody {
+    width: 80%;
+    margin-left: 10%;
+    float: left;
+    min-height: 800px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.personalAccountHeader {
+    width: 100%;
+    float: left;
+    font-size: 80px;
+    margin-bottom: 40px;
+}
+
+.personalAccountHorizontalBlock {
+    width: 100%;
+    float: left;
+}
+
+.personalAccountAvatarBlock {
+    float: left;
+    width: 150px;
+}
+
+.personalAccountHorizontalBlock .personalAccountAvatarPlace {
+    float: left;
+    width: 100%;
+    fill: var(--second-primary-color);
+    border-radius: 50%;
+}
+
+.personalAccountHorizontalBlock .personalAccountAvatarPlace img {
+    object-fit: cover;
+    float: left;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.personalAccountHorizontalBlock .personalAccountAvatar {
+    float: left;
+    width: 100%;
+}
+
+.personalAccountAvatarEdit {
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+}
+
+.personalAccountAvatarEditBorder {
+    border-radius: 5px;
+    border: 1px solid var(--second-primary-color);
+    cursor: pointer;
+}
+
+.personalAccountAvatarEditBorder:hover {
+    color: var(--hover-a-color);
+    border: 1px solid var(--hover-a-color);
+}
+
+.personalAccountAvatar svg {
+    float: left;
+    width: 150px;
+    height: 150px;
+    fill: var(--second-primary-color);
+    border-radius: 50%;
+}
+
+.personalAccountHorizontalBlock .personalAccountName {
+    margin-right: 20px;
+    padding-bottom: 10px;
+    float: right;
+    width: calc(100% - 200px);
+    text-align: left;
+    padding-left: 40px;
+    border-radius: 50%;
+}
+
+.personalAccountAttribute {
+    float: left;
+}
+
+.personalAccountNameValue {
+    float: left;
+}
+
+.personalAccountEditBtn {
+    margin-left: 60px;
+    padding: 0 9px;
+    border-radius: 5px;
+    float: right;
+    color: var(--second-primary-color);
+    border: 1px solid var(--second-primary-color);
+    cursor: pointer;
+}
+
+.personalAccountEditBtn:hover {
+    color: var(--hover-a-color);
+    border: 1px solid var(--hover-a-color);
+}
+
+.personalAccountHorizontalBlock .personalAccountEmail {
+    float: left;
+    width: calc(100% - 300px);
+    text-align: left;
+    padding-left: 40px;
+    padding-top: 10px;
+    border-radius: 50%;
+}
+
+.personalAccountHorizontalBlock .personalAccountPhone {
+    float: left;
+    width: calc(100% - 300px);
+    text-align: left;
+    padding-left: 40px;
+    padding-top: 10px;
+    border-radius: 50%;
+}
+
+.personalAccountEditLabel {
+    float: left;
+    width: 100px;
+}
+
+.orderTextValue {
+    float: left;
+    display: block;
+    width: calc(100% - 100px);
+}
+
+.orderUserNameInput {
+    float: left;
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+    width: 100%;
+    color: #414141;
+    font-size: 30px;
+}
+
+.personalAccountEditSaveBtn {
+    margin: 0;
+    padding: 0;
+    float: left;
+    border: 1px solid var(--second-primary-color);
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--first-primary-color);
+}
+
+.personalAccountEditSaveBtn:hover {
+    border: 1px solid var(--hover-a-color);
+    color: var(--hover-a-color);
+    background-color: white;
+}
+
+
+.personalAccountHorizontalBlockOrders {
+    float: left;
+    border: 1px solid var(--second-primary-color);
+    width: 100%;
+}
+
+.personalAccountHorizontalBlockOrdersCard {
+    border: 1px solid var(--second-primary-color);
+    float: left;
+    width: calc(100% - 8px);
+    margin: 2px 4px;
+}
+
+.personalAccountHorizontalBlockOrdersCard:hover {
+    border: 1px solid var(--hover-a-color);
+    border-radius: 5px;
+    color: var(--hover-a-color);
+    float: left;
+    width: calc(100% - 8px);
+    margin: 2px 4px;
+}
+
+.personalAccountHorizontalBlockOrders .myOrdersHeader {
+    padding-left: 15px;
+    font-size: 40px;
+    width: 100%;
+    text-align: left;
+    background-color: var(--second-primary-color);
+}
+
+.personalAccountHorizontalBlockOrders .myOrdersHeaderInfo {
+    width: 100%;
+    float: left;
+}
+
+
+.personalAccountHorizontalBlockOrders .myOrdersHeaderInfo .myOrderHeaderInfoId {
+    width: 30px;
+    text-align: left;
+    padding-left: 15px;
+    float: left;
+}
+
+.personalAccountHorizontalBlockOrders .myOrdersHeaderInfo .myOrderHeaderInfoDate {
+    width: calc(100% - 30px);
+    text-align: left;
+    padding-left: 105px;
+    float: left;
+}
+
+.myOrdersHeaderBody {
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+}
+
+.personalAccountHorizontalBlockOrders .myOrdersHeaderBody .myOrdersHeaderName {
+    margin-left: 40px;
+    font-size: 35px;
+    float: left;
+}
+
+.personalAccountHorizontalBlockOrders .myOrdersHeaderBody .myOrdersHeaderPrice {
+    float: right;
+    margin-right: 40px;
+    font-size: 35px;
+}
+
+.shawAllOrders {
+    margin: 10px;
+}
+
+.personalAccountHorizontalBlockLikes {
+    float: right;
+}
+
+.personalAccountHorizontalBlockLikes {
+    padding-top: 50px;
+    float: left;
+    width: 100%;
+}
+
+.personalAccountHorizontalBlockLikesCard {
+    border: 1px solid var(--second-primary-color);
+    float: left;
+    width: calc(100% - 8px);
+    margin: 2px 4px;
+}
+
+.personalAccountHorizontalBlockLikesCard:hover {
+    border: 1px solid var(--hover-a-color);
+    color: var(--hover-a-color);
+    border-radius: 5px;
+}
+
+
+
+.personalAccountHorizontalBlockLikesCard .myOrdersHeader {
+    float: left;
+    width: 100%;
+}
+
+.personalAccountHorizontalBlockLikesCard .shawAllOrders {
+    float: left;
+    width: 100%;
+}
+
+.personalAccountHorizontalBlockLikesCardName {
+    width: 100%;
+    float: left;
+    text-align: left;
+    padding: 20px;
+    font-size: 45px;
+}
+
+.personalAccountHorizontalBlockCommunicationsMethod {
+    margin-top: 30px;
+    width: calc(100% - 30px);
+    float: left;
+}
+
+.leftBlock {
+    width: 50%;
+    float: left;
+}
+
+.rightBlock {
+    width: 50%;
+    float: left;
+}
+
+.personalAccountGame {
+    margin: 20px;
+    width: 100%;
+    float: left;
+}
+
+.personalAccountGame svg {
+    width: 100%;
+    height: 100%;
+}
+
+.personalAccountGame span {
+    color: white;
+    font-family: sans-serif;
+    opacity: .3;
+}
+
+.arrows {
+    clip-path: url(#mask);
+}
+
+#bowColor {
+    stroke: var(--first-primary-color);
+}
+
+.targetFirstColor {
+    fill: var(--first-primary-color);
+}
+
+.targetSecondColor {
+    cursor: pointer;
+    fill: var(--second-primary-color);
+}
+
+.targetThirdColor {
+    stop-color: var(--hover-a-color);
+    fill: var(--hover-a-color);
+}
+
+
+.upload-file__input {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.upload-file__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    border: 2px dashed var(--second-primary-color);
+    padding: 9px 49px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.upload-file__icon {
+    width: 30px;
+    height: auto;
+    margin-right: 11px;
+}
+
+.upload-file__label .upload-file__text,
+.upload-file__label .upload-file__icon path {
+    transition: .25s ease;
+}
+
+.upload-file__label:hover .upload-file__text {
+    color: var(--hover-a-color);
+}
+
+.upload-file__label:hover .upload-file__icon path {
+    fill: var(--hover-a-color);
+}
+
+.upload-file__label:hover {
+    border: 2px dashed var(--hover-a-color);
+}
+
+.newAvatarBtn {
+    margin-top: 20px;
+    padding: 10px;
+    float: left;
+    width: 100%;
+    border: 1px solid var(--second-primary-color);
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.newAvatarBtn:hover {
+    color: var(--hover-a-color);
+    border: 1px solid var(--hover-a-color);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hidden img {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 @Data
 public class Week {
+
     private ArrayList<Day> days = new ArrayList<>();
 
     public void add(Day day) {

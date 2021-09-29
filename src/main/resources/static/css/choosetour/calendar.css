@@ -1,109 +1,75 @@
 .calender {
+    height: 100%;
     width: 100%;
-    font-family: 'Lato', sans-serif;
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.calender .calendarFirstView {
+    float: left;
+    width: 75%;
+    position: relative;
+    background-color: var(--first-primary-color);
+}
+
+.calender .calenderSecondView {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    bottom: 35px;
+    float: left;
+    width: 25%;
+    background-color: var(--second-primary-color);
 }
 
 .calender .calenderHeader {
-    background: linear-gradient(
-            60deg,
-            var(--first-primary-color) 0%,
-            var(--second-primary-color) 100%);
-    float: left;
-    color: white;
-    width: 100%;
-}
-.calender .calenderHeader .calenderHeaderData {
-    font-size: 26px;
-    width: 100%;
-    height: 48px;
-}
-
-.calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelected {
-    text-align: left;
-    float: left;
-    padding-left: 10px;
-    height: 48px;
-    font-size: 2vw;
-    width: calc(100% - 48px);
-    background-color: #e09595;
-}
-
-.calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelectedButton {
-    text-align: left;
-    background-color: #e09595;
-    width: 48px;
-    float: left;
-}
-.calender .calenderHeader .calenderHeaderData .calenderHeaderDataText {
-    text-align: left;
-    float: left;
-    padding-left: 10px;
-    height: 48px;
-    font-size: 35px;
-    width: calc(100% - 48px);
-}
-
-.calender .calenderHeader .calenderHeaderData .calenderHeaderDataButton {
-    text-align: left;
-    width: 48px;
-    float: left;
-}
-.calender .calenderHeader .calenderHeaderYear {
-    padding-top: 10px;
-    font-size: 26px;
-    width: 100%;
-}
-
-.calender .calenderHeader .calenderHeaderMonths {
-    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 10px;
     font-size: 30px;
-    width: 100%;
-    float: left;
 }
 
-.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsBack {
+.calender .calenderHeader .calenderHeaderMonthsBack {
+    padding: 10px 30px;
+    float: left;
     text-align: right;
-    width: 40%;
-    height: 30px;
+}
+
+.calender .calenderHeader .calenderHeaderMonthsName {
+    padding: 10px 10px 10px 30px;
     float: left;
-    opacity: 1;
+    text-align: right;
 }
 
-.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsName {
-    width: 20%;
-    float: right;
-    height: 30px;
-}
-
-.calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsNext {
+.calender .calenderHeader .calenderHeaderYear {
+    padding: 10px 30px 10px 10px;
+    float: left;
     text-align: left;
-    width: 40%;
-    height: 30px;
-    float: right;
 }
 
-.calender .calenderHeader .calenderHeaderMonths img {
-    max-height: 100%;
+.calender .calenderHeader .calenderHeaderMonthsNext {
+    padding: 10px 30px;
+    float: left;
+    text-align: left;
 }
 
-.has-animation p, .has-animation img {
-    opacity: 1;
-}
-
-.calender .calenderHeader .calenderTableHeader {
-    text-align: center;
+.calender .calenderWeekDays {
     width: 100%;
     float: left;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
-    padding-top: 10px;
-    width: 14.2857143%;
+.calender .calenderWeekDays .calenderWeekDay {
+    width: calc(100% / 7);
     float: left;
+    text-align: center;
 }
 
 .calender .calenderBody {
     width: 100%;
+    float: left;
 }
 
 .calender .calenderBody .calenderTable {
@@ -115,216 +81,120 @@
 .calender .calenderBody .calenderTable td {
     position: relative;
     padding: 30px;
-    text-align: right;
-    border: 1px solid rgb(224, 224, 224);
+    text-align: center;
     font-size: 25px;
 }
 
-.calender .calenderBody .calenderTable td:hover .calenderTableCard {
-    display: block;
-    position: absolute;
-    z-index: 9999;
-    width: 200px;
-    height: 50px;
-}
-
 .calenderTableLastDay {
-    color: gray;
-    background-color: #d7d7d7;
+    color: darkgray;
 }
 
 .calenderTableToday {
-    color: white;
-    background-color: #333333;
+    color: var(--hover-a-color);
 }
 
 .calenderTableAvailableTour {
-    background-color: #ccffca;
-}
-
-.calenderTableCard {
-    display: none;
-    padding: 10px 0;
-    margin-top: 17px;
-    background: #f3f3f3;
-    text-align: center;
-    -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-}
-
-.calender .calenderBody .calenderTable td:hover .calenderTableCard {
-    display: block;
-    position: absolute;
-    border-radius: 4px;
-    z-index: 9999;
-    width: 200px;
-    height: 150px;
-}
-
-.calenderTableCardStartTime {
-    height: 50px;
-}
-
-.calenderTableCardDate {
-    width: 100%;
-    font-weight: 900;
-    height: 50px;
-    border-radius: 4px 4px 0 0;
-}
-
-.calenderTableCard .customButton {
-    height: 50px;
-}
-
-.calenderTableCard .customButton {
-    height: 50px;
-    background-color: var(--first-primary-color);
-    float: left;
-    width: 100%;
-    color: black;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-}
-
-.calenderTableCard .customButton a {
-    float: left;
-    height: 50px;
-    vertical-align: middle;
-    text-decoration: none;
-    width: 100%;
-    background-color: var(--first-primary-color);
-    font: 30px Raleway;
+    color: #396437;
+    background-color: #94ca91;
+    transition: all .3s ease-in-out;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    cursor: pointer;
 }
 
-.calenderTableCard .customButtonPullDown a:before {
+.calenderTableAvailableTour:hover {
+    color: var(--hover-a-color);
+    border-radius: 3px;
+    background-color: #7dab7a;
+    transition: all .3s ease-in-out;
+}
+
+.calenderTableAvailableTour a {
     position: absolute;
     width: 100%;
-    vertical-align: middle;
-    height: 2px;
-    left: 0;
     top: 0;
-    content: '';
-    background: #FFF;
-    opacity: 0.3;
-    transition: all 0.3s;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.calenderTableCard .customButtonPullDown a:hover:before {
-    height: 110%;
-    vertical-align: middle;
+.calenderTableAvailableTourSelectDate {
+    position: relative;
+    padding: 30px;
+    text-align: center;
+    font-size: 25px;
 }
 
-
-@media only screen and (min-width: 300px) and (max-width: 1299px) {
-
-    .calender .calenderHeader .calenderHeaderData {
-        font-size: 26px;
-        width: 100%;
-        height: 120px;
-    }
-
-    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelected {
-        text-align: left;
-        float: left;
-        padding-left: 10px;
-        height: 120px;
-        font-size: 4vw;
-        width: calc(100% - 120px);
-        background-color: #e09595;
-    }
-
-    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelectedButton {
-        text-align: left;
-        background-color: #e09595;
-        width: 120px;
-        float: left;
-    }
-
-    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataNotSelectedButton img{
-        background-color: #e09595;
-        width: 120px;
-        height: 120px;
-        float: left;
-    }
-
-    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataText {
-        text-align: left;
-        float: left;
-        padding-left: 10px;
-        height: 120px;
-        font-size: 4vw;
-        width: calc(100% - 120px);
-    }
-
-    .calender .calenderHeader .calenderHeaderData .calenderHeaderDataButton {
-        text-align: left;
-        width: 120px;
-        float: left;
-    }
-
-    .calender .calenderHeader .calenderHeaderYear {
-        font-size: 60px;
-        float: right;
-        width: 40%;
-        height: 100px;
-    }
-
-    .calender .calenderHeader .calenderHeaderMonths {
-        padding-bottom: 5px;
-        font-size: 60px;
-        width: 60%;
-        height: 100px;
-        float: left;
-    }
-
-    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsBack {
-        text-align: right;
-        padding-top: 10px;
-        width: 20%;
-        height: 100px;
-        float: left;
-        opacity: 1;
-    }
-
-    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsName {
-        padding-top: 10px;
-        width: 60%;
-        float: right;
-        height: 100px;
-    }
-
-    .calender .calenderHeader .calenderHeaderMonths .calenderHeaderMonthsNext {
-        text-align: left;
-        padding-top: 10px;
-        width: 20%;
-        height: 100px;
-        float: right;
-    }
-
-    .calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
-        font-size: 40px;
-        padding-top: 10px;
-        width: 14.2857143%;
-        float: left;
-    }
-
-    tbody {
-        font-size: 40px;
-    }
+.calenderSecondView {
+    float: left;
+    font-size: 25px;
 }
 
-@media only screen and (min-width: 1300px) {
-    .calender .calenderHeader .calenderTableHeader .calenderTableHeaderDay {
-        font-size: 30px;
-        padding-top: 10px;
-        width: 14.2857143%;
-        float: left;
-    }
+.calenderSecondView .calenderSecondViewHeader {
+    padding: 10px;
+}
+
+.calenderSecondView .calenderSecondViewData {
+    color: var(--hover-a-color);
+    font-size: 35px;
+    float: left;
+}
+
+.calenderSecondView .calenderSecondViewExitBtn {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.calenderSecondView .calenderSecondViewExitBtn img {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.calenderSecondView .calenderSecondViewBody {
+    float: left;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.calenderSecondViewBodyString {
+    width: 100%;
+    text-align: left;
+    font-size: 32px;
+    padding: 15px;
+    float: left;
+}
+
+.otherDayAvailable {
+    color: darkgray;
+    background-color: #dbecd9;
+}
+
+.thisDayAvailable {
+    background-color: #7dab7a;
+}
+
+.otherCalenderTableAvailableTour {
+    color: darkgray;
+}
+
+.calenderSecondViewSvg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    fill: var(--first-primary-color);
+}
+
+.calenderSecondViewSvg svg {
+    width: 100%;
+}
+
+.calenderSecondViewSvgAvailableCalendar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    fill: var(--first-primary-color);
+}
+
+.calenderSecondViewSvgAvailableCalendar svg {
+    width: 50%;
 }

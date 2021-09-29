@@ -27,7 +27,9 @@ public class CalenderUtil {
                                      Tour tour) {
 
         var month = new Month();
-        addDaysToLastMonth(month, date, cal, numDayOfWeek, currentMonth, currentYear, tour);
+        if (numDayOfWeek != 7) {
+            addDaysToLastMonth(month, date, cal, numDayOfWeek, currentMonth, currentYear, tour);
+        }
         addDaysToCurrentMonth(month, tour, numDayOfWeek, daysInMonth, currentMonth, currentYear);
         addDaysForNextMonth(month, currentMonth, currentYear, tour);
         return month;

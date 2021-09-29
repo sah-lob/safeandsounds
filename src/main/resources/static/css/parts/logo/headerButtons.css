@@ -1,19 +1,15 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway';
-
-div.btn
-{
+div.btn {
     color: var(--first-text-color);
-    font-family: 'Lato', sans-serif;
+    font-family: var(--first-font-style);
     margin: 10px auto;
     padding: 10px 0;
     text-align: center;
 }
 
-div.btn a
-{
+div.btn a {
     color: var(--first-text-color);
     text-decoration: none;
-    font: 20px Raleway;
+    font: 20px var(--first-font-style);
     margin: 0 10px;
     padding: 10px 10px;
     position: relative;
@@ -21,10 +17,7 @@ div.btn a
     cursor: pointer;
 }
 
-
-/* Pull down  */
-div.pullDown a:before
-{
+div.pullDown a:before {
     position: absolute;
     width: 100%;
     height: 2px;
@@ -36,7 +29,6 @@ div.pullDown a:before
     transition: all 0.3s;
 }
 
-div.pullDown a:hover:before
-{
+div.pullDown a:hover:before {
     height: 100%;
 }

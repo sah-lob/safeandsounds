@@ -1,469 +1,407 @@
 .newOrder {
-    height: 1200px;
-}
-
-.newOrderTable {
-    table-layout: fixed;
-    height: auto;
-    margin: 30px auto;
     position: relative;
-    width: 60%;
+    text-align: center;
+    width: 100%;
+    font-family: var(--first-font-style);
 }
 
-td {
-    vertical-align: middle;
-    padding: 10px;
+.newOrderCheck {
+    width: 800px;
+    margin-top: 100px;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid var(--second-primary-color);
+}
+
+.newOrderCheck .newOrderCheckLogo {
+    padding: 20px 20px 3px;
+    font-size: 45px;
+    background-color: var(--first-primary-color);
+    float: left;
+    width: 100%;
+}
+
+.newOrderCheck .newOrderCheckLogoConfirm {
+    width: 100%;
+    float: left;
+    font-size: 10px;
     text-align: right;
-    font-size: 25px;
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
+    background-color: var(--first-primary-color);
+    color: var(--hover-a-color);
+    padding: 3px 10px 10px;
 }
 
-.newOrderTable .left {
-    font-weight: 700;
+.newOrderCheckBody {
+    width: calc(100% - 20px);
+    float: left;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid var(--second-primary-color)
+}
+
+.newOrderCheckBodyOrderNumber {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-right: 1px solid var(--second-primary-color);
+    font-size: 30px;
     text-align: left;
-    color: var(--first-primary-color);
+    float: left;
+    width: 20%;
+}
+
+.newOrderCheckBodyOrderNumber .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+
+}
+
+.newOrderCheckBodyOrderDate {
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: left;
+    float: left;
+    width: 80%;
+}
+
+.newOrderCheckBodyOrderDate .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.newOrderCheckBodyOrderType {
+    float: left;
+    font-size: 30px;
+    width: 80%;
+    border-right: 1px solid var(--second-primary-color);
+    text-align: left;
+}
+
+.newOrderCheckBodyOrderType .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.newOrderEmail {
+    float: left;
+    width: 100%;
+    font-size: 30px;
+    text-align: left;
+}
+
+.newOrderEmail .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.newOrderCheckBodyOrderPrice {
+    float: left;
+    width: 20%;
+    font-size: 30px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.newOrderCheckBodyOrderPrice .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.newOrderCheckBodyOrderName {
+    float: left;
+    width: 50%;
+    font-size: 30px;
+    text-align: left;
+    border-right: 1px solid var(--second-primary-color);
+}
+
+.newOrderCheckBodyOrderName .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.newOrderCheckBodyOrderPhone {
+    float: left;
+    width: 50%;
+    font-size: 30px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.newOrderCheckBodyOrderPhone .orderText {
+    font-size: 15px;
+    float: left;
+    width: 100%;
+}
+
+.communicationMethodHeader {
+    margin: 0;
+    float: left;
+    font-size: 30px;
+    height: 80px;
+    padding: 20px 0 0;
+}
+
+.communicationMethodBody {
+    width: 400px;
+    float: right;
+    height: 80px;
+}
+
+.allCommunicationMethod {
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+
+.cmWhatsApp {
+    fill: var(--whatsApp-color);
+    color: var(--whatsApp-color);
+}
+
+.cmWhatsApp:hover {
+    fill: var(--whatsApp-color-hover);
+    color: var(--whatsApp-color-hover);
+}
+
+.cmWhatsAppPressed {
+    fill: var(--whatsApp-color-hover);
+    color: var(--whatsApp-color-hover);
+}
+
+.borderWhatsApp {
+    border-top: 1px solid var(--whatsApp-color-hover);
+}
+
+.cmTelegram {
+    fill: var(--telegram-color);
+    color: var(--telegram-color);
+}
+
+.cmTelegram:hover {
+    fill: var(--telegram-color-hover);
+    color: var(--telegram-color-hover);
+}
+
+.cmTelegramPressed {
+    fill: var(--telegram-color-hover);
+    color: var(--telegram-color-hover);
+}
+
+.borderTelegram {
+    border-top: 1px solid var(--telegram-color-hover)
+}
+
+.cmInstagram {
+    fill: var(--instagram-color);
+    color: var(--instagram-color);
+}
+
+.cmInstagram:hover {
+    fill: var(--instagram-color-hover);
+    color: var(--instagram-color-hover);
+}
+
+.cmInstagramPressed {
+    fill: var(--instagram-color-hover);
+    color: var(--instagram-color-hover);
+}
+
+.borderInstagram {
+    border-top: 1px solid var(--instagram-color-hover);
+}
+
+.cmEmail {
+    fill: var(--email-color);
+    color: var(--email-color);
+}
+
+.cmEmail:hover {
+    fill: var(--email-color-hover);
+    color: var(--email-color-hover);
+}
+
+.cmEmailPressed {
+    fill: var(--email-color-hover);
+    color: var(--email-color-hover);
+}
+
+.borderEmail {
+    border-top: 1px solid var(--email-color-hover);
+}
+
+.cmPhone {
+    fill: var(--phone-color);
+    color: var(--phone-color);
+}
+
+.cmPhone:hover {
+    fill: var(--phone-color-hover);
+    color: var(--phone-color-hover);
+}
+
+.cmPhonePressed {
+    fill: var(--phone-color-hover);
+    color: var(--phone-color-hover);
+}
+
+.borderPhone {
+    border-top: 1px solid var(--phone-color-hover);
+}
+
+.communicationMethodBodySelected {
+    padding-top: 10px;
+    margin-top: 10px;
+    width: 400px;
+    float: right;
+}
+
+.newOrderAdditionalInstagram {
+    width: calc(100% - 20px);
+    float: left;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--second-primary-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.newOrderAdditionalInstagram .communicationMethodName {
+    width: 50%;
+    float: left;
+    text-align: left;
+    font-size: 30px;
+}
+
+.newOrderAdditionalInstagram .instagramCommunicationMethod {
+    width: 50%;
+    float: right;
+}
+
+.newOrderAdditionalInstagram .communicationMethodText {
+    width: calc(100% - 40px);
+    background-color: white;
+    font-family: var(--first-font-style);
+    float: left;
+    height: 40px;
+    font-size: 30px;
+    outline: none;
+}
+
+.newOrderAdditionalInstagram.communicationMethodText:focus {
+    border: 1px solid var(--hover-a-color);
+}
+
+.communicationMethodDog {
+    float: left;
+    width: 40px;
+    font-size: 30px;
+    text-align: right;
+    font-family: var(--first-font-style);
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.communicationMethodNotSelected {
+    fill: var(--second-primary-color);
+}
+
+.newOrderComment {
+    float: left;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+}
+
+.newOrderComment .newOrderCommentTextArea {
+    border: 1px solid var(--second-primary-color);
+    float: left;
+    width: 100%;
+    height: 120px;
+    color: #414141;
+    font-size: 30px;
+    outline: none;
+    resize: none;
 }
 
 .confirmBtn {
-    table-layout: fixed;
-    font-size: 25px;
-    border-radius: 5px;
-    height: auto;
-    margin: auto;
-    position: relative;
-    width: 60%;
-    text-align: center;
-    color: var(--first-text-color);
+    float: left;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    height: 80px;
+    padding-top: 23px;
+    font-size: 30px;
     background-color: var(--first-primary-color);
+    margin-bottom: 10px;
+    transition: 0.3s;
 }
 
-.reveal-if-active {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
+.confirmBtn:hover {
+    transition: 0.3s;
+    border: 1px solid var(--hover-a-color);
+    background-color: var(--second-primary-color);
 }
 
-.communication {
+.orderUserNameInput {
     float: left;
-    width: 100%;
-}
-
-.communicationMethod {
-    float: left;
-    width: 20%;
-    color: var(--first-text-color);
-    height: 100px;
-}
-
-.communicationMethod .communicationMethod1 {
-    width: 100%;
-    height: 100%;
-}
-
-.communicationMethod .communicationMethod2 {
-    width: 100%;
-    height: 100%;
-}
-
-.communicationMethod .communicationMethod3 {
-    width: 100%;
-    height: 100%;
-}
-
-.communicationMethod .communicationMethod4 {
-    width: 100%;
-    height: 100%;
-}
-
-.communicationMethod .communicationMethod5 {
-    width: 100%;
-    height: 100%;
-}
-
-.w2communicationMethod1 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #43d854;
-}
-
-.w2communicationMethod2 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #08c;
-}
-
-.w2communicationMethod3 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #C13584;
-}
-
-.w2communicationMethod4 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: gray;
-}
-
-.w2communicationMethod5 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: darksalmon;
-}
-
-.w2communicationMethod1 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.w2communicationMethod2 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.w2communicationMethod3 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.w2communicationMethod4 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.w2communicationMethod5 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.s2communicationMethod1 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #99FF99;
-}
-
-.s2communicationMethod2 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #08c;
-}
-
-.s2communicationMethod3 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: #C13584;
-}
-
-.s2communicationMethod4 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: gray;
-}
-
-.s2communicationMethod5 {
-    float: left;
-    width: 100%;
-    height: 100%;
-    background-color: darksalmon;
-}
-
-.s2communicationMethod1 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 80%;
-    max-width: 80%;
-}
-
-.s2communicationMethod2 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 80%;
-    max-width: 80%;
-}
-
-.s2communicationMethod3 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 80%;
-    max-width: 80%;
-}
-
-.s2communicationMethod4 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 80%;
-    max-width: 80%;
-}
-
-.s2communicationMethod5 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 80%;
-    max-width: 80%;
-}
-
-
-.s2communicationMethod1 a:hover img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.s2communicationMethod2 a:hover img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.s2communicationMethod3 a:hover img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.s2communicationMethod4 a:hover img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.s2communicationMethod5 a:hover img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.forceField {
-    color: var(--first-text-color);
-    float: left;
-    width: 100%;
-    text-align: center;
-    background-color: var(--first-primary-color);
-}
-
-.communicationName {
-    float: left;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-}
-
-
-/*whatsapp*/
-.whatsappForceField {
-    background-color: #43d854;
-    color: white;
-    float: left;
-    width: 100%;
-}
-
-.whatsappForceField .whatsappTitle {
-    padding-left: 20px;
-    text-align: left;
-    width: 100%;
-    float: left;
-}
-
-.whatsAppCheckboxPlace {
-    float: left;
-}
-
-span {
-    float: left;
-}
-
-.whatsAppPhonePlace {
-    float: left;
-    width: 100%;
-    opacity: 0;
-    height: 0;
-}
-
-.whatsAppPhonePlace img {
-    float: left;
-    width: 40px;
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+    width: calc(100% - 10px);
+    color: #414141;
+    margin-top: 10px;
+    font-size: 30px;
     height: 40px;
 }
 
-.whatsAppPhonePlace form {
+.orderUserPhoneInput {
+    float: left;
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+    width: calc(100% - 10px);
+    color: #414141;
+    margin-top: 10px;
+    font-size: 30px;
+    height: 40px;
+}
+
+.orderUserEmailInput {
+    float: left;
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+    width: calc(100% - 10px);
+    color: #414141;
+    margin-top: 10px;
+    font-size: 30px;
+    height: 40px;
+}
+
+.errorBackGround {
+    float: left;
+    width: auto;
+    background-color: var(--error-color);
+    border-radius: 5px;
+}
+
+.orderTextChange {
     float: right;
-    width: calc(100% - 48px);
+    color: var(--second-primary-color);
+    border: 1px solid var(--second-primary-color);
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
 }
 
-.whatsAppPhonePlace form input {
-    color: black;
-    float: left;
-    width: 100%;
-}
-
-input:checked ~ .whatsAppPhonePlace {
-    opacity: 1;
-    height: 100%;
-}
-
-
-/*telegram*/
-.telegramForceField {
-    background-color: #08c;
-    color: white;
-    float: left;
-    width: 100%;
-}
-
-.telegramForceField .telegramTitle {
-    padding-left: 20px;
-    text-align: left;
-    width: 100%;
-    float: left;
-}
-
-.telegramCheckboxPlace {
-    float: left;
-}
-
-span {
-    float: left;
-}
-
-.telegramPhonePlace {
-    float: left;
-    width: 100%;
-    opacity: 0;
-    height: 0;
-}
-
-.telegramPhonePlace form {
-    float: left;
-    width: 100%;
-}
-
-.telegramPhonePlace form input {
-    color: black;
-    float: left;
-    width: 100%;
-}
-
-input:checked ~ .telegramPhonePlace {
-    opacity: 1;
-    height: 100%;
-}
-
-
-/*instagram*/
-.instagramForceField {
-    background-color: #C13584;
-    color: white;
-    float: left;
-    width: 100%;
-}
-
-.instagramForceField .instagramTitle {
-    padding-left: 20px;
-    text-align: left;
-    width: 100%;
-    float: left;
-}
-
-.instagramForceField .instagramAccountNamePlace {
-    float: left;
-    width: 100%;
-    text-align: left;
-}
-
-.instagramAccountNamePlace form {
-    float: left;
-    width: 100%;
-}
-
-.instagramAccountNamePlace form input {
-    color: black;
-    float: left;
-    width: 100%;
-}
-
-
-/*phone*/
-.phoneForceField {
-    background-color: gray;
-    color: white;
-    float: left;
-    width: 100%;
-}
-
-.phoneCheckboxPlace {
-    float: left;
-}
-
-span {
-    float: left;
-}
-
-.phonePhonePlace {
-    float: left;
-    width: 100%;
-    opacity: 0;
-    height: 0;
-}
-
-.phonePhonePlace form {
-    float: left;
-    width: 100%;
-}
-
-.phonePhonePlace form input {
-    color: black;
-    float: left;
-    width: 100%;
-}
-
-input:checked ~ .phonePhonePlace {
-    text-align: left;
-    opacity: 1;
-    height: 100%;
-}
-
-.emailForceField {
-    background-color: darksalmon;
-    color: white;
-    float: left;
-    width: 100%;
-}
-
-.emailForceField .emailTitle {
-    float: left;
-    width: 100%;
-    text-align: left;
-    padding-left: 10px;
-}
-
-.possibleProblems {
-    width: 60%;
-    margin-left: 20%;
-    padding-left: 10%;
-    background-color: red;
-    margin-bottom: 50px;
+.orderTextChange:hover {
+    border: 1px solid var(--hover-a-color);
 }

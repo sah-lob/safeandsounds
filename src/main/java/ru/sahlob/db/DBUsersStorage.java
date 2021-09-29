@@ -19,7 +19,6 @@ public class DBUsersStorage {
     }
 
     public Client addNewUser(InputOrder inputOrder) {
-        inputOrder.getCommunicationMethodNum();
         Client client = new Client(
                 inputOrder.getClientName(),
                 inputOrder.getClientPhone(),
@@ -32,6 +31,10 @@ public class DBUsersStorage {
     public Client getClientByPhoneOrEmail(String phone, String email) {
         var client = getClientByPhone(phone);
         return client == null ? getClientByEmail(email) : client;
+    }
+
+    public Client getClientByPhoneOrEmail(String data) {
+        return getClientByPhoneOrEmail(data, data);
     }
 
     public Client getClientById(int id) {
@@ -48,5 +51,9 @@ public class DBUsersStorage {
 
     public Client getClientByEmail(String email) {
         return dbUsersRepository.findByEmail(email);
+    }
+
+    public Client getClientByName(String name) {
+        return dbUsersRepository.findByFirstName(name);
     }
 }

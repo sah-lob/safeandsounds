@@ -41,6 +41,7 @@ public class AddDayUtil {
                 isToday,
                 availableWeekDay,
                 tour.getDuration(),
+                tour.getBeginningTour(),
                 currentMonth,
                 getMonthByNum(currentMonth));
     }

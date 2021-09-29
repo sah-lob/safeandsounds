@@ -1,7 +1,7 @@
 body {
     height: 100%;
-    min-height:100%;
-    font-family: 'Lato', sans-serif;
+    min-height: 100%;
+    font-family: var(--first-font-style);
     text-align: center;
 }
 
@@ -10,9 +10,8 @@ body {
     margin: 0;
     font-size: 60px;
     font-weight: 800;
-    /*     padding: 20px; */
     text-transform: uppercase;
-    color: var(--first-primary-color);
+    color: var(--hover-a-color);
     display: inline-block;
     position: relative;
 }

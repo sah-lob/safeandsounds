@@ -8,7 +8,7 @@ public class InputOrder {
     private String clientName;
     private String clientPhone;
     private String clientEmail;
-    private int communicationMethodNum;
     private String communicationMethodAdditionalValue;
+    private String instagram;
     private String comment;
 }

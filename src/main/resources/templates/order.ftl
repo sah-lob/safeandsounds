@@ -4,13 +4,13 @@
 
 <@c.page "css/parts/common.css" "/css/parts/gallery.css">
     <link rel="stylesheet" type="text/css" href="../css/order.css"/>
-    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css"/>
+    <@logo.logo "css/parts/logo.css" "css/parts/headerButtons.css" personalAccount/>
     <script src="/js/parts/order.js"></script>
     <div class="newOrder">
         <table class="newOrderTable">
             <tr>
                 <td class="left">
-                    Номер заказа
+                    Order number
                 </td>
                 <td id="orderID">
                     ${id}
@@ -18,7 +18,15 @@
             </tr>
             <tr>
                 <td class="left">
-                    Дата
+                    Title
+                </td>
+                <td id="orderName">
+                    ${orderName}
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    Date
                 </td>
                 <td id="orderDate">
                     ${date}
@@ -26,7 +34,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Тип
+                    Type
                 </td>
                 <td id="orderType">
                     ${type}
@@ -34,7 +42,7 @@
             </tr>
             <tr>
                 <td class="left">
-                    Стоимость
+                    Price
                 </td>
                 <td id="orderType">
                     ${price}
@@ -42,42 +50,60 @@
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваше имя:
+                    Enter your name:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserName">
-                    </form>
+                    <#if name??>
+                        <div id="orderUserName2">
+                            ${name}
+                        </div>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserName">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваш номер телефона:
+                    Your mobile phone:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserPhone">
-                    </form>
+                    <#if phone??>
+                        <form>
+                            <input type="search" id="orderUserPhone" value="${phone}">
+                        </form>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserPhone">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
                 <td class="left">
-                    Введите ваш email:
+                    Your email:
                 </td>
                 <td>
-                    <form>
-                        <input type="search" id="orderUserEmail">
-                    </form>
+                    <#if email??>
+                        <div id="orderUserEmail2">
+                            ${email}
+                        </div>
+                    <#else>
+                        <form>
+                            <input type="search" id="orderUserEmail">
+                        </form>
+                    </#if>
                 </td>
             </tr>
             <tr>
                 <td class="left">
-                    Предпочтительный способ связи:
+                    Preferred communication method:
                 </td>
                 <td>
                     <div class="communication" id="communication">
                         <div class="communicationName" id="communicationName">
-                            Предпочтительный способ связи
+                            Preferred communication method:
                         </div>
                         <div class="communicationMethod">
                             <div class="communicationMethod1" id="communicationMethod1">
@@ -125,25 +151,26 @@
                             </div>
                         </div>
                         <div class="forceField" id="forceField">
-                            Выберете способ.
+                            Choose a method
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td class="left">
-                    Ваш комментарий:
+                    Your comment:
                 </td>
                 <td>
                     <div class="content">
-                    <textarea id="orderUserComment" name="smallDescription" rows="5" cols="45" placeholder="Введите ваш комментарий тут"
+                    <textarea id="orderUserComment" name="smallDescription" rows="5" cols="45"
+                              placeholder="Введите ваш комментарий тут"
                               name="text"></textarea>
                     </div>
                 </td>
             </tr>
         </table>
         <div class="possibleProblems" id="possibleProblems">
-<#--            тут будут возможные проблемы-->
+            <#--            тут будут возможные проблемы-->
         </div>
         <a onclick="confirmOrder()">
             <div class="confirmBtn">

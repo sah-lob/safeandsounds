@@ -1,238 +1,172 @@
-let firstCommunicationName = 'Предпочтительный способ связи';
-let communicationName1 = "Whatsapp";
-let communicationName2 = "Telegram";
-let communicationName3 = "Instagram";
-let communicationName4 = "Phone";
-let communicationName5 = "Email";
-
-function selectCommunicationMethod(tourType) {
-    let oldCommunicationName = document.getElementById("communicationName").innerText;
-    let oldI = getOldI(oldCommunicationName);
-    setCommunicationName(tourType);
-    for (let i = 1; i < 6; i++) {
-        if (oldI === i) {
-            setPassiveCommunicationMethod(i)
-        } else if (i === tourType) {
-            setActiveCommunicationMethod(i)
-        }
+$(
+    function () {
+        getSVGIMG("cmWhatsAppIcon", "edit_calendar2");
+        getSVGIMG("cmTelegramIcon", "tour_price_calender");
+        getSVGIMG("cmInstagramIcon", "tour_price_duration");
+        getSVGIMG("cmEmailIcon", "tour_price_car");
+        getSVGIMG("cmPhoneIcon", "tour_price_price");
     }
-}
+);
 
-function setPassiveCommunicationMethod(num) {
-    let passiveCommunicationMethod = '<div class="s2communicationMethod' + num + '" id="s2communicationMethod' + num + '">\n' +
-        '                                <a onclick="selectCommunicationMethod(' + num + ')">\n' +
-        getImgPath(num) +
-        '                                </a>\n' +
-        '                            </div>'
-    $('#communicationMethod' + num).html(passiveCommunicationMethod);
-}
-
-function setActiveCommunicationMethod(num) {
-    let mes = '<div class="w2communicationMethod' + num + '" id="w2communicationMethod' + num + '">\n' +
-        getImgPath(num) +
-        '     </div>';
-    setForceField(num);
-    $('#communicationMethod' + num).html(mes);
-}
-
-function setCommunicationName(tourType) {
-    if (tourType === 1) {
-        $('#communicationName').html(communicationName1);
-    } else if (tourType === 2) {
-        $('#communicationName').html(communicationName2);
-    } else if (tourType === 3) {
-        $('#communicationName').html(communicationName3);
-    } else if (tourType === 4) {
-        $('#communicationName').html(communicationName4);
+function communicationMethod(communicationMethodName, instagramAccount) {
+    if (instagramAccount === undefined) {
+        instagramAccount = "";
+    }
+    setIconsColorGray();
+    setIconActive(communicationMethodName)
+    setCommunicationMethodBodySelected(communicationMethodName);
+    if (communicationMethodName === 'cmInstagram') {
+        var newOrderAdditionalInstagram = "<div class=\"communicationMethodName\">\n" +
+            "                    Enter your instagram:\n" +
+            "                </div>\n" +
+            "                <div class=\"instagramCommunicationMethod\">\n" +
+            "                    <div class=\"communicationMethodDog\">\n" +
+            "                        @\n" +
+            "                    </div>\n" +
+            "                    <input class=\"communicationMethodText\" id=\"communicationMethodText\" value='" + instagramAccount + "' type=\"text\">\n" +
+            "                </div>";
+        $('#newOrderAdditionalInstagram').html(newOrderAdditionalInstagram);
     } else {
-        $('#communicationName').html(communicationName5);
+        $('#newOrderAdditionalInstagram').html("");
     }
 }
 
-function getOldI(oldCommunicationName) {
-    if (oldCommunicationName === firstCommunicationName) {
-        return -3;
-    } else if (oldCommunicationName === communicationName1) {
-        return 1;
-    } else if (oldCommunicationName === communicationName2) {
-        return 2;
-    } else if (oldCommunicationName === communicationName3) {
-        return 3;
-    } else if (oldCommunicationName === communicationName4) {
-        return 4;
+function setIconsColorGray() {
+    let calenderTableAvailableTour = document.getElementsByClassName('allCommunicationMethod');
+    for (let i = 0; i < calenderTableAvailableTour.length; i++) {
+        addExcessClassByClassNameAndIndex("allCommunicationMethod", "communicationMethodNotSelected", i);
+    }
+}
+
+function setIconActive(communicationMethodName) {
+    deleteExcessClassByClassNameAndIndex(communicationMethodName, "communicationMethodNotSelected", 0);
+
+    if (communicationMethodName === "cmWhatsApp") {
+        addExcessClassByClassNameAndIndex(communicationMethodName, "cmWhatsAppPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmTelegram", "cmTelegramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmInstagram", "cmInstagramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmEmail", "cmEmailPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmPhone", "cmPhonePressed", 0);
+    }
+    if (communicationMethodName === "cmTelegram") {
+        addExcessClassByClassNameAndIndex(communicationMethodName, "cmTelegramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmWhatsApp", "cmWhatsAppPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmInstagram", "cmInstagramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmEmail", "cmEmailPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmPhone", "cmPhonePressed", 0);
+    }
+    if (communicationMethodName === "cmInstagram") {
+        addExcessClassByClassNameAndIndex(communicationMethodName, "cmInstagramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmWhatsApp", "cmWhatsAppPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmTelegram", "cmTelegramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmEmail", "cmEmailPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmPhone", "cmPhonePressed", 0);
+    }
+    if (communicationMethodName === "cmEmail") {
+        addExcessClassByClassNameAndIndex(communicationMethodName, "cmEmailPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmWhatsApp", "cmWhatsAppPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmTelegram", "cmTelegramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmInstagram", "cmInstagramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmPhone", "cmPhonePressed", 0);
+    }
+    if (communicationMethodName === "cmPhone") {
+        addExcessClassByClassNameAndIndex(communicationMethodName, "cmPhonePressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmWhatsApp", "cmWhatsAppPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmTelegram", "cmTelegramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmInstagram", "cmInstagramPressed", 0);
+        deleteExcessClassByClassNameAndIndex("cmEmail", "cmEmailPressed", 0);
+    }
+}
+
+function setCommunicationMethodBodySelected(communicationMethodName) {
+    $('#communicationMethodBodySelected').html(getCommunicationMethodNameByClass(communicationMethodName));
+    setCommunicationMethodBodySelectedNewColor(communicationMethodName);
+}
+
+function setCommunicationMethodBodySelectedNewColor(communicationMethodName) {
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "cmWhatsApp", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "cmTelegram", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "cmInstagram", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "cmEmail", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "cmPhone", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "borderWhatsApp", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "borderTelegram", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "borderInstagram", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "borderEmail", 0)
+    deleteExcessClassByClassNameAndIndex("communicationMethodBodySelected", "borderPhone", 0)
+    addExcessClassByClassNameAndIndex("communicationMethodBodySelected", "border" + getCommunicationMethodNameByClass(communicationMethodName), 0)
+    addExcessClassByClassNameAndIndex("communicationMethodBodySelected", communicationMethodName, 0)
+}
+
+function deleteExcessClassByClassNameAndIndex(className, deletedClass, id) {
+    if (document.getElementsByClassName(className)[0] != null) {
+        document.getElementsByClassName(className)[0]
+            .className = document.getElementsByClassName(className)[id]
+            .className.replaceAll(" " + deletedClass, "");
+    }
+}
+
+function addExcessClassByClassNameAndIndex(className, addedClass, id) {
+    if (document.getElementsByClassName(className)[0] != null) {
+        document.getElementsByClassName(className)[id].className += " " + addedClass;
+    }
+}
+
+function getCommunicationMethodNameByClass(communicationMethodName) {
+    if (communicationMethodName === "cmWhatsApp") {
+        return "WhatsApp"
+    }
+    if (communicationMethodName === "cmTelegram") {
+        return "Telegram"
+    }
+    if (communicationMethodName === "cmInstagram") {
+        return "Instagram"
+    }
+    if (communicationMethodName === "cmEmail") {
+        return "Email"
+    }
+    if (communicationMethodName === "cmPhone") {
+        return "Phone"
+    }
+}
+
+function getValue(divValue, inputValue) {
+    let name;
+    if (document.getElementById(inputValue) != null) {
+        name = document.getElementById(inputValue).value;
     } else {
-        return 5;
+        name = document.getElementById(divValue).innerText;
     }
+    return name;
 }
 
-function getImgPath(num) {
-    return '<img src="img/callbackB.png" alt="e">'
-}
-
-function setForceField(num) {
-    let answer;
-    if (num === 1) {
-        answer = setWhatsAppForceField();
-    } else if (num === 2) {
-        answer = setTelegramForceField();
-    } else if (num === 3) {
-        answer = setInstagramForceField();
-    } else if (num === 4) {
-        answer = setPhoneForceField();
-    } else {
-        answer = setEmailForceField();
-    }
-    $('#forceField').html(answer);
-}
-
-function setWhatsAppForceField() {
-    return '<div class="whatsappForceField" id="forceField">\n' +
-        '                            <div class="whatsappTitle">\n' +
-        '                                Your whatsApp phone number\n' +
-        '                            </div>\n' +
-        '                            <div class="whatsappSameCheck">\n' +
-        '                                <input type="checkbox" name="a4" class="whatsAppCheckboxPlace" id="whatsAppCheckboxPlace"><span>Different phone number</span><br>\n' +
-        '                                <div class="whatsAppPhonePlace">\n' +
-        '                                   <img src="img/iphone.png" alt="e">' +
-        '                                   <form>\n' +
-        '                                       <input type="search" id="whatsAppNewPhone">\n' +
-        '                                   </form>' +
-        '                                </div>\n' +
-        '                            </div>\n' +
-        '                        </div>';
-}
-
-function setTelegramForceField() {
-    return '<div class="telegramForceField" id="forceField">\n' +
-        '                            <div class="telegramTitle">\n' +
-        '                                Your telegram phone number\n' +
-        '                            </div>\n' +
-        '                            <div class="telegramSameCheck">\n' +
-        '                                <input type="checkbox" name="a4" class="telegramCheckboxPlace" id="telegramCheckboxPlace"><span>Different phone number</span><br>\n' +
-        '                                <div class="telegramPhonePlace">\n' +
-        '<form>\n' +
-        '  <input type="search" id="telegramNewPhone">\n' +
-        '</form>' +
-        '                                </div>\n' +
-        '                            </div>\n' +
-        '                        </div>';
-}
-
-function setInstagramForceField() {
-    return '<div class="instagramForceField" id="forceField">\n' +
-        '                            <div class="instagramTitle">\n' +
-        '                                Your account name\n' +
-        '                            </div>\n' +
-        '                            <div class="instagramAccountNamePlace">\n' +
-        '<form>\n' +
-        '  <input type="search" id="instagramAccountNewName">\n' +
-        '</form>' +
-        '                            </div>\n' +
-        '                        </div>'
-}
-
-function setPhoneForceField() {
-    return '<div class="phoneForceField" id="forceField">\n' +
-        '                            <div class="phoneSameCheck">\n' +
-        '                                <input type="checkbox" name="a4"\n' +
-        '                                       class="phoneCheckboxPlace" id="phoneCheckboxPlace"><span>Different phone number</span><br>\n' +
-        '                                <div class="phonePhonePlace">\n' +
-        '<form>\n' +
-        '  <input type="search" id="phoneNewPhone">\n' +
-        '</form>' +
-        '                                </div>\n' +
-        '                            </div>\n' +
-        '                        </div>'
-}
-
-function setEmailForceField() {
-    return '<div class="emailForceField" id="forceField">\n' +
-        '                            <div class="emailTitle">\n' +
-        '                                Email you have already entered=)\n' +
-        '                            </div>\n' +
-        '                        </div>'
-}
-
-function confirmOrder() {
-    let orderID = document.getElementById("orderID").innerText;
-    let orderUserName = document.getElementById('orderUserName').value
-    let orderUserPhone = document.getElementById('orderUserPhone').value
-    let orderUserEmail = document.getElementById('orderUserEmail').value
-    let orderUserComment = document.getElementById('orderUserComment').value
-    let communicationMethodNum = getCommunicationMethod();
-    let communicationMethodAdditionalValue = getCommunicationMethodAdditionalValue(communicationMethodNum);
-
-    let errorString = validateInputData(orderUserName, orderUserPhone, orderUserEmail);
-    if (errorString.length === 0) {
-        $.post(
-            "/confirmNewOrder",
-            {
-                orderID: orderID,
-                clientName: orderUserName,
-                clientPhone: orderUserPhone,
-                clientEmail: orderUserEmail,
-                communicationMethodNum: communicationMethodNum,
-                communicationMethodAdditionalValue: communicationMethodAdditionalValue,
-                comment: orderUserComment
-            },
-            onAjaxSuccess
-        );
-
-        function onAjaxSuccess(data) {
-            window.location.replace(data);
-        }
-    } else {
-        $('#possibleProblems').html(errorString);
-    }
-}
-
-function getCommunicationMethod() {
-    let communicationMethodNum = -1;
-    if (document.getElementById("w2communicationMethod1") !== null) {
-        communicationMethodNum = 1;
-    } else if (document.getElementById("w2communicationMethod2") !== null) {
-        communicationMethodNum = 2;
-    } else if (document.getElementById("w2communicationMethod3") !== null) {
-        communicationMethodNum = 3;
-    } else if (document.getElementById("w2communicationMethod4") !== null) {
-        communicationMethodNum = 4;
-    } else if (document.getElementById("w2communicationMethod5") !== null) {
-        communicationMethodNum = 5;
-    }
-    return communicationMethodNum;
-}
-
-function getCommunicationMethodAdditionalValue(communicationMethodNum) {
-    let communicationMethodAdditionalValue = "no additional value";
-    if (communicationMethodNum === 1) {
-        if (document.getElementById('whatsAppCheckboxPlace').checked) {
-            communicationMethodAdditionalValue = document.getElementById('whatsAppNewPhone').value;
-        }
-    } else if (communicationMethodNum === 2) {
-        if (document.getElementById('telegramCheckboxPlace').checked) {
-            communicationMethodAdditionalValue = document.getElementById('telegramNewPhone').value;
-        }
-    } else if (communicationMethodNum === 3) {
-        communicationMethodAdditionalValue = document.getElementById('instagramAccountNewName').value;
-    } else if (communicationMethodNum === 4) {
-        if (document.getElementById('phoneCheckboxPlace').checked) {
-            communicationMethodAdditionalValue = document.getElementById('phoneNewPhone').value;
-        }
-    }
-    return communicationMethodAdditionalValue;
-}
-
-function validateInputData(userName, userPhone, userEmail) {
+function validateInputData(userName, orderUserPhone, userEmail, communicationMethodBodySelected, instagram) {
     let checkErrorText = "";
     if (!validateName(userName)) {
-        checkErrorText += " фиговое имя."
+        checkErrorText += " please enter name";
+        addExcessClassByClassNameAndIndex("nameLabel", "errorBackGround", 0);
+    } else {
+        deleteExcessClassByClassNameAndIndex("nameLabel", "errorBackGround", 0);
     }
     if (!validateEmail(userEmail)) {
-        checkErrorText += " фиговый email"
+        checkErrorText += " please enter email";
+        addExcessClassByClassNameAndIndex("emailLabel", "errorBackGround", 0);
+    } else {
+        deleteExcessClassByClassNameAndIndex("emailLabel", "errorBackGround", 0);
     }
-    if (!validatePhone(userPhone)) {
-        checkErrorText += " фиговый телефон"
+    if (!validateCommunicationMethodBodySelectedPhone(orderUserPhone, communicationMethodBodySelected)) {
+        checkErrorText += " please enter phone";
+        addExcessClassByClassNameAndIndex("phoneLabel", "errorBackGround", 0);
+    } else {
+        deleteExcessClassByClassNameAndIndex("phoneLabel", "errorBackGround", 0);
     }
+    if (!validateCommunicationMethodInstagram(communicationMethodBodySelected, instagram)) {
+        checkErrorText += " please enter your instagram nickname";
+        addExcessClassByClassNameAndIndex("communicationMethodName", "errorBackGround", 0);
+    } else {
+        deleteExcessClassByClassNameAndIndex("communicationMethodName", "errorBackGround", 0);
+    }
+    validateCommunicationMethod(communicationMethodBodySelected);
     return checkErrorText;
 }
 
@@ -245,6 +179,103 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function validatePhone(value) {
-    return true;
+function validateCommunicationMethod(communicationMethod) {
+    if (communicationMethod === "") {
+        addExcessClassByClassNameAndIndex("communicationMethodHeader", "errorBackGround", 0);
+    } else {
+        deleteExcessClassByClassNameAndIndex("communicationMethodHeader", "errorBackGround", 0);
+    }
+}
+
+function validateCommunicationMethodBodySelectedPhone(phone, communicationMethod) {
+    return communicationMethod === "Phone"
+    || communicationMethod === "WhatsApp"
+    || communicationMethod === "Telegram"
+        ? phone !== "" : true;
+}
+
+function validateCommunicationMethodInstagram(communicationMethod, instagram) {
+    return communicationMethod === "Instagram" ? instagram !== "" : true;
+}
+
+function editParam(editParam, oldParam) {
+    alert(editParam);
+    alert(oldParam);
+
+    if (editParam === "name") {
+        let nameForm = '<div class="orderText">\n' +
+            '<div class="nameLabel">\n' +
+            'Enter your new name\n' +
+            '</div>\n' +
+            '</div>\n' +
+            '<div class="orderTextValue" id="orderUserName">\n' +
+            '<input class="orderUserNameInput" id="orderUserNameInput" type="text" placeholder="' + oldParam + '">\n' +
+            '</div>';
+        $('#newOrderCheckBodyOrderName').html(nameForm);
+    }
+    if (editParam === "phone") {
+        alert("her")
+        let phoneForm = '<div class="orderText">\n' +
+            '<div class="phoneLabel">\n' +
+            'Enter your new phone\n' +
+            '</div>\n' +
+            '</div>\n' +
+            '<div class="orderTextValue" id="orderUserPhone">\n' +
+            '<input class="orderUserPhoneInput" id="orderUserPhoneInput" type="text" placeholder="' + oldParam + '">\n' +
+            '</div>';
+        $('#newOrderCheckBodyOrderPhone').html(phoneForm);
+    }
+    if (editParam === "email") {
+        let emailForm = '<div class="orderText">\n' +
+            '<div class="emailLabel">\n' +
+            'Enter your new email\n' +
+            '</div>\n' +
+            '</div>\n' +
+            '<divs class="orderTextValue" id="orderUserEmail">\n' +
+            '<input class="orderUserEmailInput" id="orderUserEmailInput" type="text">\n' +
+            '</divs>';
+        $('#newOrderEmail').html(emailForm);
+    }
+}
+
+function confirmOrder() {
+    let orderID = document.getElementById("orderID").innerText;
+    let orderUserName = getValue("orderUserName", "orderUserNameInput");
+    alert(orderUserName);
+    orderUserName = orderUserName.replaceAll(" edit", "");
+    alert(orderUserName);
+    let orderUserPhone = getValue("orderUserPhone", "orderUserPhoneInput");
+    orderUserPhone = orderUserPhone.replaceAll(" edit", "");
+    let orderUserEmail = getValue("orderUserEmail", "orderUserEmailInput");
+    orderUserEmail = orderUserEmail.replaceAll(" edit", "");
+    let orderUserComment = document.getElementById('orderUserComment').value;
+    let communicationMethodBodySelected = document.getElementById("communicationMethodBodySelected").innerText;
+    let instagram = "";
+    if (document.getElementById("communicationMethodText") != null) {
+        instagram = document.getElementById("communicationMethodText").value;
+    }
+    let errorString = validateInputData(orderUserName, orderUserPhone, orderUserEmail, communicationMethodBodySelected, instagram);
+    if (errorString.length === 0) {
+        sendFrom(orderID, orderUserName, orderUserPhone, orderUserEmail, communicationMethodBodySelected, instagram, orderUserComment);
+    }
+}
+
+function sendFrom(orderID, orderUserName, orderUserPhone, orderUserEmail, communicationMethodAdditionalValue, instagram, orderUserComment) {
+    $.post(
+        "/confirmNewOrder",
+        {
+            orderID: orderID,
+            clientName: orderUserName,
+            clientPhone: orderUserPhone,
+            clientEmail: orderUserEmail,
+            communicationMethodAdditionalValue: communicationMethodAdditionalValue,
+            instagram: instagram,
+            comment: orderUserComment
+        },
+        onAjaxSuccess
+    );
+
+    function onAjaxSuccess(data) {
+        window.location.replace(data);
+    }
 }
