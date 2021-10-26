@@ -6,6 +6,7 @@ import ru.sahlob.persistance.client.Client;
 
 @Repository
 public interface DBUsersRepository extends CrudRepository<Client, Integer> {
+
     Client findByPhone(String phone);
 
     Client findByEmail(String email);

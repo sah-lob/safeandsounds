@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface DBImagesRepository extends CrudRepository<Image, Integer> {
-    List<Image> findAll();
-
-    Image findAllById(Integer id);
+    Image findFirstById(Integer id);
 }

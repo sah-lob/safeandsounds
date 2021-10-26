@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import ru.sahlob.db.DBFileStorageService;
+import ru.sahlob.db.DBImagesStorage;
 import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.TourStorage;
-import ru.sahlob.db.interfaces.DBImagesRepository;
-import ru.sahlob.db.interfaces.DBLogosRepository;
-import ru.sahlob.db.interfaces.DBUsersRepository;
-import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.calender.CalenderInput;
 import ru.sahlob.persistance.client.Client;
@@ -27,7 +24,6 @@ import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.service.mail.MailSender;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 
@@ -37,10 +33,8 @@ import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
 @Data
 public class MainController {
 
-    private final DBUsersRepository dbUsersRepository;
-    private final DBImagesRepository dbImagesRepository;
-    private final DBLogosRepository dbLogosRepository;
     private final DBUsersStorage dbUsersStorage;
+    private final DBImagesStorage dBImagesStorage;
     private final TourStorage tourStorage;
     private final DBFileStorageService dbFileStorageService;
     private final MailSender mailSender;
@@ -86,13 +80,13 @@ public class MainController {
 
     @PostMapping("/registration")
     public String addUser(Client client, Model model) {
-        if (dbUsersRepository.findByFirstName(client.getFirstName()) != null) {
+        if (dbUsersStorage.getClientByName(client.getFirstName()) != null) {
             model.addAttribute("message", "User exists");
             return "registration";
         }
         client.setActive(true);
         client.setRoles(Collections.singleton(ClientRoles.CLIENT));
-        dbUsersRepository.save(client);
+        dbUsersStorage.saveUser(client);
         return "redirect:/login";
     }
 
@@ -119,23 +113,10 @@ public class MainController {
         dbFileStorageService.storeFile(multipartFile);
     }
 
-    @GetMapping(value = "/getLogo")
-    @ResponseBody
-    public byte[] getLogo() {
-        var logos = new ArrayList<Logo>();
-        dbLogosRepository.findAll().iterator().forEachRemaining(logos::add);
-        if (logos.isEmpty()) {
-            return null;
-        }
-        var logo = logos.get(0);
-        return logo.getData();
-    }
-
     @GetMapping(value = "/getLogin")
     @ResponseBody
     public byte[] getLogin(@RequestParam Integer id) {
-        var image = dbImagesRepository.findAllById(id);
-        return image.getData();
+        return dBImagesStorage.findById(id).getData();
     }
 
 

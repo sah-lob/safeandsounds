@@ -43,8 +43,7 @@
                             </div>
                         </a>
                         <ul class="submenu">
-                            <li><a href="">My orders</a></li>
-                            <li><a href="">Settings</a></li>
+                            <li><a href="/personalAccount">My account</a></li>
                             <li><a href="/logout">logout</a></li>
                         </ul>
                     </li>

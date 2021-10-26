@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import ru.sahlob.db.DBImagesStorage;
 import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.TourStorage;
-import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.persistance.Image;
 import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.persistance.tour.LikedTour;
@@ -30,9 +30,9 @@ import java.util.stream.Collectors;
 public class PersonalAccountController {
 
     private final DBUsersStorage dbUsersStorage;
+    private final DBImagesStorage dbImagesStorage;
     private final MyUserDetailsService userService;
     private final TourStorage tourStorage;
-    private final DBImagesRepository dbImagesRepository;
 
     @GetMapping(value = "/personalAccount")
     public String login(@AuthenticationPrincipal final Principal user, Model model) {
@@ -118,10 +118,10 @@ public class PersonalAccountController {
         if (files.length > 0) {
             MultipartFile multipartFile = files[0];
             var image = new Image(multipartFile);
-            dbImagesRepository.save(image);
+            dbImagesStorage.saveImage(image);
             var client = new PersonalAccount(user, dbUsersStorage).getClient();
             if (client.getImageId() != -1) {
-                dbImagesRepository.deleteById(client.getImageId());
+                dbImagesStorage.deleteById(client.getImageId());
             }
             client.setImageId(image.getId());
             dbUsersStorage.saveUser(client);
@@ -131,7 +131,7 @@ public class PersonalAccountController {
     @GetMapping(value = "/getAvatar")
     @ResponseBody
     public byte[] getAvatar(@AuthenticationPrincipal final Principal user) {
-        var image = dbImagesRepository.findAllById(new PersonalAccount(user, dbUsersStorage).getClient().getImageId());
+        var image = dbImagesStorage.findById(new PersonalAccount(user, dbUsersStorage).getClient().getImageId());
         return image.getData();
     }
 }

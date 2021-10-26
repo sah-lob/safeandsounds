@@ -18,7 +18,7 @@ public class DBUsersStorage {
         return dbUsersRepository.save(client);
     }
 
-    public Client addNewUser(InputOrder inputOrder) {
+    public Client addNewUserFromInputOrder(InputOrder inputOrder) {
         Client client = new Client(
                 inputOrder.getClientName(),
                 inputOrder.getClientPhone(),
@@ -26,7 +26,6 @@ public class DBUsersStorage {
         client.setUuid(ServiceUtil.getRandomUuid());
         return dbUsersRepository.save(client);
     }
-
 
     public Client getClientByPhoneOrEmail(String phone, String email) {
         var client = getClientByPhone(phone);
