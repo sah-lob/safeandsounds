@@ -11,7 +11,7 @@ public class InputTour {
     private String name;
     private String smallDescription;
     private String description;
-    private String duration;
+    private int duration;
     private Integer price1;
     private Integer price2;
     private Integer price3;
@@ -23,5 +23,6 @@ public class InputTour {
     private String saturday;
     private String sunday;
     private Integer coolness;
-    private String beginningTour;
+    private Integer beginningTourHour;
+    private Integer beginningTourMinutes;
 }

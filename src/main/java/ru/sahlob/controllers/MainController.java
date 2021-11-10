@@ -21,11 +21,13 @@ import ru.sahlob.persistance.calender.CalenderInput;
 import ru.sahlob.persistance.client.Client;
 import ru.sahlob.persistance.client.ClientRoles;
 import ru.sahlob.persistance.client.PersonalAccount;
+import ru.sahlob.persistance.tour.TourFilter;
 import ru.sahlob.service.mail.MailSender;
 
 import java.security.Principal;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Set;
 
 import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
 
@@ -45,11 +47,38 @@ public class MainController {
                                 sort = {"coolness"},
                                 direction = Sort.Direction.DESC)
                                 Pageable pageable,
+                        @RequestParam(required = false) boolean lt,
+                        @RequestParam(required = false) Integer durationFrom,
+                        @RequestParam(required = false) Integer durationTo,
+                        @RequestParam(required = false) Integer hourFrom,
+                        @RequestParam(required = false) Integer hourTo,
+                        @RequestParam(required = false) Integer priceFrom,
+                        @RequestParam(required = false) Integer priceTo,
                         @AuthenticationPrincipal final Principal user) {
 
         var personalAccount = new PersonalAccount(user, dbUsersStorage);
         var client = personalAccount.getClient();
-        var tours = tourStorage.findTours(pageable);
+        Set<Integer> likedToursId;
+        if (client == null) {
+            likedToursId = null;
+        } else {
+            if (lt) {
+                likedToursId = client.getLikedToursId();
+            } else {
+                likedToursId = null;
+            }
+        }
+        var tourFilter = new TourFilter();
+        tourFilter.setLt(lt);
+        tourFilter.setLikedToursId(likedToursId);
+        tourFilter.setDurationFrom(durationFrom);
+        tourFilter.setDurationTo(durationTo);
+        tourFilter.setHourFrom(hourFrom);
+        tourFilter.setHourTo(hourTo);
+        tourFilter.setPriceFrom(priceFrom);
+        tourFilter.setPriceTo(priceTo);
+
+        var tours = tourStorage.testFindTours(pageable, tourFilter);
         if (client != null) {
             tours.forEach(x ->
                     x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
@@ -59,6 +88,7 @@ public class MainController {
         model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("page", tours);
         model.addAttribute("url", "/");
+        model.addAttribute("tourFilter", tourFilter);
         return "index";
     }
 

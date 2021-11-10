@@ -40,8 +40,8 @@ public class AddDayUtil {
                 lastDay,
                 isToday,
                 availableWeekDay,
-                tour.getDuration(),
-                tour.getBeginningTour(),
+                String.valueOf(tour.getDuration()),
+                tour.getBeginningTourHour() + " : " + tour.getBeginningTourMinutes(),
                 currentMonth,
                 getMonthByNum(currentMonth));
     }

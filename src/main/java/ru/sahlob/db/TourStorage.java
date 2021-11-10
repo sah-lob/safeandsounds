@@ -7,13 +7,12 @@ import org.springframework.stereotype.Component;
 import ru.sahlob.db.interfaces.DBImagesRepository;
 import ru.sahlob.db.interfaces.DBToursRepository;
 import ru.sahlob.persistance.Image;
-import ru.sahlob.persistance.Logo;
 import ru.sahlob.persistance.tour.InputTour;
 import ru.sahlob.persistance.tour.Tour;
+import ru.sahlob.persistance.tour.TourFilter;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Component
@@ -35,7 +34,9 @@ public class TourStorage {
                         inputTour.getPrice3(),
                         inputTour.getCoolness(),
                         getAvailableWeekDays(inputTour),
-                        inputTour.getDuration(), inputTour.getBeginningTour()));
+                        inputTour.getDuration(),
+                        inputTour.getBeginningTourHour(),
+                        inputTour.getBeginningTourMinutes()));
     }
 
     public Tour findTourById(int id) {
@@ -44,8 +45,15 @@ public class TourStorage {
                 .get();
     }
 
-    public Page<Tour> findTours(Pageable pageable) {
-        return dbToursRepository.findAll(pageable);
+    public Page<Tour> testFindTours(Pageable pageable, TourFilter tourFilter) {
+        return dbToursRepository.findAllWithFilters(
+                tourFilter.getLikedToursId(),
+                tourFilter.getDurationFrom(),
+                tourFilter.getDurationTo(),
+                tourFilter.getHourFrom(),
+                tourFilter.getHourTo(),
+                tourFilter.getPriceFrom(),
+                tourFilter.getPriceTo(), pageable);
     }
 
     public void updateTour(Tour tour) {
