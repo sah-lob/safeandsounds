@@ -3,9 +3,19 @@ name: Java CI
 on: [ push ]
 
 jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 14
+        uses: actions/setup-java@v2
+        with:
+          java-version: '14'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn validate
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 14
