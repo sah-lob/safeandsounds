@@ -13,7 +13,7 @@ import static ru.sahlob.service.calender.GeneralCalenderUtils.getNumOfMonthByTit
 @Data
 public class CalenderAnswerUtil {
 
-    private final static CalenderUtil calenderUtil = new CalenderUtil();
+    private final static CalenderUtil CALENDER_UTIL = new CalenderUtil();
 
     public static CalenderAnswer getCalenderAnswer(CalenderInput calenderInput, TourStorage tourStorage) {
         var calenderAnswer = new CalenderAnswer();
@@ -33,7 +33,7 @@ public class CalenderAnswerUtil {
         calenderAnswer.setCurrentMonthName(getMonthByNum(newCurrentMonth));
         calenderAnswer.setCurrentMonth(newCurrentMonth);
         calenderAnswer.setCurrentYear(intCurrentYear);
-        calenderAnswer.setMonth(calenderUtil.getMonthByYearAndMonthNum(
+        calenderAnswer.setMonth(CALENDER_UTIL.getMonthByYearAndMonthNum(
                 newCurrentMonth,
                 intCurrentYear,
                 tourStorage

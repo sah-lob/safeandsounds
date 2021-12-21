@@ -14,8 +14,8 @@ public interface DBToursRepository extends PagingAndSortingRepository<Tour, Inte
 
     Tour findFirstById(int id);
 
-    @Query("SELECT c FROM Tour c WHERE" +
-            "((:toursId) is null or c.id in :toursId)"
+    @Query("SELECT c FROM Tour c WHERE"
+            + "((:toursId) is null or c.id in :toursId)"
             + "and (:durationFrom is null or  c.duration >= :durationFrom)"
             + "and (:durationTo is null or  c.duration <= :durationTo)"
             + "and (:hourFrom is null or  c.beginningTourHour >= :hourFrom)"

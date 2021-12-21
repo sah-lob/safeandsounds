@@ -40,9 +40,6 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
         String s = "asfewfewf";
 
         var chars = s.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-
-        }
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 
