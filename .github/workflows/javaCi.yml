@@ -1,8 +1,9 @@
-name: Java CI
+name: CI
 
 on: [ push ]
 
 jobs:
+#  needs: dfs.yml
   checkstyle:
     runs-on: ubuntu-latest
     steps:
@@ -30,3 +31,4 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload
