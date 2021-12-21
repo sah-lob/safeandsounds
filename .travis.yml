@@ -10,7 +10,7 @@ after_success:
 notifications:
   email:
     recipients:
-      -sah-lob@ya..ru
+      -sah-lob@ya.ru
     on_success: always
     on_failure: always
 
