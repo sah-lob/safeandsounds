@@ -2,7 +2,6 @@ package ru.sahlob.persistance.tour;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 

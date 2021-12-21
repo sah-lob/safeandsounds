@@ -96,7 +96,7 @@ public class OrderController {
                 inputOrder.getClientEmail());
         if (client == null) {
             client = dbUsersStorage
-                    .addNewUser(inputOrder);
+                    .addNewUserFromInputOrder(inputOrder);
         }
         client.setCommunicationMethod(inputOrder.getCommunicationMethodAdditionalValue());
         client.setInstagramAccount(inputOrder.getInstagram());
@@ -183,4 +183,31 @@ public class OrderController {
         model.addAttribute("status", statusCode);
         return "confirmEmail";
     }
+
+//    @GetMapping(value = "allOrders")
+//    public String allOrders(Model model,
+//                            @PageableDefault(
+//                                    sort = {"coolness"},
+//                                    direction = Sort.Direction.DESC)
+//                                    Pageable pageable,
+//                            @AuthenticationPrincipal final Principal user) {
+//        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+//        var client = personalAccount.getClient();
+//        var tours = tourStorage.findTours(pageable);
+//        if (client != null) {
+//            tours.forEach(x ->
+//                    x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
+//            );
+//
+//
+//        }
+//        var likedTours = client.getLikedToursId();
+//        var list = tours.stream().filter(x -> client.getLikedToursId().contains(x.getId())).collect(Collectors.toList());
+//        Page<Tour> pageTour = new PageImpl(list, pageable, 10);
+//
+//        model.addAttribute("personalAccount", personalAccount);
+//        model.addAttribute("page", pageTour);
+//        model.addAttribute("url", "/");
+//        return "index";
+//    }
 }

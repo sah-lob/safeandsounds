@@ -22,7 +22,8 @@ public class GenerateTestTours {
         tour.setDuration(generateToursDuration());
         tour.setDescription(generateToursDescription());
         tour.setAvailableWeekDays(generateAvailableWeekDays());
-        tour.setBeginningTour(generateBeginningTourTime());
+        tour.setBeginningTourHour(generateBeginningTourTimeHour());
+        tour.setBeginningTourMinutes(generateBeginningTourTimeMinutes());
         tour.setVisitedPlaces(generateVisitedPlaces());
         return tour;
     }
@@ -45,12 +46,16 @@ public class GenerateTestTours {
         return new Random().nextInt(1_000);
     }
 
-    public static String generateToursDuration() {
-        return new Random().nextInt(9) + " hours";
+    public static Integer generateToursDuration() {
+        return new Random().nextInt(9);
     }
 
-    public static String generateBeginningTourTime() {
-        return new Random().nextInt(20) + " : 00";
+    public static int generateBeginningTourTimeHour() {
+        return new Random().nextInt(20);
+    }
+
+    public static int generateBeginningTourTimeMinutes() {
+        return new Random().nextInt(59);
     }
 
     public static String generateToursDescription() {

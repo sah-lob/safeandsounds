@@ -1,4 +1,210 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 .tourBodyContent {
     margin-left: auto;
     margin-right: auto;
+}
+
+
+.tourFilter {
+    background-color: var(--first-primary-color);
+    color: var(--first-text-color);
+    float: left;
+    width: 70px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    height: 100px;
+    z-index: 300;
+    transition: all 1s;
+}
+
+.tourFilter:hover {
+    opacity: 0.7;
+    background-color: var(--second-primary-color);
+    float: left;
+    width: 200px;
+    top: 150px;
+    left: 0;
+    height: 350px;
+}
+
+.tourFilterIcon {
+    width: 100%;
+    float: left;
+}
+
+.filterIcon {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    fill: var(--first-text-color);
+    transition: width 2s;
+}
+
+.filterIcon path {
+    width: 50px;
+    height: 50px;
+    transition: width 2s;
+}
+
+.tourFilterHeader {
+    float: left;
+    width: 100%;
+    text-align: center;
+    transition: width 2s;
+}
+
+.tourFilter:hover > .tourFilterIcon {
+    opacity: 0.15;
+    height: 0;
+    width: 0;
+    transition: width 2s;
+}
+
+.tourFilter:hover > .tourFilterHeader {
+    width: 100%;
+    padding-top: 5px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.confirmFilterBtn {
+    opacity: 0;
+    float: left;
+    width: 0;
+}
+
+.tourFilter:hover > .confirmFilterBtn {
+    position: absolute;
+    bottom: 0;
+    float: bottom;
+    opacity: 1;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    font-size: 25px;
+    background-color: var(--first-text-color);
+    color: var(--first-primary-color)
+}
+
+.tourFilter:hover > .confirmFilterBtn:hover {
+    background-color: #1d1d1d;
+    color: var(--hover-a-color);
+    cursor: pointer;
+}
+
+.tourFilterLiked {
+    opacity: 0;
+    float: left;
+    width: 0;
+}
+
+.tourFilter:hover > .tourFilterLiked {
+    opacity: 1;
+    padding: 10px 10px 10px 50px;
+    color: black;
+    text-align: left;
+    float: left;
+    width: 100%;
+    z-index: 23;
+}
+
+/*** custom checkboxes ***/
+
+.tourFilterLiked input[type=checkbox] {
+    display: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tourFilterLiked input[type=checkbox] + label:before {
+    content: "\f096";
+    cursor: pointer;
+}
+
+
+/* unchecked icon */
+.tourFilterLiked input[type=checkbox] + label:before {
+    letter-spacing: 10px;
+    cursor: pointer;
+}
+
+/* space between checkbox and label */
+
+.tourFilterLiked input[type=checkbox]:checked + label:before {
+    content: "\f046";
+    cursor: pointer;
+}
+
+/* checked icon */
+.tourFilterLiked input[type=checkbox]:checked + label:before {
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.tourFilterBetweenParam {
+    opacity: 0;
+    float: left;
+    width: 0;
+}
+
+.tourFilter:hover > .tourFilterBetweenParam {
+    opacity: 1;
+    width: 100%;
+}
+
+.tourFilterBetweenParamHeader {
+    width: 100%;
+    float: left;
+}
+
+.tourFilterBetweenForms {
+    width: 100%;
+    float: left;
+}
+
+.tourFilterBetweenParamFrom {
+    margin-left: 50px;
+    padding: 10px;
+    width: 25%;
+    float: left;
+}
+
+.tourFilterBetweenParamFrom input {
+    float: right;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+}
+
+.tourFilterBetweenParamTo {
+    padding: 10px;
+    width: 25%;
+    float: left;
+}
+
+.tourFilterBetweenParamTo input {
+    outline: none;
+    border: 1px solid var(--second-primary-color);
+    float: left;
+    width: 100%;
+}
+
+.tourFilterBetween {
+    width: auto;
+    float: left;
+    padding-top: 10px;
 }

@@ -41,12 +41,12 @@
                                             <span class='hidden'>I like this</span>
                                         </div>
                                     </#if>
-
-                                    <#--                                    <div class="price">-->
-                                    <#--                                        ${tour.economyPrice} $-->
-                                    <#--                                    </div>-->
                                     <div class="duration">
-                                        ${tour.duration}
+                                        <#if tour.duration == 1>
+                                            ${tour.duration} hour
+                                        <#else>
+                                            ${tour.duration} hours
+                                        </#if>
                                     </div>
                                 </div>
                             </div>

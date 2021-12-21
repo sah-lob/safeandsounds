@@ -9,7 +9,6 @@ class ServiceUtilTest {
     @Test
     public void whenCreatePassword() {
         String password = ServiceUtil.generatePassword();
-
         assertTrue(true);
     }
 

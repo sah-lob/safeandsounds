@@ -10,6 +10,7 @@ $(
     function () {
         getSVGIMG("footerInstagram", "instagram");
         getSVGIMG("footerFacebook", "facebook");
+        getSVGIMG("filterIcon", "filter");
     }
 );
 

@@ -1,8 +1,6 @@
 package ru.sahlob.persistance.tour;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -20,9 +18,11 @@ public class Tour {
     @ElementCollection
     private List<Integer> imagesId = new ArrayList<>();
     private String name;
-    @Type(type = "text")
+    @Column(columnDefinition = "TEXT")
+//    @Type(type = "text")
     private String smallDescription;
-    @Type(type = "text")
+    @Column(columnDefinition = "TEXT")
+//    @Type(type = "text")
     private String description;
     private Integer economyPrice;
     private Integer groupPrice;
@@ -30,8 +30,9 @@ public class Tour {
     private Integer coolness;
     @ElementCollection
     private Set<Integer> availableWeekDays;
-    private String duration;
-    private String beginningTour;
+    private int duration;
+    private Integer beginningTourHour;
+    private Integer beginningTourMinutes;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<VisitedPlace> visitedPlaces = new ArrayList<>();
@@ -46,7 +47,9 @@ public class Tour {
                 Integer premiumPrice,
                 Integer coolness,
                 Set<Integer> availableWeekDays,
-                String duration, String beginningTour) {
+                int duration,
+                int beginningTourHour,
+                int beginningTourMinutes) {
         this.imagesId.add(imageId);
         this.name = name;
         this.description = description;
@@ -56,7 +59,8 @@ public class Tour {
         this.coolness = coolness;
         this.availableWeekDays = availableWeekDays;
         this.duration = duration;
-        this.beginningTour = beginningTour;
+        this.beginningTourHour = beginningTourHour;
+        this.beginningTourMinutes = beginningTourMinutes;
     }
 
     public void addNewImageId(int imageId) {
