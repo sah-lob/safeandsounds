@@ -26,10 +26,6 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn clean install
-  CodeCov:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
