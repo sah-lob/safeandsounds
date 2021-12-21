@@ -1,8 +1,6 @@
 package ru.sahlob.persistance.tour;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -20,9 +18,11 @@ public class Tour {
     @ElementCollection
     private List<Integer> imagesId = new ArrayList<>();
     private String name;
-    @Type(type = "text")
+    @Column(columnDefinition = "TEXT")
+//    @Type(type = "text")
     private String smallDescription;
-    @Type(type = "text")
+    @Column(columnDefinition = "TEXT")
+//    @Type(type = "text")
     private String description;
     private Integer economyPrice;
     private Integer groupPrice;
