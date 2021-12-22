@@ -35,7 +35,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sah-lob_safeandsounds
       - name: SonarQube Quality Gate check
-        uses: sonarsource/sonarqube-quality-gate-action@main
+        uses: sonarsource/sonarqube-quality-gate-action@master
         # Force to fail step after specific time
         timeout-minutes: 5
         env:
