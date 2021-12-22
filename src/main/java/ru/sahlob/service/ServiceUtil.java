@@ -14,6 +14,7 @@ public class ServiceUtil {
     }
 
     public static String generatePassword() {
+        var upperCaseLetters2 = RandomStringUtils.random(2, 65, 90, true, true);
         var upperCaseLetters = RandomStringUtils.random(2, 65, 90, true, true);
         var lowerCaseLetters = RandomStringUtils.random(2, 97, 122, true, true);
         var numbers = RandomStringUtils.randomNumeric(2);
