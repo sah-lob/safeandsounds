@@ -1,11 +1,10 @@
-name: CI
+name: Deploy to master
 on:
   push:
     branches:
       - main
-
 jobs:
-  checkstyle:
+  deployCheckstyle:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,8 +15,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn validate
-  build:
-    needs: checkstyle
+  deployBuild:
+    needs: deployCheckstyle
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,14 +31,14 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-  deploy:
-    needs: build
+  deployToHeroku:
+    needs: deployBuild
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "safeandsounds" #Must be unique in Heroku
+          heroku_app_name: "safeandsounds"
           heroku_email: "sah-lob@ya.ru"
           remote_branch: "main"
