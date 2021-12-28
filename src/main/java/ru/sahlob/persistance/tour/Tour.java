@@ -18,11 +18,11 @@ public class Tour {
     @ElementCollection
     private List<Integer> imagesId = new ArrayList<>();
     private String name;
-    @Column(columnDefinition = "TEXT")
-//    @Type(type = "text")
+//    @Column(columnDefinition = "TEXT")
+    @Type(type = "text")
     private String smallDescription;
-    @Column(columnDefinition = "TEXT")
-//    @Type(type = "text")
+//    @Column(columnDefinition = "TEXT")
+    @Type(type = "text")
     private String description;
     private Integer economyPrice;
     private Integer groupPrice;
