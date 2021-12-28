@@ -1,8 +1,11 @@
 package ru.sahlob.persistance.order.utils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import ru.sahlob.persistance.order.NewInputOrder;
 import ru.sahlob.persistance.order.Order;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderUtils {
 
     public static Order newInputOrderToOrder(NewInputOrder newInputOrder) {
