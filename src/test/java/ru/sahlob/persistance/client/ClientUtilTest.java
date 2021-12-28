@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientUtilTest {
 
     @Test
-    public void getClientFromRegistrationInputClientTest() {
+    void getClientFromRegistrationInputClientTest() {
         var registrationInputClient = new RegistrationInputClient();
         var firstName = "firstName";
         var password = "password";
