@@ -1,8 +1,12 @@
 package ru.sahlob.persistance.client;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class RegistrationInputClient {
     private String firstName;
     private String password;
