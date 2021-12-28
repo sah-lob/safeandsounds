@@ -18,9 +18,7 @@ import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.TourStorage;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.calender.CalenderInput;
-import ru.sahlob.persistance.client.Client;
-import ru.sahlob.persistance.client.ClientRoles;
-import ru.sahlob.persistance.client.PersonalAccount;
+import ru.sahlob.persistance.client.*;
 import ru.sahlob.persistance.tour.TourFilter;
 import ru.sahlob.service.mail.MailSender;
 
@@ -109,7 +107,8 @@ public class MainController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Client client, Model model) {
+    public String addUser(RegistrationInputClient registrationInputClient, Model model) {
+        Client client = ClientUtil.getClientFromRegistrationInputClient(registrationInputClient);
         if (dbUsersStorage.getClientByName(client.getFirstName()) != null) {
             model.addAttribute("message", "User exists");
             return "registration";

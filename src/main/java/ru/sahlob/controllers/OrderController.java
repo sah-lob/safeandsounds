@@ -15,8 +15,10 @@ import ru.sahlob.db.interfaces.EmailSecretCodeRepository;
 import ru.sahlob.persistance.client.EmailSecretCode;
 import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.persistance.order.InputOrder;
+import ru.sahlob.persistance.order.NewInputOrder;
 import ru.sahlob.persistance.order.Order;
 import ru.sahlob.persistance.order.utils.InputTourUtils;
+import ru.sahlob.persistance.order.utils.OrderUtils;
 import ru.sahlob.security.MyUserDetailsService;
 import ru.sahlob.security.MyUserPrincipal;
 import ru.sahlob.service.ServiceUtil;
@@ -38,12 +40,13 @@ public class OrderController {
 
     @PostMapping("/newOrder")
     @ResponseBody
-    public String newOrder(Order order) {
+    public String newOrder(NewInputOrder newInputOrder) {
+        Order order = OrderUtils.newInputOrderToOrder(newInputOrder);
         order.setTourPrice(
                 InputTourUtils.getOrderPriceFromWithTypeTour(
                         order.getTourType(),
                         dbToursRepository.findById(
-                                order.getTourId())
+                                        order.getTourId())
                                 .get()));
         var uuid = ServiceUtil.getRandomUuid();
         while (dbOrdersStorage.getOrderByUuid(uuid) != null) {
