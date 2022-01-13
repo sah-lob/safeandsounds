@@ -40,7 +40,7 @@ public class MainControllerTest extends AbstractIT {
     private DBUsersStorage dbUsersStorage;
     @Mock
     private DBImagesStorage dBImagesStorage;
-    @Mock
+    @MockBean
     private TourStorage tourStorage;
     @Mock
     private DBFileStorageService dbFileStorageService;
