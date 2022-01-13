@@ -1,5 +1,6 @@
 package ru.sahlob.controllers;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -50,40 +51,9 @@ public class MainControllerTest extends AbstractIT {
     @Mock
     Client client;
 
-    @Test
-    public void mainPageAntonym() throws Exception {
-        this.mockMvc.perform(get("/"))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @WithMockUser
-    public void mainPageWithUser() throws Exception {
-        client = new Client();
-        client.setFirstName("Gena");
-        client.setEmail("email");
-        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
-        this.mockMvc.perform(get("/"))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @WithMockUser
-    public void mainPageWithUserAndLikedTours() throws Exception {
-        client = new Client();
-        client.setFirstName("Gena");
-        client.setEmail("email");
-        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
-        this.mockMvc.perform(get("/?lt=true"))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @WithMockUser
-    public void mainPageWithUserAndLikedToursAndClientLikeTourWithID1() throws Exception {
+//    private Page<Tour> pages;
+    @BeforeEach
+    public void setMocks() {
         client = new Client();
         client.setFirstName("Gena");
         client.setEmail("email");
@@ -138,8 +108,98 @@ public class MainControllerTest extends AbstractIT {
             }
         };
         Page<Tour> pages = new PageImpl<Tour>(Collections.singletonList(tour), pageable, 1);
-//        Page<Tour> page = new PageImpl<Tour>();
         Mockito.when(tourStorage.testFindTours(any(), any())).thenReturn(pages);
+    }
+
+    @Test
+    public void mainPageAntonym() throws Exception {
+        this.mockMvc.perform(get("/"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser
+    public void mainPageWithUser() throws Exception {
+//        client = new Client();
+//        client.setFirstName("Gena");
+//        client.setEmail("email");
+//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
+        this.mockMvc.perform(get("/"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser
+    public void mainPageWithUserAndLikedTours() throws Exception {
+//        client = new Client();
+//        client.setFirstName("Gena");
+//        client.setEmail("email");
+//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
+        this.mockMvc.perform(get("/?lt=true"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser
+    public void mainPageWithUserAndLikedToursAndClientLikeTourWithID1() throws Exception {
+//        client = new Client();
+//        client.setFirstName("Gena");
+//        client.setEmail("email");
+//        client.setLikedToursId(Collections.singleton(1));
+//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
+//        Tour tour = new Tour();
+//        tour.setId(1);
+//        Pageable pageable = new Pageable() {
+//            @Override
+//            public int getPageNumber() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public int getPageSize() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public long getOffset() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public Sort getSort() {
+//                return null;
+//            }
+//
+//            @Override
+//            public Pageable next() {
+//                return null;
+//            }
+//
+//            @Override
+//            public Pageable previousOrFirst() {
+//                return null;
+//            }
+//
+//            @Override
+//            public Pageable first() {
+//                return null;
+//            }
+//
+//            @Override
+//            public Pageable withPage(int pageNumber) {
+//                return null;
+//            }
+//
+//            @Override
+//            public boolean hasPrevious() {
+//                return false;
+//            }
+//        };
+//        Page<Tour> pages = new PageImpl<Tour>(Collections.singletonList(tour), pageable, 1);
+//        Mockito.when(tourStorage.testFindTours(any(), any())).thenReturn(pages);
         this.mockMvc.perform(get("/?lt=true"))
                 .andDo(print())
                 .andExpect(status().isOk());
