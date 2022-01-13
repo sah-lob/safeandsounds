@@ -1,6 +1,9 @@
 package ru.sahlob.persistance.client;
 
 import lombok.Data;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.interfaces.DBUsersRepository;
 import ru.sahlob.security.MyUserPrincipal;
@@ -19,6 +22,24 @@ public class PersonalAccount {
         } else {
             authorized = true;
             client = dbUsersStorage.getClientByPhoneOrEmail(user.getName());
+            name = client.getFirstName();
+        }
+    }
+
+    public PersonalAccount(Authentication authentication, DBUsersStorage dbUsersStorage) {
+        String userName = null;
+        if (authentication.getPrincipal() instanceof MyUserPrincipal) {
+            userName = ((MyUserPrincipal) authentication.getPrincipal()).getUsername();
+        } else if (authentication.getPrincipal() instanceof User) {
+            userName = ((User) authentication.getPrincipal()).getUsername();
+        }
+        Principal user = null;
+
+        if (userName == null) {
+            authorized = false;
+        } else {
+            authorized = true;
+            client = dbUsersStorage.getClientByPhoneOrEmail(userName);
             name = client.getFirstName();
         }
     }

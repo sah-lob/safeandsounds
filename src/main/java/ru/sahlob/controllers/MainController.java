@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,10 +52,10 @@ public class MainController {
                         @RequestParam(required = false) Integer hourFrom,
                         @RequestParam(required = false) Integer hourTo,
                         @RequestParam(required = false) Integer priceFrom,
-                        @RequestParam(required = false) Integer priceTo,
-                        @AuthenticationPrincipal final Principal user) {
+                        @RequestParam(required = false) Integer priceTo) {
 
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var client = personalAccount.getClient();
         Set<Integer> likedToursId;
         if (client == null) {
@@ -78,8 +79,9 @@ public class MainController {
 
         var tours = tourStorage.testFindTours(pageable, tourFilter);
         if (client != null) {
+            var finalClient = client;
             tours.forEach(x ->
-                    x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
+                    x.setLikedByPerson(finalClient.getLikedToursId().contains(x.getId()))
             );
         }
 
