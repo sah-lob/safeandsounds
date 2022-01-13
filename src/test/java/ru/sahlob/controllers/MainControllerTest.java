@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.sahlob.AbstractIT;
@@ -32,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @AutoConfigureMockMvc
-public class MainControllerTest extends AbstractIT {
+class MainControllerTest extends AbstractIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -51,7 +50,6 @@ public class MainControllerTest extends AbstractIT {
     @Mock
     Client client;
 
-//    private Page<Tour> pages;
     @BeforeEach
     public void setMocks() {
         client = new Client();
@@ -112,7 +110,7 @@ public class MainControllerTest extends AbstractIT {
     }
 
     @Test
-    public void mainPageAntonym() throws Exception {
+    void mainPageAntonym() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -120,11 +118,7 @@ public class MainControllerTest extends AbstractIT {
 
     @Test
     @WithMockUser
-    public void mainPageWithUser() throws Exception {
-//        client = new Client();
-//        client.setFirstName("Gena");
-//        client.setEmail("email");
-//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
+    void mainPageWithUser() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -132,11 +126,7 @@ public class MainControllerTest extends AbstractIT {
 
     @Test
     @WithMockUser
-    public void mainPageWithUserAndLikedTours() throws Exception {
-//        client = new Client();
-//        client.setFirstName("Gena");
-//        client.setEmail("email");
-//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
+    void mainPageWithUserAndLikedTours() throws Exception {
         this.mockMvc.perform(get("/?lt=true"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -144,63 +134,29 @@ public class MainControllerTest extends AbstractIT {
 
     @Test
     @WithMockUser
-    public void mainPageWithUserAndLikedToursAndClientLikeTourWithID1() throws Exception {
-//        client = new Client();
-//        client.setFirstName("Gena");
-//        client.setEmail("email");
-//        client.setLikedToursId(Collections.singleton(1));
-//        Mockito.when(dbUsersStorage.getClientByPhoneOrEmail("user")).thenReturn(client);
-//        Tour tour = new Tour();
-//        tour.setId(1);
-//        Pageable pageable = new Pageable() {
-//            @Override
-//            public int getPageNumber() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public int getPageSize() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public long getOffset() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public Sort getSort() {
-//                return null;
-//            }
-//
-//            @Override
-//            public Pageable next() {
-//                return null;
-//            }
-//
-//            @Override
-//            public Pageable previousOrFirst() {
-//                return null;
-//            }
-//
-//            @Override
-//            public Pageable first() {
-//                return null;
-//            }
-//
-//            @Override
-//            public Pageable withPage(int pageNumber) {
-//                return null;
-//            }
-//
-//            @Override
-//            public boolean hasPrevious() {
-//                return false;
-//            }
-//        };
-//        Page<Tour> pages = new PageImpl<Tour>(Collections.singletonList(tour), pageable, 1);
-//        Mockito.when(tourStorage.testFindTours(any(), any())).thenReturn(pages);
+    void mainPageWithUserAndLikedToursAndClientLikeTourWithID1() throws Exception {
         this.mockMvc.perform(get("/?lt=true"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void getMappingLogin() throws Exception {
+        this.mockMvc.perform(get("/login"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void getMappingLogin2() throws Exception {
+        this.mockMvc.perform(get("/login"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void getMappingRegistration() throws Exception {
+        this.mockMvc.perform(get("/registration"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

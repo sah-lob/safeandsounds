@@ -2,10 +2,8 @@ package ru.sahlob.persistance.client;
 
 import lombok.Data;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import ru.sahlob.db.DBUsersStorage;
-import ru.sahlob.db.interfaces.DBUsersRepository;
 import ru.sahlob.security.MyUserPrincipal;
 
 import java.security.Principal;
@@ -33,8 +31,6 @@ public class PersonalAccount {
         } else if (authentication.getPrincipal() instanceof User) {
             userName = ((User) authentication.getPrincipal()).getUsername();
         }
-        Principal user = null;
-
         if (userName == null) {
             authorized = false;
         } else {
