@@ -1,5 +1,6 @@
 package ru.sahlob.controllers;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,7 +32,7 @@ import java.util.Set;
 import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
 
 @Controller
-@Data
+@AllArgsConstructor
 public class MainController {
 
     private final DBUsersStorage dbUsersStorage;
