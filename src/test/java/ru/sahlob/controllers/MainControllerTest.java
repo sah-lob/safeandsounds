@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import ru.sahlob.AbstractIT;
 import ru.sahlob.db.DBFileStorageService;
 import ru.sahlob.db.DBImagesStorage;
@@ -35,6 +37,9 @@ class MainControllerTest extends AbstractIT {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private WebApplicationContext wac;
 
     @MockBean
     private DBUsersStorage dbUsersStorage;
@@ -149,9 +154,8 @@ class MainControllerTest extends AbstractIT {
 
     @Test
     void getMappingLogin2() throws Exception {
-        this.mockMvc.perform(get("/login"))
-                .andDo(print())
-                .andExpect(status().isOk());
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+        mockMvc.perform(get("/login2")).andExpect(status().isOk());
     }
 
     @Test
