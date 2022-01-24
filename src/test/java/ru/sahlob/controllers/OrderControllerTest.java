@@ -56,7 +56,7 @@ class OrderControllerTest extends AbstractIT {
 
     @Test
     void postNewOrder() throws Exception {
-        Mockito.when(dbToursRepository.findById(any())).thenReturn(Optional.of(TourGenerator.generateOptionalTour()));
+        Mockito.when(dbToursRepository.findFirstById(anyInt())).thenReturn(TourGenerator.generateOptionalTour());
         Mockito.when(dbOrdersStorage.getOrderByUuid(any())).thenReturn(null);
         this.mockMvc.perform(post("/newOrder").params(generateNewInputOrderToParams()))
                 .andDo(print())
@@ -105,7 +105,7 @@ class OrderControllerTest extends AbstractIT {
         Mockito.when(dbOrdersStorage.getOrderByUuid2(any())).thenReturn(OrderGenerator.generateOrder());
         Mockito.when(dbUsersStorage.getClientByUuid(any())).thenReturn(ClientGenerator.generateClient());
         Mockito.when(dbUsersStorage.getClientByPhoneOrEmail(any())).thenReturn(ClientGenerator.generateClient());
-        Mockito.when(dbToursRepository.findById(anyInt())).thenReturn(Optional.of(TourGenerator.generateOptionalTour()));
+        Mockito.when(dbToursRepository.findFirstById(anyInt())).thenReturn(TourGenerator.generateOptionalTour());
         this.mockMvc.perform(get("/showOrder?orderId=3"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -117,7 +117,7 @@ class OrderControllerTest extends AbstractIT {
         Mockito.when(dbOrdersStorage.getOrderByUuid2(any())).thenReturn(OrderGenerator.generateOrder());
         Mockito.when(dbUsersStorage.getClientByUuid(any())).thenReturn(ClientGenerator.generateClient());
         Mockito.when(dbUsersStorage.getClientByPhoneOrEmail(any())).thenReturn(ClientGenerator.generateClient());
-        Mockito.when(dbToursRepository.findById(anyInt())).thenReturn(Optional.of(TourGenerator.generateOptionalTour()));
+        Mockito.when(dbToursRepository.findFirstById(anyInt())).thenReturn(TourGenerator.generateOptionalTour());
         this.mockMvc.perform(get("/showOrder?orderId=3"))
                 .andDo(print())
                 .andExpect(status().isOk());
