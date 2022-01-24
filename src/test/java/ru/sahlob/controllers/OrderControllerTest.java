@@ -5,7 +5,6 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
@@ -26,7 +25,6 @@ import ru.sahlob.utils.OrderGenerator;
 import ru.sahlob.utils.TourGenerator;
 
 import java.util.Map;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -66,7 +64,7 @@ class OrderControllerTest extends AbstractIT {
     @Test
     void getNewOrderAntonym() throws Exception {
         Mockito.when(dbOrdersStorage.getOrderByUuid(any())).thenReturn(OrderGenerator.generateOrder());
-        this.mockMvc.perform(get("/order?orderId=3"));
+        this.mockMvc.perform(get("/order?orderId=3")).andDo(print()).andExpect(status().isOk());
     }
 
     @Test
@@ -74,7 +72,7 @@ class OrderControllerTest extends AbstractIT {
     void getNewOrderWithUser() throws Exception {
         Mockito.when(dbOrdersStorage.getOrderByUuid(any())).thenReturn(OrderGenerator.generateOrder());
         Mockito.when(dbUsersStorage.getClientByPhoneOrEmail(any())).thenReturn(ClientGenerator.generateClient());
-        this.mockMvc.perform(get("/order?orderId=3"));
+        this.mockMvc.perform(get("/order?orderId=3")).andDo(print()).andExpect(status().isOk());
     }
 
     @Test

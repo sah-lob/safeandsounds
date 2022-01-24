@@ -2,7 +2,6 @@ package ru.sahlob.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,6 @@ import ru.sahlob.service.ServiceUtil;
 import ru.sahlob.service.mail.MailSender;
 
 import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
 
 @Controller
 @AllArgsConstructor

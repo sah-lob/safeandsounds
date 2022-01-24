@@ -130,9 +130,8 @@ public class MainController {
     }
 
     @GetMapping(value = "/chooseTour")
-    public String chooseTour(@RequestParam int id, Model model,
-                             @AuthenticationPrincipal final Principal user) {
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+    public String chooseTour(@RequestParam int id, Model model) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
@@ -153,8 +152,8 @@ public class MainController {
 
     @PostMapping(value = "/like")
     @ResponseBody
-    public void like(@RequestParam Integer tourId, @AuthenticationPrincipal final Principal user) {
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+    public void like(@RequestParam Integer tourId) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var client = personalAccount.getClient();
         if (client != null) {
             if (client.getLikedToursId().contains(tourId)) {
