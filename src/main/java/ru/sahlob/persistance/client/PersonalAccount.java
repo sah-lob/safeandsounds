@@ -10,6 +10,7 @@ import java.security.Principal;
 
 @Data
 public class PersonalAccount {
+    public static final String ATTRIBUTE_NAME = "personalAccount";
     private boolean authorized;
     private String name;
     private Client client;

@@ -24,6 +24,8 @@ import ru.sahlob.service.mail.MailSender;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static ru.sahlob.persistance.client.PersonalAccount.ATTRIBUTE_NAME;
+
 @Controller
 @AllArgsConstructor
 public class OrderController {
@@ -71,7 +73,7 @@ public class OrderController {
             communicationMethod = user.getCommunicationMethod();
             instagram = user.getInstagramAccount();
         }
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("id", order.getId());
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
@@ -130,7 +132,7 @@ public class OrderController {
         } else {
             messageToUser = "Заказ можно посмотреть в личном кабинете";
         }
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("name", client.getFirstName());
         model.addAttribute("imgId", tour.getImagesId().get(0));
         model.addAttribute("tourDate", order.getTourDate());
@@ -176,7 +178,7 @@ public class OrderController {
             dbUsersStorage.saveUser(client);
             emailSecretCodeRepository.delete(emailCode);
         }
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("status", statusCode);
         return "confirmEmail";
     }

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +22,11 @@ import ru.sahlob.persistance.client.*;
 import ru.sahlob.persistance.tour.TourFilter;
 import ru.sahlob.service.mail.MailSender;
 
-import java.security.Principal;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Set;
 
+import static ru.sahlob.persistance.client.PersonalAccount.ATTRIBUTE_NAME;
 import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
 
 @Controller
@@ -85,7 +84,7 @@ public class MainController {
             );
         }
 
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("page", tours);
         model.addAttribute("url", "/");
         model.addAttribute("tourFilter", tourFilter);
@@ -132,7 +131,7 @@ public class MainController {
     @GetMapping(value = "/chooseTour")
     public String chooseTour(@RequestParam int id, Model model) {
         var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }
