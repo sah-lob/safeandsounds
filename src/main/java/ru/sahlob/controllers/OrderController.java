@@ -41,7 +41,7 @@ public class OrderController {
     @ResponseBody
     public String newOrder(NewInputOrder newInputOrder) {
         var order = OrderUtils.newInputOrderToOrder(newInputOrder);
-        var tour = dbToursRepository.findById(order.getId()).get();
+        var tour = dbToursRepository.findFirstById(order.getId());
         order.setTourPrice(
                 InputTourUtils.getOrderPriceFromWithTypeTour(
                         order.getTourType(),
@@ -119,7 +119,7 @@ public class OrderController {
         var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var order = dbOrdersStorage.getOrderByUuid2(orderId);
         var client = dbUsersStorage.getClientByUuid(order.getClientUuid());
-        var tour = dbToursRepository.findById(order.getTourId()).get();
+        var tour = dbToursRepository.findFirstById(order.getTourId());
         String messageToUser;
         if (personalAccount.getName() == null) {
             var emailSecretCode = new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid());
