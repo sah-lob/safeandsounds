@@ -10,6 +10,8 @@ import java.util.*;
 @Data
 @EqualsAndHashCode(of = {"id"})
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Tour {
 
     @Id

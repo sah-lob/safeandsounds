@@ -1,8 +1,10 @@
 package ru.sahlob.persistance.order;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class InputOrder {
     private int orderID;
     private String clientName;

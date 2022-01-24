@@ -1,8 +1,6 @@
 package ru.sahlob.persistance.client;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.sahlob.persistance.order.Order;
 
 import javax.persistence.*;
@@ -15,6 +13,8 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(of = {"id"})
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

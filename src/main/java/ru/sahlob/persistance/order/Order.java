@@ -1,13 +1,15 @@
 package ru.sahlob.persistance.order;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @EqualsAndHashCode(of = {"id"})
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "ordersTable")
 public class Order {
     @Id

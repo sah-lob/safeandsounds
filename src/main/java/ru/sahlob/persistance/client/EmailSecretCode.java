@@ -1,8 +1,6 @@
 package ru.sahlob.persistance.client;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +11,8 @@ import javax.persistence.Id;
 @Data
 @EqualsAndHashCode(of = {"id"})
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class EmailSecretCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

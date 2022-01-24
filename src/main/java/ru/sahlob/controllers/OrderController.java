@@ -1,6 +1,6 @@
 package ru.sahlob.controllers;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,7 +16,6 @@ import ru.sahlob.persistance.client.EmailSecretCode;
 import ru.sahlob.persistance.client.PersonalAccount;
 import ru.sahlob.persistance.order.InputOrder;
 import ru.sahlob.persistance.order.NewInputOrder;
-import ru.sahlob.persistance.order.Order;
 import ru.sahlob.persistance.order.utils.InputTourUtils;
 import ru.sahlob.persistance.order.utils.OrderUtils;
 import ru.sahlob.security.MyUserDetailsService;
@@ -28,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 @Controller
-@Data
+@AllArgsConstructor
 public class OrderController {
 
     private final DBToursRepository dbToursRepository;
@@ -41,42 +40,40 @@ public class OrderController {
     @PostMapping("/newOrder")
     @ResponseBody
     public String newOrder(NewInputOrder newInputOrder) {
-        Order order = OrderUtils.newInputOrderToOrder(newInputOrder);
+        var order = OrderUtils.newInputOrderToOrder(newInputOrder);
+        var tour = dbToursRepository.findById(order.getId()).get();
         order.setTourPrice(
                 InputTourUtils.getOrderPriceFromWithTypeTour(
                         order.getTourType(),
-                        dbToursRepository.findById(
-                                        order.getTourId())
-                                .get()));
+                        tour));
+        order.setTourName(tour.getName());
         var uuid = ServiceUtil.getRandomUuid();
         while (dbOrdersStorage.getOrderByUuid(uuid) != null) {
             uuid = ServiceUtil.getRandomUuid();
         }
         order.setUuid(uuid);
-        order.setTourName(dbToursRepository
-                .findFirstById(order.getTourId())
-                .getName());
         dbOrdersStorage.saveOrder(order);
         return "/order?orderId=" + order.getUuid();
     }
 
     @GetMapping(value = "/order")
-    public String order(@RequestParam String orderId, Model model, @AuthenticationPrincipal final Principal principal) {
+    public String order(@RequestParam String orderId, Model model) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var order = dbOrdersStorage.getOrderByUuid(orderId);
         String email = null;
         String phone = null;
         String name = null;
         String communicationMethod = null;
         String instagram = null;
-        if (principal != null) {
-            var user = dbUsersStorage.getClientByPhoneOrEmail(principal.getName());
+        if (personalAccount.getName() != null) {
+            var user = dbUsersStorage.getClientByPhoneOrEmail(personalAccount.getName());
             email = user.getEmail();
             phone = user.getPhone();
             name = user.getFirstName();
             communicationMethod = user.getCommunicationMethod();
             instagram = user.getInstagramAccount();
         }
-        model.addAttribute("personalAccount", new PersonalAccount(principal, dbUsersStorage));
+        model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("id", order.getId());
         model.addAttribute("date", order.getTourDate());
         model.addAttribute("type", order.getTourType());
@@ -118,12 +115,13 @@ public class OrderController {
     }
 
     @GetMapping(value = "/showOrder")
-    public String showOrder(@RequestParam String orderId, Model model, @AuthenticationPrincipal final Principal user) {
+    public String showOrder(@RequestParam String orderId, Model model) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var order = dbOrdersStorage.getOrderByUuid2(orderId);
         var client = dbUsersStorage.getClientByUuid(order.getClientUuid());
         var tour = dbToursRepository.findById(order.getTourId()).get();
         String messageToUser;
-        if (user == null) {
+        if (personalAccount.getName() == null) {
             var emailSecretCode = new EmailSecretCode(client.getId(), ServiceUtil.getRandomUuid());
             var url = "http://localhost:8080/confirmCode/" + emailSecretCode.getUuid();
             var subject = "Подтверждение email";
@@ -134,7 +132,7 @@ public class OrderController {
         } else {
             messageToUser = "Заказ можно посмотреть в личном кабинете";
         }
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
+        model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("name", client.getFirstName());
         model.addAttribute("imgId", tour.getImagesId().get(0));
         model.addAttribute("tourDate", order.getTourDate());
@@ -152,10 +150,10 @@ public class OrderController {
 
 
     @GetMapping(value = "confirmCode/{code}")
-    public String confirmSecretCode(@PathVariable String code, Model model, @AuthenticationPrincipal Principal user, HttpServletRequest httpRequest) {
+    public String confirmSecretCode(@PathVariable String code, Model model, HttpServletRequest httpRequest) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var emailCode = emailSecretCodeRepository.findFirstByUuid(code);
         var statusCode = 0;
-        PersonalAccount personalAccount;
         if (emailCode != null) {
             var client = dbUsersStorage.getClientById(emailCode.getClientId());
             dbUsersStorage.saveUser(client);
@@ -179,38 +177,9 @@ public class OrderController {
             client.setPassword(newClientsPassword);
             dbUsersStorage.saveUser(client);
             emailSecretCodeRepository.delete(emailCode);
-        } else {
-            personalAccount = new PersonalAccount(user, dbUsersStorage);
         }
         model.addAttribute("personalAccount", personalAccount);
         model.addAttribute("status", statusCode);
         return "confirmEmail";
     }
-
-//    @GetMapping(value = "allOrders")
-//    public String allOrders(Model model,
-//                            @PageableDefault(
-//                                    sort = {"coolness"},
-//                                    direction = Sort.Direction.DESC)
-//                                    Pageable pageable,
-//                            @AuthenticationPrincipal final Principal user) {
-//        var personalAccount = new PersonalAccount(user, dbUsersStorage);
-//        var client = personalAccount.getClient();
-//        var tours = tourStorage.findTours(pageable);
-//        if (client != null) {
-//            tours.forEach(x ->
-//                    x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
-//            );
-//
-//
-//        }
-//        var likedTours = client.getLikedToursId();
-//        var list = tours.stream().filter(x -> client.getLikedToursId().contains(x.getId())).collect(Collectors.toList());
-//        Page<Tour> pageTour = new PageImpl(list, pageable, 10);
-//
-//        model.addAttribute("personalAccount", personalAccount);
-//        model.addAttribute("page", pageTour);
-//        model.addAttribute("url", "/");
-//        return "index";
-//    }
 }
