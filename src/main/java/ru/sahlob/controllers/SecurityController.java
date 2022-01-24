@@ -24,6 +24,8 @@ import ru.sahlob.service.GenerateTestTours;
 import java.io.IOException;
 import java.security.Principal;
 
+import static ru.sahlob.persistance.client.PersonalAccount.ATTRIBUTE_NAME;
+
 @Controller
 @Data
 public class SecurityController {
@@ -39,14 +41,14 @@ public class SecurityController {
     @GetMapping(value = "/security/adminpage")
     public String adminPage(Model model,
                             @AuthenticationPrincipal final Principal user) {
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
+        model.addAttribute(ATTRIBUTE_NAME, new PersonalAccount(user, dbUsersStorage));
         return "security/adminpage";
     }
 
     @GetMapping(value = "/security/addTour")
     public String addTour(Model model,
                           @AuthenticationPrincipal final Principal user) {
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
+        model.addAttribute(ATTRIBUTE_NAME, new PersonalAccount(user, dbUsersStorage));
         return "security/addTour";
     }
 
@@ -59,7 +61,7 @@ public class SecurityController {
     @GetMapping(value = "/security/testingPage")
     public String testingPage(Model model,
                               @AuthenticationPrincipal final Principal user) {
-        model.addAttribute("personalAccount", new PersonalAccount(user, dbUsersStorage));
+        model.addAttribute(ATTRIBUTE_NAME, new PersonalAccount(user, dbUsersStorage));
         return "security/testingPage";
     }
 

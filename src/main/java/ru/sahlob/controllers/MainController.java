@@ -1,10 +1,10 @@
 package ru.sahlob.controllers;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,21 +18,19 @@ import ru.sahlob.db.DBUsersStorage;
 import ru.sahlob.db.TourStorage;
 import ru.sahlob.persistance.calender.CalenderAnswer;
 import ru.sahlob.persistance.calender.CalenderInput;
-import ru.sahlob.persistance.client.Client;
-import ru.sahlob.persistance.client.ClientRoles;
-import ru.sahlob.persistance.client.PersonalAccount;
+import ru.sahlob.persistance.client.*;
 import ru.sahlob.persistance.tour.TourFilter;
 import ru.sahlob.service.mail.MailSender;
 
-import java.security.Principal;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Set;
 
+import static ru.sahlob.persistance.client.PersonalAccount.ATTRIBUTE_NAME;
 import static ru.sahlob.service.calender.CalenderAnswerUtil.getCalenderAnswer;
 
 @Controller
-@Data
+@AllArgsConstructor
 public class MainController {
 
     private final DBUsersStorage dbUsersStorage;
@@ -53,10 +51,10 @@ public class MainController {
                         @RequestParam(required = false) Integer hourFrom,
                         @RequestParam(required = false) Integer hourTo,
                         @RequestParam(required = false) Integer priceFrom,
-                        @RequestParam(required = false) Integer priceTo,
-                        @AuthenticationPrincipal final Principal user) {
+                        @RequestParam(required = false) Integer priceTo) {
 
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var client = personalAccount.getClient();
         Set<Integer> likedToursId;
         if (client == null) {
@@ -80,12 +78,13 @@ public class MainController {
 
         var tours = tourStorage.testFindTours(pageable, tourFilter);
         if (client != null) {
+            var finalClient = client;
             tours.forEach(x ->
-                    x.setLikedByPerson(client.getLikedToursId().contains(x.getId()))
+                    x.setLikedByPerson(finalClient.getLikedToursId().contains(x.getId()))
             );
         }
 
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("page", tours);
         model.addAttribute("url", "/");
         model.addAttribute("tourFilter", tourFilter);
@@ -109,7 +108,8 @@ public class MainController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Client client, Model model) {
+    public String addUser(RegistrationInputClient registrationInputClient, Model model) {
+        Client client = ClientUtil.getClientFromRegistrationInputClient(registrationInputClient);
         if (dbUsersStorage.getClientByName(client.getFirstName()) != null) {
             model.addAttribute("message", "User exists");
             return "registration";
@@ -129,10 +129,9 @@ public class MainController {
     }
 
     @GetMapping(value = "/chooseTour")
-    public String chooseTour(@RequestParam int id, Model model,
-                             @AuthenticationPrincipal final Principal user) {
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
-        model.addAttribute("personalAccount", personalAccount);
+    public String chooseTour(@RequestParam int id, Model model) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         model.addAttribute("tour", tourStorage.findTourById(id));
         return "chooseTour";
     }
@@ -152,8 +151,8 @@ public class MainController {
 
     @PostMapping(value = "/like")
     @ResponseBody
-    public void like(@RequestParam Integer tourId, @AuthenticationPrincipal final Principal user) {
-        var personalAccount = new PersonalAccount(user, dbUsersStorage);
+    public void like(@RequestParam Integer tourId) {
+        var personalAccount = new PersonalAccount(SecurityContextHolder.getContext().getAuthentication(), dbUsersStorage);
         var client = personalAccount.getClient();
         if (client != null) {
             if (client.getLikedToursId().contains(tourId)) {

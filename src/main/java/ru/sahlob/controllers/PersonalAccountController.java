@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.stream.Collectors;
 
+import static ru.sahlob.persistance.client.PersonalAccount.ATTRIBUTE_NAME;
+
 @Controller
 @Data
 public class PersonalAccountController {
@@ -37,7 +39,7 @@ public class PersonalAccountController {
     @GetMapping(value = "/personalAccount")
     public String login(@AuthenticationPrincipal final Principal user, Model model) {
         var personalAccount = new PersonalAccount(user, dbUsersStorage);
-        model.addAttribute("personalAccount", personalAccount);
+        model.addAttribute(ATTRIBUTE_NAME, personalAccount);
         if (personalAccount.isAuthorized()) {
             var client = personalAccount.getClient();
             var likeCount = client.getLikedToursId().size();
