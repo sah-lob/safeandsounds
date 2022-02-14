@@ -22,6 +22,7 @@ import ru.sahlob.persistance.client.*;
 import ru.sahlob.persistance.tour.TourFilter;
 import ru.sahlob.service.mail.MailSender;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Set;
@@ -138,7 +139,7 @@ public class MainController {
 
     @PostMapping("/")
     @ResponseBody
-    public void newPost(@RequestParam("file") MultipartFile multipartFile) {
+    public void newPost(@RequestParam("file") MultipartFile multipartFile) throws IOException {
         dbFileStorageService.storeFile(multipartFile);
     }
 

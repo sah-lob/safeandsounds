@@ -40,9 +40,7 @@ public class TourStorage {
     }
 
     public Tour findTourById(int id) {
-        return dbToursRepository
-                .findById(id)
-                .get();
+        return dbToursRepository.findById(id);
     }
 
     public Page<Tour> testFindTours(Pageable pageable, TourFilter tourFilter) {

@@ -37,7 +37,7 @@ public class DBUsersStorage {
     }
 
     public Client getClientById(int id) {
-        return dbUsersRepository.findById(id).get();
+        return dbUsersRepository.findById(id);
     }
 
     public Client getClientByUuid(String uuid) {
