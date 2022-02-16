@@ -15,13 +15,9 @@ public class DBFileStorageService {
 
     private final DBLogosRepository dbLogosRepository;
 
-    public Logo storeFile(MultipartFile file) {
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        try {
-            var dbFile = new Logo(fileName, file.getContentType(), file.getBytes());
-            return dbLogosRepository.save(dbFile);
-        } catch (IOException ex) {
-            throw null;
-        }
+    public Logo storeFile(MultipartFile file) throws IOException {
+        var fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        var dbFile = new Logo(fileName, file.getContentType(), file.getBytes());
+        return dbLogosRepository.save(dbFile);
     }
 }

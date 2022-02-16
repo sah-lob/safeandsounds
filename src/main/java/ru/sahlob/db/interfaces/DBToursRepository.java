@@ -31,4 +31,6 @@ public interface DBToursRepository extends PagingAndSortingRepository<Tour, Inte
             Integer priceFrom,
             Integer priceTo,
             Pageable pageable);
+
+    Tour findById(int id);
 }

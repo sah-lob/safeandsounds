@@ -14,4 +14,6 @@ public interface DBUsersRepository extends CrudRepository<Client, Integer> {
     Client findByUuid(String uuid);
 
     Client findByFirstName(String username);
+
+    Client findById(int id);
 }
